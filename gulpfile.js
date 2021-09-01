@@ -11,8 +11,8 @@ const cleanCSS = require("gulp-clean-css");
 const autoprefixer = require("gulp-autoprefixer");
 
 function makeCss(){
-	return gulp.src(["./src/partials/base.scss","./src/**/*.scss"])
-		.pipe(concat("modal.css"))
+	return gulp.src(["./src/components/base.scss","./src/**/*.scss"])
+		.pipe(concat("style.css"))
 		.pipe(sass().on("error", sass.logError))
 		.pipe(autoprefixer({
 			cascade: false
@@ -38,5 +38,4 @@ function watch() {
 	gulp.watch("./www").on("change", browserSync.reload);
 }
 
-// module.exports.makeCss = makeCss;
 module.exports.watch = watch;
