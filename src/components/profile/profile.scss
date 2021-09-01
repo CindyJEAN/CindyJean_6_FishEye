@@ -1,0 +1,54 @@
+.profile-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1rem;
+  box-shadow: 0px 5px 5px rgba(82, 82, 82, 0.4);
+}
+
+h2 {
+  color: $color-secondary;
+  margin: 0;
+}
+
+address {
+  margin: 5px;
+  color: $color-primary;
+}
+
+p {
+  margin: 5px;
+  &.slogan {
+    color: black;
+  }
+}
+
+.photograph-card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+
+  .profile-photo {
+    width: 200px;
+    height: 200px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  address {
+    font-size: 13px;
+  }
+
+  p {
+    &.slogan {
+      font-size: 10px;
+    }
+
+    &.price {
+      color: $grey;
+      font-size: 9px;
+    }
+  }
+}
