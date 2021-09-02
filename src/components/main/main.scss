@@ -12,12 +12,14 @@ main {
 
 }
 
-// h1 {
-// 	color: $color-primary;
-// 	font-size: 14px;
-// 	font-weight: 400;
+h1 {
+	color: $color-primary;
+	font-size: 14px;
+	font-weight: 400;
 
-// 	@include tablet {
-// 		font-size: 36px;
-// 	}
-// }
+	@include tablet {
+		font-size: 36px;
+justify-self: center;
+
+	}
+}

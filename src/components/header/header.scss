@@ -13,16 +13,12 @@ header {
     grid-template-areas: 
       "logo nav title";
   }
-}
 
-h1 {
-	color: $color-primary;
-	font-size: 14px;
-	font-weight: 400;
-  justify-self: flex-end;
-
-	@include tablet {
-		font-size: 36px;
-    justify-self: center;
+	.img {
+		@include tablet {
+			justify-self: center;
+		}
 	}
 }
+
+
