@@ -1,5 +1,30 @@
 $color-primary : #901C1C;
 $color-secondary : #D3573C;
-$grey : #525252;
+$dark-grey : #525252;
+$grey : #C4C4C4;
 $light-grey : #FAFAFA;
+
+$breakpoints: (
+  tablet: 768px,
+  desktop: 992px,
+);
+
+@mixin tablet {
+  @media screen and (min-width: map-get($breakpoints, tablet)) {@content}
+};
+
+@mixin desktop {
+    @media screen and (min-width: map-get($breakpoints, desktop)) {@content}
+};
+
+body {
+  max-width: 1440px;
+  margin: auto;
+
+  & * {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  }
+}
+
 

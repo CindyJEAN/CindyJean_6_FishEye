@@ -1,0 +1,28 @@
+header {
+	width: 90%;
+	margin: 1rem auto auto;
+	display: grid;
+	grid: 80px auto / 45vw 45vw;
+	grid-template-areas:
+		"logo title"
+		"nav nav";
+	align-items: center;
+
+  @include desktop {
+    grid: 100px / 200px auto 350px;
+    grid-template-areas: 
+      "logo nav title";
+  }
+}
+
+h1 {
+	color: $color-primary;
+	font-size: 14px;
+	font-weight: 400;
+  justify-self: flex-end;
+
+	@include tablet {
+		font-size: 36px;
+    justify-self: center;
+	}
+}
