@@ -36,29 +36,54 @@ p {
 		flex-direction: column;
 		align-items: center;
 		cursor: pointer;
-
-		.profile-photo {
-			width: 200px;
-			height: 200px;
-		}
-	
 		h2 {
 			font-size: 36px;
 		}
 	}
-	
 	address {
 		font-size: 13px;
 	}
-
 	p {
 		&.tagline {
 			font-size: 10px;
 		}
-
 		&.price {
 			color: $grey;
 			font-size: 9px;
+		}
+	}
+}
+
+.index-main {
+	.profile-photo {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+.photograph-main {
+	
+	// .photograph-card {
+	// 	flex-direction: row;
+	// }
+
+	h1 {
+		font-size: 36px;
+		font-weight: 400;
+		color: $color-secondary;
+
+		@include desktop {
+			font-size: 64px;
+		}
+	}
+
+	.profile-photo {
+		width: 100px;
+		height: 100px;
+
+		@include desktop {
+			width: 200px;
+			height: 200px;
 		}
 	}
 }

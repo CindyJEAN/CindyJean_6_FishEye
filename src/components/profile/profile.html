@@ -1,15 +1,20 @@
 <article class="photograph-card">
+	<% if (index) { %>
 	<div onclick="window.location.href='photograph-page.html'">
-		<img
-			src="photos/id/EllieRoseWilkens.jpg"
-      alt=""
-			class="profile-photo"
-		/>
+		<img src="photos/id/EllieRoseWilkens.jpg" alt="" class="profile-photo" />
 		<h2>Name</h2>
 	</div>
+	<% } %>
+	<% if (!index) { %>
+	<h1>Name</h1>
+	<% } %>
+
 	<address>Address</address>
 	<p class="tagline">Slogan</p>
 	<p class="price">Price€/jour</p>
-	<%- include('../tag/tag.html'); %> <%- include('../button/button.html',
-	{"text": "Contactez-moi"}); %>
+
+	<% if (!index) { %> <%- include('../tag/tag.html'); %> <%-
+	include('../button/button.html', {"text": "Contactez-moi"}); %>
+	<img src="photos/id/EllieRoseWilkens.jpg" alt="" class="profile-photo" />
+	<% } %>
 </article>
