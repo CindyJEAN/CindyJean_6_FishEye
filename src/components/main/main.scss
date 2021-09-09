@@ -11,6 +11,10 @@ main {
 		justify-content: space-evenly;
 	}
 
+	@include desktop {
+		margin: auto;
+	}
+
 	h1 {
 		color: $color-primary;
 		font-size: 14px;
@@ -22,10 +26,18 @@ main {
 		justify-content: flex-end;
 		margin-bottom: 5rem;
 
-		@include tablet {
+		@include desktop {
 			font-size: 36px;
 			height: 100px;
 			margin-bottom: 1rem;
 		}
+	}
+}
+
+.photograph-main {
+	margin-top: 80px;
+
+	@include desktop {
+		margin-top: 100px;
 	}
 }

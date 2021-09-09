@@ -1,8 +1,15 @@
 <article class="photograph-card">
-  <img src="photos/id/EllieRoseWilkens.jpg" alt="Photo de profil" class="profile-photo"/>
-  <h2>Name</h2>
-  <address>Address</address>
-  <p class="slogan">Slogan</p>
-  <p class="price">Price€/jour</p>
-  <%- include('../tag/tag.html'); %>
+	<div onclick="window.location.href='photograph-page.html'">
+		<img
+			src="photos/id/EllieRoseWilkens.jpg"
+      alt=""
+			class="profile-photo"
+		/>
+		<h2>Name</h2>
+	</div>
+	<address>Address</address>
+	<p class="tagline">Slogan</p>
+	<p class="price">Price€/jour</p>
+	<%- include('../tag/tag.html'); %> <%- include('../button/button.html',
+	{"text": "Contactez-moi"}); %>
 </article>

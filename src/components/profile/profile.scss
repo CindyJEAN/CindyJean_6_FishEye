@@ -12,14 +12,12 @@ h2 {
 }
 
 address {
-	// margin: 5px;
 	color: $color-primary;
 	font-style: normal;
 }
 
 p {
-	// margin: 5px;
-	&.slogan {
+	&.tagline {
 		color: black;
 	}
 }
@@ -33,21 +31,28 @@ p {
 		width: 30%;
 	}
 
-	.profile-photo {
-		width: 200px;
-		height: 200px;
-	}
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		cursor: pointer;
 
-	h2 {
-		font-size: 36px;
+		.profile-photo {
+			width: 200px;
+			height: 200px;
+		}
+	
+		h2 {
+			font-size: 36px;
+		}
 	}
-
+	
 	address {
 		font-size: 13px;
 	}
 
 	p {
-		&.slogan {
+		&.tagline {
 			font-size: 10px;
 		}
 

@@ -1,6 +1,8 @@
 header {
 	position: absolute;
+	top: 1rem;
 	width: 90%;
+	max-width: 1296px;
 	margin: auto 5%;
 	// margin: 1rem auto auto;
 	display: grid;
@@ -10,17 +12,18 @@ header {
 		"nav nav";
 	align-items: center;
 
-  @include desktop {
-    grid: 100px / 200px auto 350px;
-    grid-template-areas: 
-      "logo nav .";
-  }
+	@include desktop {
+		top: 0;
+		grid: 100px / 200px auto 350px;
+		grid-template-areas: "logo nav .";
+		// margin: auto;
+		// width: 100%;
+	}
 
 	.img {
+		grid-area: logo;
 		@include tablet {
 			justify-self: center;
 		}
 	}
 }
-
-

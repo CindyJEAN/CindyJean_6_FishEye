@@ -1,4 +1,6 @@
 <header>
-	<img src="photos/logo.svg" alt="Logo FishEye">
-  <%- include('../nav/nav.html'); %>
+	<a href="index.html"> <img src="photos/logo.svg" alt="Logo FishEye" /></a>
+  <% if (index) { %> 
+    <%- include('../nav/nav.html'); %>
+  <% } %>
 </header>
