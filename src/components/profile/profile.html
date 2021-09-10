@@ -11,7 +11,9 @@
 
 	<address>Address</address>
 	<p class="tagline">Slogan</p>
-	<p class="price">Price€/jour</p>
+	<% if (index) { %>
+		<p class="price">Price€/jour</p>
+	<% } %>
 
 	<% if (!index) { %> <%- include('../tag/tag.html'); %> <%-
 	include('../button/button.html', {"text": "Contactez-moi"}); %>

@@ -6,13 +6,13 @@
 }
 
 h2 {
-	color: $color-secondary;
+	color: $colorSecondary;
 	margin: 0;
 	font-weight: 400;
 }
 
 address {
-	color: $color-primary;
+	color: $colorPrimary;
 	font-style: normal;
 }
 
@@ -27,10 +27,6 @@ p {
 	flex-direction: column;
 	align-items: center;
 
-	@include tablet {
-		width: 30%;
-	}
-
 	div {
 		display: flex;
 		flex-direction: column;
@@ -43,6 +39,15 @@ p {
 	address {
 		font-size: 13px;
 	}
+}
+
+.index-main {
+	.photograph-card {
+		@include tablet {
+			width: 30%;
+		}
+	}
+	
 	p {
 		&.tagline {
 			font-size: 10px;
@@ -52,9 +57,7 @@ p {
 			font-size: 9px;
 		}
 	}
-}
 
-.index-main {
 	.profile-photo {
 		width: 200px;
 		height: 200px;
@@ -62,24 +65,81 @@ p {
 }
 
 .photograph-main {
-	
-	// .photograph-card {
-	// 	flex-direction: row;
-	// }
+	.photograph-card {
+		width: 100%;
+		margin-bottom: 1rem;
+		display: grid;
+		grid-template-areas:
+			"name photo"
+			"address photo"
+			"tagline photo"
+			"tag photo";
+
+		@include desktop {
+			background-color: $lightGrey;
+			padding: 3rem;
+			border-radius: 5px;
+			grid-template-areas:
+				"name contact photo"
+				"address . photo"
+				"tagline . photo"
+				"tag . photo";
+		}
+
+	}
 
 	h1 {
 		font-size: 36px;
 		font-weight: 400;
-		color: $color-secondary;
+		color: $colorSecondary;
+		grid-area: name;
 
 		@include desktop {
 			font-size: 64px;
 		}
 	}
 
+	address {
+		grid-area: address;
+		@include desktop {
+			font-size: 24px;
+		}
+	}
+
+	.tag {
+		grid-area: tag;
+		@include desktop {
+			font-size: 18px;
+		}
+	}
+
+	p.tagline {
+		grid-area: tagline;
+		font-size: 13px;
+		color: $darkGrey;
+
+		@include desktop {
+			font-size: 18px;
+		}
+	}
+
+	button.contact {
+		position: fixed;
+		bottom: 2rem;
+		left: 30vw;
+
+		@include desktop {
+			grid-area: contact;
+			position: static;
+		}
+	}
+
 	.profile-photo {
 		width: 100px;
 		height: 100px;
+		grid-area: photo;
+		justify-self: flex-end;
+		margin: 0;
 
 		@include desktop {
 			width: 200px;
