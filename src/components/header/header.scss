@@ -1,10 +1,11 @@
 header {
 	position: absolute;
 	top: 1rem;
-	width: 90%;
+	width: 90vw;
 	max-width: 1296px;
-	margin: auto 5%;
+	// margin: auto;
 	// margin: 1rem auto auto;
+	margin-left: 5vw;
 	display: grid;
 	grid: 80px auto / 45vw 45vw;
 	grid-template-areas:
@@ -16,8 +17,8 @@ header {
 		top: 0;
 		grid: 100px / 200px auto 350px;
 		grid-template-areas: "logo nav .";
-		// margin: auto;
-		// width: 100%;
+		margin: auto;
+		// width: 100vw;
 	}
 
 	.img {
