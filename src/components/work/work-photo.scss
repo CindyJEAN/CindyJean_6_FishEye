@@ -1,6 +1,7 @@
 .workPhoto {
   display: grid;
   row-gap: 10px;
+  margin-bottom: 1.5rem;
   grid-template-areas: 
     "photo photo"
     "title likes";
