@@ -1,0 +1,35 @@
+.photographInfo {
+	display: none;
+
+	@include desktop {
+		position: fixed;
+		bottom: 0;
+		right: 2rem;
+		display: flex;
+    align-items: center;
+    justify-content: space-between;
+		// height: 80px;
+    width: 350px;
+    padding: 1rem 2rem;
+		background-color: $colorSecondary;
+    border-radius: 5px 5px 0 0;
+
+		p {
+			color: black;
+			font-weight: 500;
+			font-size: 24px;
+
+			&.likes {
+				&::after {
+					content: "\f004";
+					font-family: "Font Awesome 5 Free";
+					font-weight: bold;
+					padding-left: 10px;
+				}
+			}
+
+			// &.price {
+			// }
+		}
+	}
+}
