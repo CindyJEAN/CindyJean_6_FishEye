@@ -20,14 +20,14 @@
 	}
 
   h3 {
-    color: $colorPrimary;
-    font-size: 14px;
-    font-weight: 400;
+  //   color: $colorPrimary;
+  //   font-size: 14px;
+  //   font-weight: 400;
     grid-area: title;
 
-    @include desktop {
-      font-size: 24px;
-    }
+  //   @include desktop {
+  //     font-size: 24px;
+  //   }
   }
 
   p {
