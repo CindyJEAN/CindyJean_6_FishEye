@@ -70,6 +70,7 @@ p {
 		width: 100%;
 		margin-bottom: 1rem;
 		display: grid;
+		// grid-template-columns: 40% 40% 20%;
 		grid-template-areas:
 			"name photo"
 			"address photo"
@@ -128,10 +129,12 @@ p {
 		position: fixed;
 		bottom: 2rem;
 		left: 30vw;
+		margin: auto;
 
 		@include desktop {
 			grid-area: contact;
 			position: static;
+			margin: 0;
 		}
 	}
 

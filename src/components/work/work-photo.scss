@@ -1,10 +1,15 @@
 .workPhoto {
   display: grid;
+  width: 100%;
   row-gap: 10px;
   margin-bottom: 1.5rem;
   grid-template-areas: 
     "photo photo"
     "title likes";
+
+    @include desktop {
+      width: fit-content;
+    }
 
 	img {
 		width: 100%;

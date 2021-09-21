@@ -15,15 +15,15 @@ $bigIconWidth: 5rem;
 	border: 1px solid $grey;
 	top: 20vh;
 
-  @include desktop {
-    top: 5rem;
-    max-width: 800px;
-  }
+	@include desktop {
+		top: 5rem;
+		max-width: 800px;
+	}
 }
 
 .lightbox {
 	width: 95%;
-  // height: 100%;
+	// height: 100%;
 	margin: 1rem auto 0.5rem;
 	display: grid;
 	grid-template-areas:
@@ -39,67 +39,81 @@ $bigIconWidth: 5rem;
 		grid-template-rows: $bigIconWidth auto $bigIconWidth $bigIconWidth;
 	}
 
-	.close {
-		grid-area: close;
-		width: $smallIconWidth;
+	// .close {
+	// 	grid-area: close;
+	// 	width: $smallIconWidth;
+	// 	display: flex;
+	// 	align-items: center;
+	// 	justify-content: center;
+
+	// 	@include desktop {
+	// 		width: $bigIconWidth;
+	// 	}
+
+	// 	&::after {
+	// 		content: "\f00d";
+	// 		font-family: "Font Awesome 5 Free";
+	// 		font-weight: bold;
+	// 		color: $colorPrimary;
+	// 		// font-size: 1.5rem;
+
+	// 		@include desktop {
+	// 			font-size: 3rem;
+	// 		}
+	// 	}
+	// }
+
+	img {
+		width: 100%;
+		height: 100%;
+		max-height: 600px;
+		max-width: 700px;
+		border-radius: 5px;
+		object-fit: cover;
+		grid-area: photo;
+	}
+
+	h3 {
+		grid-area: title;
+		align-self: center;
+	}
+
+	button {
+		background-color: transparent;
+		color: $colorPrimary;
+		border: none;
+		// width: $smallIconWidth;
+		// height: $smallIconWidth;
+		// width: fit-content;
+		// height: fit-content;
 		display: flex;
-		align-items: center;
+		align-self: center;
+		justify-self: center;
 		justify-content: center;
+		align-items: center;
 
-		@include desktop {
-			width: $bigIconWidth;
-		}
+		// @include desktop {
+		// 	width: $bigIconWidth;
+		// 	height: $bigIconWidth;
+		// }
 
-		&::after {
-			content: "\f00d";
-			font-family: "Font Awesome 5 Free";
-			font-weight: bold;
-			color: $colorPrimary;
-			// font-size: 1.5rem;
-
+		i {
+			font-size: 1rem;
+			
 			@include desktop {
 				font-size: 3rem;
 			}
 		}
 	}
 
-	img {
-		width: 100%;
-		height: 100%;
-    max-height: 600px;
-    max-width: 700px;
-		border-radius: 5px;
-		object-fit: cover;
-		grid-area: photo;
-
-		&::before,
-		&::after {
-			font-family: "Font Awesome 5 Free";
-			font-weight: bold;
-			width: $smallIconWidth;
-			color: $colorPrimary;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			@include desktop {
-				width: $bigIconWidth;
-			}
-		}
-
-		&::before {
-			content: "\f053";
-			grid-area: left;
-		}
-
-		&::after {
-			content: "\f054";
-			grid-area: right;
-		}
+	.left {
+		grid-area: left;
 	}
-
-	h3 {
-		grid-area: title;
-		align-self: center;
+	.right {
+		grid-area: right;
+	}
+	.close {
+		align-self: baseline;
+		grid-area: close;
 	}
 }
