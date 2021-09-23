@@ -4,12 +4,12 @@ const data = [
   {title:"33333", description:"....3333...."}
 ]
 
-const main = document.createElement("main");
+const testMain = document.createElement("main");
 
 
 new Card(document.body,{title:"en premier", description:"avant les autres"});
-document.body.appendChild(main);
+document.body.appendChild(testMain);
 
 data.forEach(carte => {
-  new Card(main,carte);
+  new Card(testMain,carte);
 });
