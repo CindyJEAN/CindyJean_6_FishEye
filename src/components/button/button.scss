@@ -1,11 +1,10 @@
-button.contact {
+button {
 	color: white;
 	font-size: 18px;
 	background-color: $colorPrimary;
 	padding: 5px 12px;
 	border: none;
 	border-radius: 4px;
-	margin: 0 calc(45vw - 5rem);
 	width: 10rem;
 
 	@include desktop {
@@ -19,5 +18,20 @@ button.contact {
 	&:hover, &:focus {
 		background-color: $colorSecondary;
 		color: black;
+	}
+}
+
+button.contact {
+	position: fixed;
+	bottom: 2rem;
+	// left: 30vw;
+	// margin: auto;
+	margin: 0 calc(45vw - 5rem);
+
+
+	@include desktop {
+		grid-area: contact;
+		position: static;
+		margin: 0;
 	}
 }

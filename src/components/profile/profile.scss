@@ -125,19 +125,6 @@ p {
 		}
 	}
 
-	button.contact {
-		position: fixed;
-		bottom: 2rem;
-		left: 30vw;
-		margin: auto;
-
-		@include desktop {
-			grid-area: contact;
-			position: static;
-			margin: 0;
-		}
-	}
-
 	.profile-photo {
 		width: 100px;
 		height: 100px;
