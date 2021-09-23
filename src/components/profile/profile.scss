@@ -22,7 +22,7 @@ p {
 	}
 }
 
-.photograph-card {
+.photographer-card {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -43,7 +43,7 @@ p {
 }
 
 .index-main {
-	.photograph-card {
+	.photographer-card {
 		@include tablet {
 			width: 30%;
 		}
@@ -65,8 +65,8 @@ p {
 	}
 }
 
-.photograph-main {
-	.photograph-card {
+.photographer-main {
+	.photographer-card {
 		width: 100%;
 		margin-bottom: 1rem;
 		display: grid;
