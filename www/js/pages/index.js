@@ -1,9 +1,3 @@
-// const header = document.createElement("header");
-// document.body.appendChild(header);
-
-
-
-
 class Index{
   constructor(domTarget, dataManager){
     this.DOM= domTarget;
@@ -13,11 +7,13 @@ class Index{
 
   async render(){
     const tags = await this.data.photographersTags();
-    const indexMain = document.createElement("main");
-
+    // const indexMain = document.createElement("main");
+    const profileData = await this.data.photographers();
 
     new Header(this.DOM, tags, this.clickOnTag);
-    document.body.appendChild(indexMain);
+    // document.body.appendChild(indexMain);
+
+    new Main(this.DOM, "index-main", profileData);
   }
 
   clickOnTag(tagName){

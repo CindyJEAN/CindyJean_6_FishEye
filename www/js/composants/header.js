@@ -1,4 +1,4 @@
-const nav = document.createElement("nav");
+// const nav = document.createElement("nav");
 // header.appendChild(nav);
 
 
