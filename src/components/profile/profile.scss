@@ -24,11 +24,14 @@ p {
 
 .profile {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	// flex-direction: column;
+	// align-items: center;
+	flex-wrap: wrap;
+
 
 	div {
 		display: flex;
+		width: 100%;
 		flex-direction: column;
 		align-items: center;
 		cursor: pointer;
@@ -39,17 +42,23 @@ p {
 	}
 	address {
 		font-size: 13px;
+		width: 100%;
 	}
 }
 
 .index-main {
 	.profile {
+		justify-content: center;
+		text-align: center;
+		
 		@include tablet {
 			width: 30%;
 		}
 	}
 	
 	p {
+		width: 100%;
+
 		&.tagline {
 			font-size: 10px;
 		}

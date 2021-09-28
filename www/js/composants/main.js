@@ -20,7 +20,7 @@ class Main{
     console.log(this.profiles);
     // new Profile(this.DOM, "MimiKeel", this.profileData);
     this.profiles.forEach(profileData => {
-      new Profile(this.DOM, "MimiKeel", profileData);
+      new Profile(this.DOM, profileData);
     })
   }
 
