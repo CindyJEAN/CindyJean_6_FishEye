@@ -1,4 +1,5 @@
-class Tag
+class Tag{
+  
   /**
    * [constructor description]
    *
