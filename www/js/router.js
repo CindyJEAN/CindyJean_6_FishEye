@@ -13,6 +13,9 @@ class Router{
       case "" : 
         new Index(this.DOM, this.dataManager);
         break;
+      case "photographer-page.html":
+        new PhotographerPage(this.DOM, this.dataManager);
+        break;
       default : 
         this.DOM.innerHTML = "404";
         break;

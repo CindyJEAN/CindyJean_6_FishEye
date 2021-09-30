@@ -1,4 +1,9 @@
 class Index{
+  /**
+   * [constructor description]
+   *
+   * @param   {HTMLElement}  domTarget    [domTarget description]
+   */
   constructor(domTarget, dataManager){
     this.DOM= domTarget;
     this.data = dataManager;

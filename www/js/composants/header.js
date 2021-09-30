@@ -1,26 +1,40 @@
 // const nav = document.createElement("nav");
 // header.appendChild(nav);
 
+class Header {
+	/**
+	 * [constructor description]
+	 *
+	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 *
+	 */
+	constructor(domTarget, tags, callback) {
+		this.DOM = document.createElement("header");
+		domTarget.appendChild(this.DOM);
+		this.tagList = tags;
+		this.callback = callback;
+		// tags === null && callback === null ? this.render() : this.indexRender();
+		this.render();
+	}
 
-class Header{
-  /**
-   * [constructor description]
-   *
-   * @param   {HTMLElement}  domTarget  [domTarget description]
-   *
-   */
-  constructor(domTarget, tags, callback){
-    this.DOM = document.createElement("header");
-    domTarget.appendChild(this.DOM);
-    this.tagList = tags;
-    this.callback = callback;
-    this.render();
-  }
-
-  render(){
-    this.DOM.innerHTML = `
+	render() {
+		this.DOM.innerHTML = `
     <a href="index.html"><img src="photos/logo.svg" alt="Logo FishEye" /></a>
     `;
-    new Nav(this.DOM, this.tagList, this.callback);
-  }
+		this.tagList !== null &&
+			this.callback !== null &&
+			new Nav(this.DOM, this.tagList, this.callback);
+	}
+	// indexRender() {
+	// 	this.DOM.innerHTML = `
+  //   <a href="index.html"><img src="photos/logo.svg" alt="Logo FishEye" /></a>
+  //   `;
+	// 	new Nav(this.DOM, this.tagList, this.callback);
+	// }
+	// render(){
+	//   this.DOM.innerHTML = `
+	//   <a href="index.html"><img src="photos/logo.svg" alt="Logo FishEye" /></a>
+	//   `;
+	//   new Nav(this.DOM, this.tagList, this.callback);
+	// }
 }
