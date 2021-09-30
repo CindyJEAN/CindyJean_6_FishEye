@@ -1,6 +1,3 @@
-// const nav = document.createElement("nav");
-// header.appendChild(nav);
-
 class Header {
 	/**
 	 * [constructor description]
@@ -13,6 +10,8 @@ class Header {
 		domTarget.appendChild(this.DOM);
 		this.tagList = tags;
 		this.callback = callback;
+		console.log("tagList", this.tagList);
+		console.log("callback", this.callback);
 		// tags === null && callback === null ? this.render() : this.indexRender();
 		this.render();
 	}

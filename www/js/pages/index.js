@@ -5,7 +5,7 @@ class Index{
    * @param   {HTMLElement}  domTarget    [domTarget description]
    */
   constructor(domTarget, dataManager){
-    this.DOM= domTarget;
+    this.DOM = domTarget;
     this.data = dataManager;
     this.render();
   }

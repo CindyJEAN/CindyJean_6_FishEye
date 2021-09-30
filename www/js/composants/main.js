@@ -11,20 +11,40 @@ class Main{
     domTarget.appendChild(this.DOM);
     this.DOM.className = className;
     this.profiles = profiles;
-    className === "index-main" ? this.indexMainRender() : this.photographerMainRender(); 
+    // className === "index-main" ? this.indexMainRender() : this.photographerMainRender();
+    this.className = className; 
+    this.render();
     // this.indexMainRender();
   }
 
-  indexMainRender(){
+  render(){
+    if (this.className === "index-main") {
     this.DOM.innerHTML = `<h1>Nos photographes</h1>`;
-    console.log(this.profiles);
-    // new Profile(this.DOM, "MimiKeel", this.profileData);
     this.profiles.forEach(profileData => {
       new Profile(this.DOM, profileData);
-    })
+    })}
+    else {
+      new Button(this.DOM, "Contactez-moi");
+      // new Profile(this.DOM, profiles);
+      new Dropdown(this.DOM);
+      new PhotographerInfo(this.DOM);
+      new Modal(this.DOM, "lightboxModal");
+      // new WorkPhoto(this.DOM);
+    } 
   }
 
-  photographerMainRender(){
-    this.DOM.innerHTML = `<h1>Photographer page</h1>`;
-  }
+
+  // indexMainRender(){
+  //   this.DOM.innerHTML = `<h1>Nos photographes</h1>`;
+  //   console.log(this.profiles);
+  //   // new Profile(this.DOM, "MimiKeel", this.profileData);
+  //   this.profiles.forEach(profileData => {
+  //     new Profile(this.DOM, profileData);
+  //   })
+  // }
+
+  // photographerMainRender(){
+  //   // new this.profiles(this.DOM, ;)
+  //   new Button(this.DOM, "Contactez-moi");  
+  // }
 }
