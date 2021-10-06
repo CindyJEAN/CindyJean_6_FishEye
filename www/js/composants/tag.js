@@ -1,4 +1,4 @@
-class Tag{
+export default class Tag{
   
   /**
    * [constructor description]
@@ -8,7 +8,7 @@ class Tag{
    * @param   {Function}  callback   click on tag function
    *
    */
-  constructor(domTarget, tagName, callback){
+  constructor(domTarget, tagName, callback=null){
     this.DOM = document.createElement("span");
     this.DOM.className = "tag";
     domTarget.appendChild(this.DOM);

@@ -1,4 +1,4 @@
-class Modal {
+export default class Modal {
 	/**
 	 * [constructor description]
 	 *

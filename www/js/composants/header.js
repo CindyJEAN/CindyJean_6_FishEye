@@ -1,11 +1,12 @@
-class Header {
+import Nav from "../composants/nav.js"
+export default class Header {
 	/**
 	 * [constructor description]
 	 *
 	 * @param   {HTMLElement}  domTarget  [domTarget description]
 	 *
 	 */
-	constructor(domTarget, tags, callback) {
+	constructor(domTarget, tags=null, callback=null) {
 		this.DOM = document.createElement("header");
 		domTarget.appendChild(this.DOM);
 		this.tagList = tags;
@@ -20,9 +21,7 @@ class Header {
 		this.DOM.innerHTML = `
     <a href="index.html"><img src="photos/logo.svg" alt="Logo FishEye" /></a>
     `;
-		this.tagList !== null &&
-			this.callback !== null &&
-			new Nav(this.DOM, this.tagList, this.callback);
+		if (this.tagList !== null) new Nav(this.DOM, this.tagList, this.callback);
 	}
 	// indexRender() {
 	// 	this.DOM.innerHTML = `

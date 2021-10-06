@@ -1,4 +1,4 @@
-class PhotographerInfo{
+export default class PhotographerInfo{
 	/**
 	 * [constructor description]
 	 *

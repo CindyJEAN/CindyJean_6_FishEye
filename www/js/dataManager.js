@@ -1,20 +1,42 @@
+/**
+ * @typedef {Object} photographerProfile
+	 * @property   {String}  portrait  url of the profile photo
+	 * @property   {String}  name  name of the photographer
+	 * @property   {String}  city  address city
+	 * @property   {String}  country  address country
+	 * @property   {String}  tagline  tagline of the photographer
+	 * @property   {Array}  tags  tags of the photographer
+	 * @property   {Array}  price  price
+ */
 
-class DataManager{
-  data = null;
+/**
+ * @typedef  {Object}  media
+ */
+
+/**
+ * @typedef  {null | Object}  allData
+ * @property {Array.<photographerProfile>}  photographers
+ * @property {Array.<media>}   media
+ */
+export default class DataManager{
 
   constructor(src){
+    /**
+     * toutes les données
+     *
+     * @type {allData}
+     */
+    this.data = null;
     this.src = src;
   }
 
   async getAllData(){
     const response = await fetch(this.src);
     this.data = await response.json();
-
   }
 
   async photographersTags(){
     if (this.data === null) await this.getAllData();
-    // console.log(this.data)
     let tags = [];
     this.data.photographers.forEach(photographer => {
       tags = tags.concat(photographer.tags);
@@ -22,12 +44,29 @@ class DataManager{
     return [...new Set(tags)];
   }
 
-  async photographers(){
+  /**
+   * [getPhotographersList description]
+   *
+   * @param   {Array}  filters  [filters description]
+   *
+   * @return  {Promise.<Array.<photographerProfile>>}           [return description]
+   */
+  async getPhotographersList(filters){
     if (this.data === null) await this.getAllData();
+    if (filters.length === 0) return this.data.photographers;
     let photographers = [];
     this.data.photographers.forEach(photographer => {
-      photographers.push(photographer);
+      filters.forEach(filter => {
+        if (photographer.tags.indexOf(filter) !== -1)  photographers.push(photographer);
+      });
     });
-    return photographers;
+    return [...new Set(photographers)];
+  }
+
+  async getPhotographerById(id){
+    if (this.data === null) await this.getAllData();
+    for (const photographer of this.data.photographers){
+      if (photographer.id === id) return photographer;
+    }
   }
 }

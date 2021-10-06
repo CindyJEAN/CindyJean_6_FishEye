@@ -1,4 +1,14 @@
+import DataManager from "./dataManager.js"
+import PhotographerPage from "./pages/photographer-page.js";
+import Index from "./pages/index.js";
+
+
 class Router{
+  /**
+   * [constructor description]
+   *
+   * @param   {HTMLElement}  domTarget  [domTarget description]
+   */
   constructor(domTarget, dataSrc){
     this.DOM = domTarget;
     window.changePage = this.showPage;
@@ -21,4 +31,8 @@ class Router{
         break;
     }
   }
+}
+
+window.onload = function(){
+  new Router(document.body, "./data.json");
 }

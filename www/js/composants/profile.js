@@ -1,4 +1,5 @@
-class Profile {
+import Tag from "../composants/tag.js"
+export default class Profile {
 	// src = null;
 	// name = null;
 
@@ -6,14 +7,6 @@ class Profile {
 	 * [constructor description]
 	 *
 	 * @param   {HTMLElement}  domTarget    
-	 * @param   {Object}  profileData  photographer Object
-	 * @param   {String}  profileData.portrait  url of the profile photo
-	 * @param   {String}  profileData.name  name of the photographer
-	 * @param   {String}  profileData.city  address city
-	 * @param   {String}  profileData.country  address country
-	 * @param   {String}  profileData.tagline  tagline of the photographer
-	 * @param   {Array}  profileData.tags  tags of the photographer
-	 * @param   {Array}  profileData.price  price
 	 *
 	 */
 	constructor(domTarget, profileData) {

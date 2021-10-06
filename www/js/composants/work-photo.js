@@ -1,4 +1,4 @@
-class WorkPhoto {
+export default class WorkPhoto {
   /**
    * [constructor description]
    *
