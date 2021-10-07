@@ -13,6 +13,6 @@ export default class Tag{
     this.DOM.className = "tag";
     domTarget.appendChild(this.DOM);
     this.DOM.innerText = "#"+tagName;
-    this.DOM.onclick = ()=> callback(tagName);
+    this.DOM.onclick = () => callback(tagName);
   }
 }

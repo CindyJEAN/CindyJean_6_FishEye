@@ -5,11 +5,11 @@
  *
  */
 const lightbox = document.querySelector(".lightboxModal");
-const workPhotos = document.querySelectorAll(".workPhoto > img");
+const mediaArticles = document.querySelectorAll(".mediaArticle > img");
 /** */
 const closing = document.querySelector(".close");
 
-workPhotos.forEach((photo) => photo.addEventListener("click", openModal));
+mediaArticles.forEach((photo) => photo.addEventListener("click", openModal));
 closing.addEventListener("click", closeModal);
 
 

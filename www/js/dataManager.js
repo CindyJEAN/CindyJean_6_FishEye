@@ -57,7 +57,7 @@ export default class DataManager{
     let photographers = [];
     this.data.photographers.forEach(photographer => {
       filters.forEach(filter => {
-        if (photographer.tags.indexOf(filter) !== -1)  photographers.push(photographer);
+        if (photographer.tags.indexOf(filter) !== -1) photographers.push(photographer);
       });
     });
     return [...new Set(photographers)];
@@ -68,5 +68,14 @@ export default class DataManager{
     for (const photographer of this.data.photographers){
       if (photographer.id === id) return photographer;
     }
+  }
+
+  async getMediaByPhotographerId(id){
+    if (this.data === null) await this.getAllData();
+    let media = [];
+    this.data.media.forEach((medium) => {
+      if (medium.photographerId === id) media.push(medium); 
+    });
+    return media;
   }
 }
