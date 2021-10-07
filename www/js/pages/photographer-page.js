@@ -21,15 +21,14 @@ export default class PhotographerPage{
     const profileData = await this.data.getPhotographerById(this.id);
 
     new Header(this.DOM, null, null);
-    // document.body.appendChild(indexMain);
 
     const main = document.createElement("main");
     this.DOM.appendChild(main);
+    main.className = "photographer-main";
 
-    new Button(main, "Contactez-moi");
-    // new Profile(main, profiles);
+    new Profile(main, profileData, "photographer");
     new Dropdown(main);
-    new PhotographerInfo(main);
+    new PhotographerInfo(main, profileData);
     new Modal(main, "lightboxModal");
     // new WorkPhoto(main);
   }

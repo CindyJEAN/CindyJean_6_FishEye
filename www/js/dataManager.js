@@ -22,7 +22,7 @@ export default class DataManager{
 
   constructor(src){
     /**
-     * toutes les données
+     * all the data (photographers and media)
      *
      * @type {allData}
      */

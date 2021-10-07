@@ -25,7 +25,7 @@ export default class Index{
     main.className = "index-main";
     main.innerHTML = `<h1>Nos photographes</h1>`;
     profiles.forEach(profilePhotographer => {
-      new Profile(main, profilePhotographer);
+      new Profile(main, profilePhotographer, "index");
     });
   }
 

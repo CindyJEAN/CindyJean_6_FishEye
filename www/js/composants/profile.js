@@ -1,4 +1,6 @@
 import Tag from "../composants/tag.js"
+import Button from "./button.js";
+import PhotographerInfo from "./photographer-info.js";
 export default class Profile {
 	// src = null;
 	// name = null;
@@ -7,9 +9,10 @@ export default class Profile {
 	 * [constructor description]
 	 *
 	 * @param   {HTMLElement}  domTarget    
+	 * @param   {String}  page    page where the profile is implemented: index or photographer-page
 	 *
 	 */
-	constructor(domTarget, profileData) {
+	constructor(domTarget, profileData, page) {
 		this.DOM = document.createElement("article");
 		domTarget.appendChild(this.DOM);
 		this.DOM.className = "profile";
@@ -21,31 +24,61 @@ export default class Profile {
 		this.country = profileData.country;
 		this.tagline = profileData.tagline;
 		this.price = profileData.price;
-		// this.tags = profileData.tags;
 
-		// const container = document.createElement("div");
-		// const profilePhoto = document.createElement("img");
-		// profilePhoto.className = "profile-photo";
-		// profilePhoto.src = this.photo;
-		// this.DOM.appendChild(container);
-		// container.appendChild(profilePhoto);
+		if (page === "index") {
+			this.indexRender();
+		}
+		else this.photographerRender();
 
-    this.render();
+    // this.render();
 	}
 
-	render() {
+	indexRender() {
 		this.DOM.innerHTML = `
     <div onclick="window.location.href='photographer-page.html'">
 		  <img src=${this.photo} alt="" class="profile-photo" />
 		  <h2>${this.name}</h2>
 	  </div>
     <address>${this.city}, ${this.country}</address>
-	<p class="tagline">${this.tagline}</p>
-	<p class="price">${this.price}€/jour</p>
-
+		<p class="tagline">${this.tagline}</p>
+		<p class="price">${this.price}€/jour</p>
     `;
 		this.profileData.tags.forEach((tag) => {
 			new Tag(this.DOM, tag);
 		});
 	}
+
+	photographerRender() {
+		this.DOM.innerHTML = `
+		<h1>${this.name}</h1>
+    <address>${this.city}, ${this.country}</address>
+		<p class="tagline">${this.tagline}</p>
+		
+		<img src=${this.photo} alt="" class="profile-photo" />
+    `;
+		new Button(this.DOM, "Contactez-moi");
+
+		const tags = document.createElement("div");
+		this.DOM.appendChild(tags);
+		tags.className = "tags";
+		this.profileData.tags.forEach((tag) => {
+			new Tag(tags, tag);
+		});
+	}
+
+	// render() {
+	// 	this.DOM.innerHTML = `
+  //   <div onclick="window.location.href='photographer-page.html'">
+	// 	  <img src=${this.photo} alt="" class="profile-photo" />
+	// 	  <h2>${this.name}</h2>
+	//   </div>
+  //   <address>${this.city}, ${this.country}</address>
+	// <p class="tagline">${this.tagline}</p>
+	// <p class="price">${this.price}€/jour</p>
+
+  //   `;
+	// 	this.profileData.tags.forEach((tag) => {
+	// 		new Tag(this.DOM, tag);
+	// 	});
+	// }
 }

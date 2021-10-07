@@ -117,8 +117,10 @@ p {
 		}
 	}
 
-	.tag {
+	.tags {
+		flex-direction: row;
 		grid-area: tag;
+		margin-top: 0.5rem;
 		@include desktop {
 			font-size: 18px;
 		}
