@@ -1,38 +1,27 @@
-import DataManager from "./dataManager.js"
+import {init as dataManagerInit}  from "./dataManager.js";
 import PhotographerPage from "./pages/photographer-page.js";
 import Index from "./pages/index.js";
 
+var DOM;
 
-class Router{
-  /**
-   * [constructor description]
-   *
-   * @param   {HTMLElement}  domTarget  [domTarget description]
-   */
-  constructor(domTarget, dataSrc){
-    this.DOM = domTarget;
-    window.changePage = this.showPage;
-    this.dataManager = new DataManager(dataSrc);
-    this.showPage();
-
-  }
-
-  showPage(page){
-    if (page === undefined) page = window.location.hash.slice(1);
-    switch (page) {
-      case "" : 
-        new Index(this.DOM, this.dataManager);
-        break;
-      case "photographer-page.html":
-        new PhotographerPage(this.DOM, this.dataManager);
-        break;
-      default : 
-        this.DOM.innerHTML = "404";
-        break;
-    }
-  }
+window.onload = () => init(document.body, "./data.json");
+function init(domTarget, dataSrc) {
+	DOM = domTarget;
+	dataManagerInit(dataSrc);
+	changePage();
 }
 
-window.onload = function(){
-  new Router(document.body, "./data.json");
-}
+const changePage = function showPage(page) {
+	if (page === undefined) page = window.location.hash.slice(1);
+	switch (page) {
+		case "":
+			new Index(DOM);
+			break;
+		case "photographer-page.html":
+			new PhotographerPage(DOM);
+			break;
+		default:
+			DOM.innerHTML = "404";
+			break;
+	}
+};

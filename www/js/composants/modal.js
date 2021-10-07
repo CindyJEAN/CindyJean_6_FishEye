@@ -18,7 +18,7 @@ export default class Modal {
 		if (this.className === "lightboxModal") {
 			this.DOM.innerHTML = `
       <div class="lightbox">
-        <img src="photos/media/Animals_Rainbow.jpg" alt="" />
+        <img src="media/media/Animals_Rainbow.jpg" alt="" />
         <h3>Rainbow Bird</h3>
         <button class="left"><i class="fas fa-chevron-left"></i></button>
         <button class="right"><i class="fas fa-chevron-right"></i></button>

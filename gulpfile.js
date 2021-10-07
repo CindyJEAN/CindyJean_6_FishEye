@@ -3,12 +3,13 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 const browserSync = require("browser-sync").create();
- 
+// const imageResize = require('gulp-image-resize');
 const ejs = require("gulp-ejs");
 sass.compiler = require("node-sass");
 const concat = require("gulp-concat");
 const cleanCSS = require("gulp-clean-css");
 const autoprefixer = require("gulp-autoprefixer");
+// const rename = require("gulp-rename");
 
 function makeCss(){
 	return gulp.src(["./src/components/base.scss","./src/**/*.scss"])
@@ -27,6 +28,19 @@ function makePage(){
 		.pipe(gulp.dest("./www"));
 }
 
+// function resize(){
+//   return gulp.src("./src/media/**/*.jpg")
+//     .pipe(imageResize({
+//       width : 640,
+//       height : 480,
+//       crop : true,
+//       upscale : false
+//     }))
+// 		.pipe(rename(function (path) { path.basename += "-thumbnail"; }))
+//     .pipe(gulp.dest('./www/media'));
+// };
+
+
 function watch() {
 
 	browserSync.init({
@@ -35,7 +49,11 @@ function watch() {
 
 	// gulp.watch("./src/**/*.html", makePage);
 	gulp.watch("./src/**/*.scss", makeCss);
+	// gulp.watch("./src/media/**/*.jpg", resize);
 	gulp.watch("./www").on("change", browserSync.reload);
 }
 
-module.exports.watch = watch;
+module.exports = {
+	// resize,
+	watch
+};

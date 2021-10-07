@@ -18,7 +18,7 @@ export default class Profile {
 		this.DOM.className = "profile";
 
 		this.profileData = profileData;
-		this.photo = "photos/id/" + profileData.portrait;
+		this.photo = "media/id/" + profileData.portrait;
 		this.name = profileData.name;
 		this.city = profileData.city;
 		this.country = profileData.country;

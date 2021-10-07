@@ -16,9 +16,9 @@ export default class Media {
 		domTarget.appendChild(this.DOM);
       this.title = media.title;
       this.likes = media.likes;
-      this.image = "photos/media/"+ media.image;
-      this.video = "photos/media/" + media.video;
-      this.videoFrame = "photos/media/" + media.video + "#t=0.5";
+      this.image = "media/media/"+ media.image;
+      this.video = "media/media/" + media.video;
+      this.videoFrame = "media/media/" + media.video + "#t=0.5";
 
       //--- Type of media management
       this.mediaType = media.hasOwnProperty("image") ? "image" : "video";
@@ -46,6 +46,7 @@ export default class Media {
          let source = document.createElement("source");
          media.appendChild(source);
          source.src = this.video;
+         // media.controls = true;
          media.poster = this.videoFrame;
          media.preload = "auto";
       }
