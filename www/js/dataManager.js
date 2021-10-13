@@ -81,4 +81,4 @@ async function getMediaByPhotographerId(id) {
 	return media;
 }
 
-export { init, photographersTags, getPhotographersList };
+export { init, photographersTags, getPhotographersList, getPhotographerById, getMediaByPhotographerId };

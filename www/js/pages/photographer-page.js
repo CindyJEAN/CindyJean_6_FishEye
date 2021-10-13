@@ -5,22 +5,23 @@ import Dropdown from "../composants/dropdown.js";
 import PhotographerInfo from "../composants/photographer-info.js";
 import Modal from "../composants/modal.js";
 import WorkPhoto from "../composants/media.js";
+import { getPhotographerById, getMediaByPhotographerId} from "../dataManager.js";
 export default class PhotographerPage {
 	/**
 	 * [constructor description]
 	 *
 	 * @param   {HTMLElement}  domTarget    [domTarget description]
 	 */
-	constructor(domTarget, dataManager) {
+	constructor(domTarget) {
 		this.DOM = domTarget;
-		this.data = dataManager;
+		// this.data = dataManager;
 		this.id = 82;
 		this.render();
 	}
 
 	async render() {
-		const profileData = await this.data.getPhotographerById(this.id);
-		const media = await this.data.getMediaByPhotographerId(this.id);
+		const profileData = await getPhotographerById(this.id);
+		const media = await getMediaByPhotographerId(this.id);
 
 		const main = document.createElement("main");
 		this.DOM.appendChild(main);
