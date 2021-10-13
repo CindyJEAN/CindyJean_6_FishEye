@@ -46,8 +46,9 @@ export default class Media {
          let source = document.createElement("source");
          media.appendChild(source);
          source.src = this.video;
-         // media.controls = true;
-         media.poster = this.videoFrame;
+         // source.type = "video/mp4";
+         media.controls = true;
+         // media.poster = this.videoFrame;
          media.preload = "auto";
       }
       this.DOM.appendChild(media);

@@ -13,6 +13,8 @@ button {
 		border-radius: 5px;
 		margin: 0;
 		width: 11rem;
+		height: fit-content;
+		align-self: center;
 	}
 
 	&:hover, &:focus {

@@ -27,7 +27,7 @@
 	video {
 		width: 100%;
 		height: 190px;
-		// object-fit: cover;
+    object-fit: cover;
 		border-radius: 5px;
     grid-area: media;
 
@@ -36,6 +36,7 @@
 			height: 300px;
 		}
 	}
+  
   h3 {
   //   color: $colorPrimary;
   //   font-size: 14px;

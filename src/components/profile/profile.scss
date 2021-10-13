@@ -79,7 +79,6 @@ p {
 		width: 100%;
 		margin-bottom: 1rem;
 		display: grid;
-		// grid-template-columns: 40% 40% 20%;
 		grid-template-areas:
 			"name photo"
 			"address photo"
@@ -90,6 +89,7 @@ p {
 			background-color: $lightGrey;
 			padding: 3rem;
 			border-radius: 5px;
+			grid-template-columns: 40% 40% 20%;
 			grid-template-areas:
 				"name contact photo"
 				"address . photo"
