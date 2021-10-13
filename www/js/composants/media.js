@@ -16,9 +16,9 @@ export default class Media {
 		domTarget.appendChild(this.DOM);
       this.title = media.title;
       this.likes = media.likes;
-      this.image = "media/media/"+ media.image;
-      this.video = "media/media/" + media.video;
-      this.videoFrame = "media/media/" + media.video + "#t=0.5";
+      this.image = "content/media/"+ media.image;
+      this.video = "content/media/" + media.video;
+      this.videoFrame = "content/media/" + media.video + "#t=0.5";
 
       //--- Type of media management
       this.mediaType = media.hasOwnProperty("image") ? "image" : "video";
