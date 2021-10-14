@@ -13,7 +13,7 @@ export default class Profile {
 	 * @param {import("../dataManager.js").photographerProfile} profileData
 	 *
 	 */
-	constructor(domTarget, profileData, page) {
+	constructor(domTarget, profileData, page, callback) {
 		this.DOM = document.createElement("article");
 		domTarget.appendChild(this.DOM);
 		this.DOM.className = "profile";
@@ -25,6 +25,7 @@ export default class Profile {
 		this.country = profileData.country;
 		this.tagline = profileData.tagline;
 		this.price = profileData.price;
+		this.callback = callback;
 
 		if (page === "index") {
 			this.indexRender();
@@ -57,14 +58,14 @@ export default class Profile {
 		
 		<img src=${this.photo} alt="" class="profile-photo" />
     `;
-		new Button(this.DOM, "Contactez-moi");
+		new Button(this.DOM, "Contactez-moi", this.callback);
 
 		const tags = document.createElement("div");
 		this.DOM.appendChild(tags);
 		tags.className = "tags";
 		this.profileData.tags.forEach((tag) => {
 			new Tag(tags, tag);
-		});
+		})
 	}
 
 	// render() {

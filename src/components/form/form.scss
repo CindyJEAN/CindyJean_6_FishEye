@@ -1,3 +1,19 @@
 .formModal {
   background-color: $colorSecondary;
+
+  @include desktop {
+    width: 700px;
+  }
+
+  h1.formTitle {
+    color: black;
+    width: 90%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+  }
 }

@@ -1,3 +1,4 @@
+import Form from "./form.js";
 import Lightbox from "./lightbox.js";
 
 export default class Modal {
@@ -8,7 +9,7 @@ export default class Modal {
 	 * @param   {String}  className  modal's className : lightboxModal or formModal
 	 *
 	 */
-	constructor(domTarget, className, media, callback) {
+	constructor(domTarget, className, media=null, callback) {
 		this.DOM = document.createElement("div");
 		domTarget.appendChild(this.DOM);
 		this.className = className;
@@ -25,7 +26,11 @@ export default class Modal {
 		const modal = document.createElement("div");
 		this.DOM.appendChild(modal);
 		modal.className = this.className;
-
-		new Lightbox(modal, this.media);
+		if (this.className === "lightboxModal") {
+			new Lightbox(modal, this.media);
+		}
+		else {
+			new Form(modal);
+		}
 	}
 }

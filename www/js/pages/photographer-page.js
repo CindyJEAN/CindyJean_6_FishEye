@@ -6,6 +6,7 @@ import PhotographerInfo from "../composants/photographer-info.js";
 import Media from "../composants/media.js";
 import { getPhotographerById, getMediaByPhotographerId} from "../dataManager.js";
 import Modal from "../composants/modal.js";
+import Form from "../composants/form.js";
 export default class PhotographerPage {
 	/**
 	 * [constructor description]
@@ -27,11 +28,12 @@ export default class PhotographerPage {
 		main.className = "photographer-main";
 
 		new Header(this.DOM, null, null);
-		new Profile(main, profileData, "photographer");
+		new Profile(main, profileData, "photographer", this.openModal.bind(this));
 		new Dropdown(main);
 		new PhotographerInfo(main, profileData);
 		// new Modal(main, "lightboxModal");
-		
+		// new Form(main);
+
 		const gallery = document.createElement("div");
 		main.appendChild(gallery);
 		gallery.className = "gallery";
@@ -43,8 +45,8 @@ export default class PhotographerPage {
 		new Modal(this.DOM, className, medium, this.closeModal.bind(this));
 	}
 
-	closeModal(medium) {
-		this.DOM.removeChild(medium);
+	closeModal(modal) {
+		this.DOM.removeChild(modal);
 	}
 
 }

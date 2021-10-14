@@ -1,8 +1,10 @@
 .mediaArticle {
   display: grid;
   width: 100%;
+  max-width: 350px;
   row-gap: 10px;
   margin-bottom: 1.5rem;
+  grid-template-rows: min-content;
   grid-template-areas: 
     "media media"
     "title likes";
@@ -42,6 +44,7 @@
   //   font-size: 14px;
   //   font-weight: 400;
     grid-area: title;
+    word-break: break-word;
 
   //   @include desktop {
   //     font-size: 24px;
