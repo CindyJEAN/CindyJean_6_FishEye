@@ -26,25 +26,25 @@ export default class PhotographerPage {
 		this.DOM.appendChild(main);
 		main.className = "photographer-main";
 
-		const gallery = document.createElement("div");
-		this.DOM.appendChild(gallery);
-		gallery.className = "gallery";
-
 		new Header(this.DOM, null, null);
 		new Profile(main, profileData, "photographer");
 		new Dropdown(main);
 		new PhotographerInfo(main, profileData);
 		// new Modal(main, "lightboxModal");
+		
+		const gallery = document.createElement("div");
+		main.appendChild(gallery);
+		gallery.className = "gallery";
 
 		media.forEach((medium) => new Media(gallery, medium, this.openModal.bind(this)));
 	}
 
 	openModal(className, medium) {
-		new Modal(this.DOM, className, medium);
+		new Modal(this.DOM, className, medium, this.closeModal.bind(this));
 	}
 
-	// closeModal(medium) {
-	// 	this.DOM.removeChild(medium);
-	// }
+	closeModal(medium) {
+		this.DOM.removeChild(medium);
+	}
 
 }
