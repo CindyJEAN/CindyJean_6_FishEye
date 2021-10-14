@@ -7,7 +7,8 @@
  * @property   {String}  tagline  tagline of the photographer
  * @property   {Array}  tags  tags of the photographer
  * @property   {Array}  price  price
- */
+ * @property   {Number}  id  
+ */ 
 
 /**
  * @typedef  {Object}  media

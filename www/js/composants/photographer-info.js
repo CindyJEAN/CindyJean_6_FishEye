@@ -4,11 +4,11 @@ export default class PhotographerInfo{
 	 *
 	 * @param   {HTMLElement}  domTarget  [domTarget description]
 	 */
-	constructor(domTarget, profileData) {
+	constructor(domTarget, profileData, totalLikes) {
 		this.DOM = document.createElement("div");
 		domTarget.appendChild(this.DOM);
 		this.DOM.className = "photographerInfo";
-		this.likes = profileData.likes;
+		this.likes = totalLikes;
 		this.price = profileData.price;
 
 		this.render();

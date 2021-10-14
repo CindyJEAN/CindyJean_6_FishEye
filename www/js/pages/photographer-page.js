@@ -13,9 +13,11 @@ export default class PhotographerPage {
 	 *
 	 * @param   {HTMLElement}  domTarget    [domTarget description]
 	 */
-	constructor(domTarget) {
+	constructor(domTarget, id) {
 		this.DOM = domTarget;
-		this.id = 82;
+		this.id = id;
+		this.totalLikes = 0;
+		console.log(id, typeof id )
 		this.render();
 	}
 
@@ -30,15 +32,18 @@ export default class PhotographerPage {
 		new Header(this.DOM, null, null);
 		new Profile(main, profileData, "photographer", this.openModal.bind(this));
 		new Dropdown(main);
-		new PhotographerInfo(main, profileData);
 		// new Modal(main, "lightboxModal");
 		// new Form(main);
-
+		
 		const gallery = document.createElement("div");
 		main.appendChild(gallery);
 		gallery.className = "gallery";
-
-		media.forEach((medium) => new Media(gallery, medium, this.openModal.bind(this)));
+		
+		media.forEach((medium) => {
+			new Media(gallery, medium, this.openModal.bind(this));
+			this.totalLikes+= medium.likes;
+		});
+		new PhotographerInfo(main, profileData, this.totalLikes);
 	}
 
 	openModal(className, medium) {
