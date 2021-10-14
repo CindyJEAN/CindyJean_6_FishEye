@@ -1,11 +1,11 @@
 import Header from "../composants/header.js";
-import Button from "../composants/button.js";
 import Profile from "../composants/profile.js";
 import Dropdown from "../composants/dropdown.js";
 import PhotographerInfo from "../composants/photographer-info.js";
-import Modal from "../composants/modal.js";
-import WorkPhoto from "../composants/media.js";
+// import Modal from "../composants/modal.js";
+import Media from "../composants/media.js";
 import { getPhotographerById, getMediaByPhotographerId} from "../dataManager.js";
+import Modal from "../composants/modal.js";
 export default class PhotographerPage {
 	/**
 	 * [constructor description]
@@ -14,7 +14,6 @@ export default class PhotographerPage {
 	 */
 	constructor(domTarget) {
 		this.DOM = domTarget;
-		// this.data = dataManager;
 		this.id = 82;
 		this.render();
 	}
@@ -35,8 +34,17 @@ export default class PhotographerPage {
 		new Profile(main, profileData, "photographer");
 		new Dropdown(main);
 		new PhotographerInfo(main, profileData);
-		new Modal(main, "lightboxModal");
+		// new Modal(main, "lightboxModal");
 
-		media.forEach((medium) => new WorkPhoto(gallery, medium));
+		media.forEach((medium) => new Media(gallery, medium, this.openModal.bind(this)));
 	}
+
+	openModal(className, medium) {
+		new Modal(this.DOM, className, medium);
+	}
+
+	// closeModal(medium) {
+	// 	this.DOM.removeChild(medium);
+	// }
+
 }

@@ -10,6 +10,7 @@ export default class Profile {
 	 *
 	 * @param   {HTMLElement}  domTarget    
 	 * @param   {String}  page    page where the profile is implemented: index or photographer-page
+	 * @param {import("../dataManager.js").photographerProfile} profileData
 	 *
 	 */
 	constructor(domTarget, profileData, page) {

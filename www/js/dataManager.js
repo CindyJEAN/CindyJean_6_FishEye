@@ -36,7 +36,7 @@ async function getAllData() {
 	data = await response.json();
 }
 
-async function photographersTags() {
+async function getPhotographersTags() {
 	if (data === null) await getAllData();
 	let tags = [];
 	data.photographers.forEach((photographer) => {
@@ -81,4 +81,4 @@ async function getMediaByPhotographerId(id) {
 	return media;
 }
 
-export { init, photographersTags, getPhotographersList, getPhotographerById, getMediaByPhotographerId };
+export { init, getPhotographersTags, getPhotographersList, getPhotographerById, getMediaByPhotographerId };

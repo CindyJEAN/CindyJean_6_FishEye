@@ -1,6 +1,6 @@
 import Profile from "../composants/profile.js";
 import Header from "../composants/header.js";
-import { photographersTags, getPhotographersList} from "../dataManager.js";
+import { getPhotographersTags, getPhotographersList} from "../dataManager.js";
 export default class Index{
   /**
    * [constructor description]
@@ -16,7 +16,7 @@ export default class Index{
 
   async render(){
     this.DOM.innerText="";
-    if (this.tags.length === 0) this.tags = await photographersTags();
+    if (this.tags.length === 0) this.tags = await getPhotographersTags();
     const profiles = await getPhotographersList(this.activeTags);
 
     new Header(this.DOM, this.tags, this.clickOnTag.bind(this));
@@ -30,7 +30,7 @@ export default class Index{
     });
   }
 
-  clickOnTag(tagName){
+  clickOnTag(tagName) {
     const position = this.activeTags.indexOf(tagName);
     if (position === -1) this.activeTags.push(tagName);
     else this.activeTags.splice(position, 1);

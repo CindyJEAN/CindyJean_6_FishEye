@@ -1,11 +1,25 @@
 $smallIconWidth: 2rem;
 $bigIconWidth: 5rem;
 
-.modal {
-	display: none;
+// .modal {
+// 	display: none;
+// 	position: fixed;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+
+.modalBackground {
+	// display: none;
 	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
+	width: 100%;
+	background-color: transparent;
 }
 
 .lightboxModal {

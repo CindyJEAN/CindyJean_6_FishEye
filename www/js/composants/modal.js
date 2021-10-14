@@ -1,3 +1,5 @@
+import Lightbox from "./lightbox.js";
+
 export default class Modal {
 	/**
 	 * [constructor description]
@@ -6,25 +8,23 @@ export default class Modal {
 	 * @param   {String}  className  modal's className : lightboxModal or formModal
 	 *
 	 */
-	constructor(domTarget, className) {
+	constructor(domTarget, className, media) {
 		this.DOM = document.createElement("div");
 		domTarget.appendChild(this.DOM);
 		this.className = className;
-		this.DOM.className = "modal " + className;
+		this.DOM.className = "modalBackground";
+		this.media = media;
+		// this.DOM.className = "modal-bg " + className;
+
 		this.render();
 	}
 
 	render() {
-		if (this.className === "lightboxModal") {
-			this.DOM.innerHTML = `
-      <div class="lightbox">
-        <img src="content/media/Animals_Rainbow.jpg" alt="" />
-        <h3>Rainbow Bird</h3>
-        <button class="left"><i class="fas fa-chevron-left"></i></button>
-        <button class="right"><i class="fas fa-chevron-right"></i></button>
-        <button class="close"><i class="fas fa-times"></i></button>
-      </div>
-      `;
-		}
+		const modal = document.createElement("div");
+		this.DOM.appendChild(modal);
+		modal.className = this.className;
+
+
+		new Lightbox(modal, this.media);
 	}
 }
