@@ -1,6 +1,6 @@
 import Tag from "../composants/tag.js"
 import Button from "./button.js";
-import PhotographerInfo from "./photographer-info.js";
+import PhotographerInfo from "./photographerInfo.js";
 export default class Profile {
 	// src = null;
 	// name = null;

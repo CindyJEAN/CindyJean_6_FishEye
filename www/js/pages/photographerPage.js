@@ -1,7 +1,7 @@
 import Header from "../composants/header.js";
 import Profile from "../composants/profile.js";
 import Dropdown from "../composants/dropdown.js";
-import PhotographerInfo from "../composants/photographer-info.js";
+import PhotographerInfo from "../composants/photographerInfo.js";
 // import Modal from "../composants/modal.js";
 import Media from "../composants/media.js";
 import { getPhotographerById, getMediaByPhotographerId} from "../dataManager.js";

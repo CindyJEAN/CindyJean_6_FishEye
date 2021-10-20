@@ -3,14 +3,14 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 const browserSync = require("browser-sync").create();
-const imageResize = require("gulp-image-resize");
+// const imageResize = require("gulp-image-resize");
 const ejs = require("gulp-ejs");
 sass.compiler = require("node-sass");
 const concat = require("gulp-concat");
 const cleanCSS = require("gulp-clean-css");
 const autoprefixer = require("gulp-autoprefixer");
-const rename = require("gulp-rename");
-const squoosh = require("gulp-libsquoosh");
+// const rename = require("gulp-rename");
+// const squoosh = require("gulp-libsquoosh");
 
 function makeCss() {
 	return gulp
@@ -42,27 +42,27 @@ function makePage() {
 // 		.pipe(rename(function (path) { path.basename += "-thumbnail"; }))
 //     .pipe(gulp.dest('./www/content/resized'));
 // };
-function resize() {
-	return gulp
-		.src("./src/content/**/*.{jpg,png}")
-		.pipe(
-			squoosh(
-				null, // use default
-				{
-					resize: {
-						enabled: true,
-						width: 640,
-					},
-				}
-			)
-		)
-		.pipe(
-			rename(function (path) {
-				path.basename += "-thumbnail";
-			})
-		)
-		.pipe(gulp.dest("./www/content/resized"));
-}
+// function resize() {
+// 	return gulp
+// 		.src("./src/content/**/*.{jpg,png}")
+// 		.pipe(
+// 			squoosh(
+// 				null, // use default
+// 				{
+// 					resize: {
+// 						enabled: true,
+// 						width: 640,
+// 					},
+// 				}
+// 			)
+// 		)
+// 		.pipe(
+// 			rename(function (path) {
+// 				path.basename += "-thumbnail";
+// 			})
+// 		)
+// 		.pipe(gulp.dest("./www/content/resized"));
+// }
 
 function watch() {
 	browserSync.init({
@@ -71,11 +71,8 @@ function watch() {
 
 	// gulp.watch("./src/**/*.html", makePage);
 	gulp.watch("./src/**/*.scss", makeCss);
-	gulp.watch("./src/media/**/*.jpg", resize);
+	// gulp.watch("./src/media/**/*.jpg", resize);
 	gulp.watch("./www").on("change", browserSync.reload);
 }
 
-module.exports = {
-	resize,
-	watch,
-};
+module.exports = { watch };
