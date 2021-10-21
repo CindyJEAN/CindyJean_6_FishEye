@@ -1,6 +1,7 @@
 import {init as dataManagerInit}  from "./dataManager.js";
 import PhotographerPage from "./pages/photographerPage.js";
 import Index from "./pages/index.js";
+import Lightbox from "./pages/lightbox.js";
 
 var DOM;
 
@@ -55,6 +56,9 @@ const showPage = function (page, args) {
 			break;
 		case "photographer":
 			new PhotographerPage(DOM, args);
+			break;
+		case "media":
+			new Lightbox(DOM, args);
 			break;
 		default:
 			DOM.innerHTML = "404";

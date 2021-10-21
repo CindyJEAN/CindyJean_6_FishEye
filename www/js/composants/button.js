@@ -11,7 +11,7 @@ export default class Button{
     this.DOM.className = "contact";
     this.DOM.innerText = text;
 
-    this.DOM.onclick = () => callback("formModal", )
+    this.DOM.onclick = () => callback("formModal")
 
   }
 }

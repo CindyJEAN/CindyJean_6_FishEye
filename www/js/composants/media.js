@@ -4,13 +4,10 @@ export default class Media {
 	 *
 	 * @param   {HTMLElement}  domTarget  [domTarget description]
 	 * @param   {Object}  media  [domTarget description]
-	 * @param   {String}  media.title  [domTarget description]
-	 * @param   {String}  media.image  [domTarget description]
-	 * @param   {String}  media.likes  [domTarget description]
-	 * @param   {String}  media.video  [domTarget description]
+
 	 *
 	 */
-	constructor(domTarget, media, callback) {
+	constructor(domTarget, media, callback = null) {
 		this.DOM = document.createElement("article");
 		this.DOM.className = "mediaArticle";
 		domTarget.appendChild(this.DOM);
@@ -19,25 +16,27 @@ export default class Media {
 		this.image = "content/media/" + media.image;
 		this.video = "content/media/" + media.video;
 		this.videoFrame = "content/media/" + media.video + "#t=0.5";
-      
+		this.id = media.id;
+		this.photographerId = media.photographerId;
+
 		//---click on media
-		this.callback = callback;
-      this.medium = media;
+		// this.callback = callback;
+		this.medium = media;
 
 		//--- Type of media management
 		this.mediaType = media.hasOwnProperty("image") ? "image" : "video";
 
 		//--- Render
 		this.render();
-		this.DOM.onclick = () => {
-			console.log("image url :", this.image, "video url :", this.video);
-		};
+		// this.DOM.onclick = () => {
+		// 	console.log("image url :", this.image, "video url :", this.video);
+		// };
 	}
 
 	render() {
 		this.DOM.innerHTML = `
-         <h3>${this.title}</h3>
-         <p>${this.likes}</p>
+         <h3>${this.title}</h3> 
+				 <button onclick="() => this.addLike()">${this.likes}<i class="fas fa-heart"></i></button>
       `;
 
 		//Photo or video display
@@ -57,7 +56,14 @@ export default class Media {
 			media.preload = "auto";
 		}
 		this.DOM.appendChild(media);
-		//---click on media
-		media.onclick = () => this.callback("lightboxModal", this.medium);
+
+		media.onclick = () => window.changePage('media', this.id);
+	}
+
+	addLike() {
+		let numberOfLikes = this.likes;
+		numberOfLikes++;
+		console.log(this.likes);
+		this.render();
 	}
 }

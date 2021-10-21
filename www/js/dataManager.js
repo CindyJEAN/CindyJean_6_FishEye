@@ -7,11 +7,20 @@
  * @property   {String}  tagline  tagline of the photographer
  * @property   {Array}  tags  tags of the photographer
  * @property   {Array}  price  price
- * @property   {Number}  id  
- */ 
+ * @property   {Number}  id photographer id
+ */
 
 /**
  * @typedef  {Object}  media
+ * @property   {Number}  id  media id
+ * @property   {Number}  photographerId  
+ * @property   {String}  title  
+ * @property   {String}  image  
+ * @property   {Array}  tags  
+ * @property   {Number}  likes  
+ * @property   {String}  video  
+ * @property   {String}  date  
+ * @property   {Number}  price  
  */
 
 /**
@@ -24,7 +33,7 @@ let data, src;
 
 function init(source) {
 	/**
-	 * all the data (photographers and media)
+	 * initializes the data
 	 *
 	 * @type {allData}
 	 */
@@ -82,4 +91,10 @@ async function getMediaByPhotographerId(id) {
 	return media;
 }
 
-export { init, getPhotographersTags, getPhotographersList, getPhotographerById, getMediaByPhotographerId };
+export {
+	init,
+	getPhotographersTags,
+	getPhotographersList,
+	getPhotographerById,
+	getMediaByPhotographerId,
+};

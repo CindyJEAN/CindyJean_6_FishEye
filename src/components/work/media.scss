@@ -1,72 +1,91 @@
 .mediaArticle {
-  display: grid;
-  width: 100%;
-  max-width: 350px;
-  row-gap: 10px;
-  margin-bottom: 1.5rem;
-  grid-template-rows: min-content;
-  grid-template-areas: 
-    "media media"
-    "title likes";
+	display: grid;
+	width: 100%;
+	max-width: 350px;
+	row-gap: 10px;
+	margin-bottom: 1.5rem;
+	grid-template-rows: min-content;
+	grid-template-areas:
+		"media media"
+		"title likes";
 
-    @include desktop {
-      width: fit-content;
-    }
+	@include desktop {
+		width: fit-content;
+	}
 
 	img {
 		width: 100%;
 		height: 190px;
 		object-fit: cover;
 		border-radius: 5px;
-    grid-area: media;
+		grid-area: media;
 
 		@include desktop {
 			width: 350px;
 			height: 300px;
 		}
 	}
-  
+
 	video {
 		width: 100%;
 		height: 190px;
-    object-fit: cover;
+		object-fit: cover;
 		border-radius: 5px;
-    grid-area: media;
+		grid-area: media;
 
 		@include desktop {
 			width: 350px;
 			height: 300px;
 		}
 	}
-  
-  h3 {
-  //   color: $colorPrimary;
-  //   font-size: 14px;
-  //   font-weight: 400;
-    grid-area: title;
-    word-break: break-word;
 
-  //   @include desktop {
-  //     font-size: 24px;
-  //   }
-  }
+	h3 {
+		//   color: $colorPrimary;
+		//   font-size: 14px;
+		//   font-weight: 400;
+		grid-area: title;
+		word-break: break-word;
 
-  p {
+		//   @include desktop {
+		//     font-size: 24px;
+		//   }
+	}
+
+	// p {
+	// 	color: $colorPrimary;
+	// 	font-size: 14px;
+	// 	font-weight: 500;
+	// 	grid-area: likes;
+	// 	justify-self: flex-end;
+
+	// 	@include desktop {
+	// 		font-size: 24px;
+	// 	}
+
+	// 	&::after {
+	// 	  content: "\f004";
+	// 	  font-family: "Font Awesome 5 Free";
+	// 		font-weight: bold;
+	// 	  padding-left: 10px;
+	// 	}
+	// }
+
+	button {
+    background-color: transparent;
+    border: none;
     color: $colorPrimary;
-    font-size: 14px;
-    font-weight: 500;
-    grid-area: likes;
-    justify-self: flex-end;
+		font-size: 14px;
+		font-weight: 500;
+		grid-area: likes;
+		justify-self: flex-end;
 
-    @include desktop {
-      font-size: 24px;
-    }
+		@include desktop {
+			font-size: 24px;
+		}
 
-    &::after {
-      content: "\f004";
-      font-family: "Font Awesome 5 Free";
+		i {
 			font-weight: bold;
-      padding-left: 10px;
-    }
-  }
+			padding-left: 10px;
+		}
+	}
 }

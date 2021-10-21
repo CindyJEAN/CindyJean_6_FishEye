@@ -28,7 +28,6 @@ p {
 	// align-items: center;
 	flex-wrap: wrap;
 
-
 	div {
 		display: flex;
 		width: 100%;
@@ -50,12 +49,12 @@ p {
 	.profile {
 		justify-content: center;
 		text-align: center;
-		
+
 		@include tablet {
 			width: 30%;
 		}
 	}
-	
+
 	p {
 		width: 100%;
 
@@ -97,6 +96,19 @@ p {
 				"tag . photo";
 		}
 
+		button.contact {
+			position: fixed;
+			bottom: 2rem;
+			// left: 30vw;
+			// margin: auto;
+			margin: 0 calc(45vw - 5rem);
+
+			@include desktop {
+				grid-area: contact;
+				position: static;
+				margin: 0;
+			}
+		}
 	}
 
 	h1 {

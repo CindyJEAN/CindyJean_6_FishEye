@@ -1,4 +1,4 @@
-button {
+button.contact {
 	color: white;
 	font-size: 18px;
 	background-color: $colorPrimary;
@@ -23,17 +23,3 @@ button {
 	}
 }
 
-button.contact {
-	position: fixed;
-	bottom: 2rem;
-	// left: 30vw;
-	// margin: auto;
-	margin: 0 calc(45vw - 5rem);
-
-
-	@include desktop {
-		grid-area: contact;
-		position: static;
-		margin: 0;
-	}
-}
