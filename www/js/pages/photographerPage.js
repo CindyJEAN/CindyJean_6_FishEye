@@ -24,7 +24,7 @@ export default class PhotographerPage {
 		const media = await getMediaByPhotographerId(this.id);
 
 		new Header(this.DOM, null, null);
-		
+
 		const main = document.createElement("main");
 		this.DOM.appendChild(main);
 		main.className = "photographer-main";
@@ -37,11 +37,11 @@ export default class PhotographerPage {
 		gallery.className = "gallery";
 		
 		media.forEach((medium) => {
-			new Media(gallery, medium);
+			new Media(gallery, medium, this.updateLikes.bind(this));
 			this.totalLikes+= medium.likes;
 		});
 
-		new PhotographerInfo(main, profileData, this.totalLikes);
+		this.information = new PhotographerInfo(main, profileData, this.totalLikes);
 	}
 
 	openForm() {
@@ -50,6 +50,11 @@ export default class PhotographerPage {
 
 	closeForm(modal) {
 		this.DOM.removeChild(modal);
+	}
+
+	updateLikes(increment){
+		this.totalLikes += increment ? 1 : -1;
+		this.information.update(this.totalLikes);
 	}
 
 }

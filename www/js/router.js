@@ -37,15 +37,15 @@ window.onpopstate = function(event) {
 const extract = function extractPageFromUrl(){
 	let [page, args] = window.location.hash.slice(1).split("/");
 	if (page === "") page = "index";
-	const parsedArgs = parseInt(args);
-	return {page, args : isNaN(parsedArgs) ? undefined : parsedArgs};
+	// const parsedArgs = parseInt(args);
+	return {page, args};
 }
 
 /**
  * [showPage description]
  *
  * @param   {String}  page  
- * @param   {Number}  args  
+ * @param   {String}  args  
  *
  */
 const showPage = function (page, args) {
@@ -55,10 +55,11 @@ const showPage = function (page, args) {
 			new Index(DOM);
 			break;
 		case "photographer":
-			new PhotographerPage(DOM, args);
+			new PhotographerPage(DOM, parseInt(args));
 			break;
-		case "media":
-			new Lightbox(DOM, args);
+		case "lightbox":
+			const [idMedia, photographerId] = args.split("/")
+			new Lightbox(DOM, {idMedia, photographerId});
 			break;
 		default:
 			DOM.innerHTML = "404";

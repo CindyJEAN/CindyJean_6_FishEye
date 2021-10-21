@@ -20,4 +20,9 @@ export default class PhotographerInfo{
     <p class="price">${this.price}€ / jour</p>
     `;
 	}
+
+	update(likes){
+		this.likes = likes;
+		this.render();
+	}
 }

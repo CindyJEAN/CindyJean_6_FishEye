@@ -13,11 +13,14 @@ export default class Media {
 		domTarget.appendChild(this.DOM);
 		this.title = media.title;
 		this.likes = media.likes;
-		this.image = "content/media/" + media.image;
-		this.video = "content/media/" + media.video;
+		this.image = media.image;
+		this.video = media.video;
 		this.videoFrame = "content/media/" + media.video + "#t=0.5";
 		this.id = media.id;
 		this.photographerId = media.photographerId;
+		this.description = media.description;
+		this.liked = false;
+		this.callback = callback;
 
 		//---click on media
 		// this.callback = callback;
@@ -35,35 +38,33 @@ export default class Media {
 
 	render() {
 		this.DOM.innerHTML = `
-         <h3>${this.title}</h3> 
-				 <button onclick="() => this.addLike()">${this.likes}<i class="fas fa-heart"></i></button>
-      `;
-
-		//Photo or video display
-		let media = null;
-		if (this.mediaType === "image") {
-			media = document.createElement("img");
-			media.src = this.image;
-			media.alt = "";
-		} else {
-			media = document.createElement("video");
-			let source = document.createElement("source");
-			media.appendChild(source);
-			source.src = this.video;
-			// source.type = "video/mp4";
-			media.controls = true;
-			// media.poster = this.videoFrame;
-			media.preload = "auto";
-		}
-		this.DOM.appendChild(media);
-
-		media.onclick = () => window.changePage('media', this.id);
+		<h3>${this.title}</h3> 
+		${this.video ? this.addVideo() : this.addImage()}`;
+		const buttonLikes = document.createElement("button");
+		const likes = parseInt(this.likes) + (this.liked? 1 : 0);
+		buttonLikes.innerHTML = `${likes}<i class="fa${this.liked? "s" : "r"} fa-heart"></i>`;
+		buttonLikes.onclick = () => this.addLike();
+		this.DOM.appendChild(buttonLikes);
 	}
 
 	addLike() {
-		let numberOfLikes = this.likes;
-		numberOfLikes++;
-		console.log(this.likes);
+		this.liked = !this.liked;
 		this.render();
+		this.callback(this.liked);
+	}
+
+	addVideo(){
+		return `
+		<video preload="auto" onclick="window.changePage('lightbox','${this.id}/${this.photographerId}')">
+			<source src="./content/media/${this.video}" type="video/mp4">
+			${this.description}
+		</video>
+		`;
+	}
+
+	addImage(){
+		return `
+			<img src="./content/media/${this.image}" alt="${this.description}" title="${this.title}" onclick="window.changePage('lightbox','${this.id}/${this.photographerId}')">
+		`;
 	}
 }
