@@ -58,8 +58,8 @@ const showPage = function (page, args) {
 			new PhotographerPage(DOM, parseInt(args));
 			break;
 		case "lightbox":
-			const [idMedia, photographerId] = args.split("/")
-			new Lightbox(DOM, {idMedia, photographerId});
+			const [photographerId, mediaId] = args.split("/")
+			new Lightbox(DOM, {mediaId, photographerId});
 			break;
 		default:
 			DOM.innerHTML = "404";
@@ -71,7 +71,7 @@ const showPage = function (page, args) {
  * updates history and calls showPage
  *
  * @param   {String}  page  page to show
- * @param   {Number}  [args]  potential args for the page
+ * @param   {String}  [args]  potential args for the page
  *
  * @return  {void}        
  */

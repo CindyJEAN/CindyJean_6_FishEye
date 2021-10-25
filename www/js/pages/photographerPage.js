@@ -15,7 +15,6 @@ export default class PhotographerPage {
 		this.DOM = domTarget;
 		this.id = id;
 		this.totalLikes = 0;
-		console.log(id, typeof id )
 		this.render();
 	}
 
@@ -42,19 +41,19 @@ export default class PhotographerPage {
 		});
 
 		this.information = new PhotographerInfo(main, profileData, this.totalLikes);
-	}
+	};
 
 	openForm() {
 		new Form(this.DOM, this.closeForm.bind(this));
-	}
+	};
 
 	closeForm(modal) {
 		this.DOM.removeChild(modal);
-	}
+	};
 
 	updateLikes(increment){
 		this.totalLikes += increment ? 1 : -1;
 		this.information.update(this.totalLikes);
-	}
+	};
 
-}
+};

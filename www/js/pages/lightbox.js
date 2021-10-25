@@ -1,5 +1,4 @@
-// import { getMediaByPhotographerId } from "../dataManager";
-
+import { getMediaByPhotographerId } from "../dataManager.js";
 export default class Lightbox {
 	/**
 	 * [constructor description]
@@ -7,16 +6,17 @@ export default class Lightbox {
 	 * @param   {HTMLElement}  domTarget  [domTarget description]
 	 * @param  {Object}  props
 	 * @param   {String} props.photographerId
-	 * @param   {String} props.idMedia
+	 * @param   {String} props.mediaId
 	 *
 	 */
 	constructor(domTarget, props) {
-		// this.DOM = document.createElement("div");
-		// domTarget.appendChild(this.DOM);
-
 		this.DOM = domTarget;
-		this.photographerId = props.photographerId; 
-		this.id = props.idMedia;
+		this.lightbox = document.createElement("div");
+		this.DOM.appendChild(this.lightbox);
+		this.lightbox.className = "lightbox";
+		
+		this.photographerId = parseInt(props.photographerId);
+		this.id = parseInt(props.mediaId);
 		// this.photographerId = photographerId;
 
 		// this.image = "content/media/" + media.image;
@@ -26,28 +26,65 @@ export default class Lightbox {
 		this.render();
 	}
 
-  async render() {
-	// const media = await getMediaByPhotographerId(this.photographerId);
+	async render() {
+		this.media = await getMediaByPhotographerId(this.photographerId);
+		this.index = this.media.findIndex((element) => element.id === this.id);
+		this.actualMedia = this.media[this.index];
+		// this.description = this.actualMedia.description || "";
+		this.image = this.actualMedia.image;
+		this.video = this.actualMedia.video;
+		this.title = this.actualMedia.title;
 
-  //   console.log(media);
-		// let actualMedium = null;
-    // media.forEach((medium) => {
-		// 	if ((this.id = medium.id)) {
-    //     actualMedium = medium;
-		// 		return;
-		// 	}
-		// });
-
-    // <img src=${actualMedium.image} alt="" />
-    // <h3>${actualMedium.title}</h3>
-    // <img src=${this.image} alt="" />
-    // <h3>${this.title}</h3>
-		this.DOM.innerHTML = `
-    <div class="lightbox">
-        <button class="left"><i class="fas fa-chevron-left"></i></button>
-        <button class="right"><i class="fas fa-chevron-right"></i></button>
+		this.lightbox.innerHTML = `
+				${this.video ? this.addVideo() : this.addImage()}
         <button class="close"><i class="fas fa-times"></i></button>
-      </div>
-      `;
+    `;
+
+		const leftButton = document.createElement("button");
+		leftButton.className = "left";
+		leftButton.innerHTML = `<i class="fas fa-chevron-left"></i>`;
+		this.lightbox.appendChild(leftButton);
+		leftButton.onclick = () => this.changeIndex("previous");
+		const rightButton = document.createElement("button");
+		rightButton.className = "right";
+		rightButton.innerHTML = `<i class="fas fa-chevron-right"></i>`;
+		this.lightbox.appendChild(rightButton);
+		rightButton.onclick = () => this.changeIndex("next");
+
+
+		console.log("mediaId", this.id, typeof this.id);
+		console.log("index", this.index);
+		console.log("actualMedia", this.actualMedia);
 	}
+
+	addVideo() {
+		return `
+		<video preload="auto" controls>
+			<source src="./content/media/${this.video}" type="video/mp4">
+		</video>
+		`;
+	};
+
+	addImage() {
+		return `
+			<img src="./content/media/${this.image.replace(".", "-small.")}" 
+			title="${this.title}">
+		`;
+	};
+
+	changeIndex(move) {
+		if (move === "previous") {
+			if ( this.index === 0) {
+				this.index = this.media.length -1;
+			}
+			else { this.index-- };
+		}
+		else {
+			if ( this.index === this.media.length -1) {
+				this.index = 0;
+			}
+			else { this.index++ };
+		}
+		this.render();
+	};
 }
