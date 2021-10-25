@@ -6,8 +6,8 @@ export default class Lightbox {
 	 *
 	 * @param   {HTMLElement}  domTarget  [domTarget description]
 	 * @param  {Object}  props
-	 * @param   {String} props.idMedia
 	 * @param   {String} props.photographerId
+	 * @param   {String} props.idMedia
 	 *
 	 */
 	constructor(domTarget, props) {
@@ -15,8 +15,8 @@ export default class Lightbox {
 		// domTarget.appendChild(this.DOM);
 
 		this.DOM = domTarget;
+		this.photographerId = props.photographerId; 
 		this.id = props.idMedia;
-		this.photographerId = props.photographerId;
 		// this.photographerId = photographerId;
 
 		// this.image = "content/media/" + media.image;

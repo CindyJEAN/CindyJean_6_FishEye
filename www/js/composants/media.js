@@ -41,8 +41,10 @@ export default class Media {
 		<h3>${this.title}</h3> 
 		${this.video ? this.addVideo() : this.addImage()}`;
 		const buttonLikes = document.createElement("button");
-		const likes = parseInt(this.likes) + (this.liked? 1 : 0);
-		buttonLikes.innerHTML = `${likes}<i class="fa${this.liked? "s" : "r"} fa-heart"></i>`;
+		const likes = parseInt(this.likes) + (this.liked ? 1 : 0);
+		buttonLikes.innerHTML = `${likes}<i class="fa${
+			this.liked ? "s" : "r"
+		} fa-heart"></i>`;
 		buttonLikes.onclick = () => this.addLike();
 		this.DOM.appendChild(buttonLikes);
 	}
@@ -53,7 +55,7 @@ export default class Media {
 		this.callback(this.liked);
 	}
 
-	addVideo(){
+	addVideo() {
 		return `
 		<video preload="auto" onclick="window.changePage('lightbox','${this.id}/${this.photographerId}')">
 			<source src="./content/media/${this.video}" type="video/mp4">
@@ -62,9 +64,10 @@ export default class Media {
 		`;
 	}
 
-	addImage(){
+	addImage() {
 		return `
-			<img src="./content/media/${this.image}" alt="${this.description}" title="${this.title}" onclick="window.changePage('lightbox','${this.id}/${this.photographerId}')">
+			<img src="./content/media/${this.image}" alt="${this.description}" 
+			title="${this.title}" onclick="window.changePage('lightbox','${this.id}/${this.photographerId}')">
 		`;
 	}
 }

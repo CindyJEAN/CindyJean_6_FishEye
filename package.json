@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "watch": "npx gulp watch",
-    "resize": "npx gulp resize"
+    "watch": "npx gulp watch"
   },
   "author": "",
   "license": "ISC",
