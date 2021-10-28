@@ -1,6 +1,5 @@
 import Tag from "../composants/tag.js"
 import Button from "./button.js";
-import PhotographerInfo from "./photographerInfo.js";
 export default class Profile {
 	// src = null;
 	// name = null;
@@ -68,20 +67,4 @@ export default class Profile {
 			new Tag(tags, tag);
 		})
 	}
-
-	// render() {
-	// 	this.DOM.innerHTML = `
-  //   <div onclick="window.location.href='photographer-page.html'">
-	// 	  <img src=${this.photo} alt="" class="profile-photo" />
-	// 	  <h2>${this.name}</h2>
-	//   </div>
-  //   <address>${this.city}, ${this.country}</address>
-	// <p class="tagline">${this.tagline}</p>
-	// <p class="price">${this.price}€/jour</p>
-
-  //   `;
-	// 	this.profileData.tags.forEach((tag) => {
-	// 		new Tag(this.DOM, tag);
-	// 	});
-	// }
 }

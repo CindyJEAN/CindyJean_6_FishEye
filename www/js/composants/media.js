@@ -58,17 +58,20 @@ export default class Media {
 
 	addVideo() {
 		return `
-		<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}/${this.id}')">
+		<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')">
 			<source src="./content/media/${this.video}" type="video/mp4">
-			${this.description}
-		</video>
-		`;
+			</video>
+			`;
+			// ${this.description}
 	};
 
 	addImage() {
 		return `
 			<img src="./content/media/${this.image.replace(".", "-small.")}" alt="${this.description}" 
-			title="${this.title}" onclick="window.changePage('lightbox','${this.photographerId}/${this.id}')">
+			title="${this.title}" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')">
 		`;
 	};
 };
+
+// ${this.photographerId}/${this.id}
+// ${this.id}/${this.photographerId}

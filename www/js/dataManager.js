@@ -21,6 +21,7 @@
  * @property   {String}  video  
  * @property   {String}  date  
  * @property   {Number}  price  
+ * @property	 {String}	 description
  */
 
 /**
@@ -85,9 +86,11 @@ async function getPhotographerById(id) {
 async function getMediaByPhotographerId(id) {
 	if (data === null) await getAllData();
 	let media = [];
+	console.log(typeof id)
 	data.media.forEach((medium) => {
 		if (medium.photographerId === id) media.push(medium);
 	});
+	console.log(media,"...")
 	return media;
 }
 

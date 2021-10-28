@@ -11,17 +11,15 @@ export default class Lightbox {
 	 */
 	constructor(domTarget, props) {
 		this.DOM = domTarget;
+		const main = document.createElement("main");
+		this.DOM.appendChild(main);
+		main.className = "lightboxMain";
 		this.lightbox = document.createElement("div");
-		this.DOM.appendChild(this.lightbox);
-		this.lightbox.className = "lightbox";
+		main.appendChild(this.lightbox);
+		this.lightbox.className = "lightboxContent";
 		
 		this.photographerId = parseInt(props.photographerId);
 		this.id = parseInt(props.mediaId);
-		// this.photographerId = photographerId;
-
-		// this.image = "content/media/" + media.image;
-		// this.title = media.title;
-		// this.video = media.video;
 
 		this.render();
 	}
@@ -30,13 +28,14 @@ export default class Lightbox {
 		this.media = await getMediaByPhotographerId(this.photographerId);
 		this.index = this.media.findIndex((element) => element.id === this.id);
 		this.actualMedia = this.media[this.index];
-		// this.description = this.actualMedia.description || "";
+		this.description = this.actualMedia.description || "";
 		this.image = this.actualMedia.image;
 		this.video = this.actualMedia.video;
 		this.title = this.actualMedia.title;
 
 		this.lightbox.innerHTML = `
 				${this.video ? this.addVideo() : this.addImage()}
+				<h3>${this.title}</h3>
         <button class="close"><i class="fas fa-times"></i></button>
     `;
 
@@ -67,11 +66,17 @@ export default class Lightbox {
 
 	addImage() {
 		return `
-			<img src="./content/media/${this.image.replace(".", "-small.")}" 
-			title="${this.title}">
+			<img src="./content/media/${this.image}" alt="${this.description}">
 		`;
 	};
 
+	/**
+	 * increases or decreases the index depending on the button clicked (previous or next), 
+	 * then updates the id of the media corresponding to the index in the list, to render the new media selected
+	 *
+	 * @param   {String}  move  previous or next
+	 *     
+	 */
 	changeIndex(move) {
 		if (move === "previous") {
 			if ( this.index === 0) {
@@ -85,6 +90,8 @@ export default class Lightbox {
 			}
 			else { this.index++ };
 		}
+		this.id = this.media[this.index].id;
+		history.pushState({}, this.title, `#lightbox/${this.photographerId}/${this.id}` )
 		this.render();
 	};
 }

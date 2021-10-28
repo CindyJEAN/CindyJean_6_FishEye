@@ -26,7 +26,7 @@ export default class PhotographerPage {
 
 		const main = document.createElement("main");
 		this.DOM.appendChild(main);
-		main.className = "photographer-main";
+		main.className = "photographerMain";
 
 		new Profile(main, profileData, "photographer", this.openForm.bind(this));
 		new Dropdown(main);

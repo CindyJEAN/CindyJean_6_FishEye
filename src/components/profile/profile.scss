@@ -73,7 +73,7 @@ p {
 	}
 }
 
-.photographer-main {
+.photographerMain {
 	.profile {
 		width: 100%;
 		margin-bottom: 1rem;
@@ -108,6 +108,10 @@ p {
 				position: static;
 				margin: 0;
 			}
+		}
+
+		div.tags {
+			flex-wrap: wrap;
 		}
 	}
 
