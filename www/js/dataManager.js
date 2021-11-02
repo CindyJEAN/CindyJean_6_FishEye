@@ -8,6 +8,7 @@
  * @property   {Array}  tags  tags of the photographer
  * @property   {Array}  price  price
  * @property   {Number}  id photographer id
+ * @property	 {String}	 description photo description
  */
 
 /**

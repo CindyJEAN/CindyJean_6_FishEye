@@ -26,6 +26,7 @@ export default class Profile {
 		this.price = profileData.price;
 		this.callback = callback;
 		this.id = profileData.id;
+		this.description = profileData.description;
 
 		if (page === "index") {
 			this.indexRender();
@@ -38,7 +39,7 @@ export default class Profile {
 	indexRender() {
 		this.DOM.innerHTML = `
     <div onclick="window.changePage('photographer',${this.id})">
-		  <img src=${this.photo} alt="" class="profile-photo" />
+		  <img src=${this.photo} alt="${this.description}" class="profile-photo" />
 		  <h2>${this.name}</h2>
 	  </div>
     <address>${this.city}, ${this.country}</address>
@@ -56,7 +57,7 @@ export default class Profile {
     <address>${this.city}, ${this.country}</address>
 		<p class="tagline">${this.tagline}</p>
 		
-		<img src=${this.photo} alt="" class="profile-photo" />
+		<img src=${this.photo} alt="${this.description}" class="profile-photo" />
     `;
 		new Button(this.DOM, "Contactez-moi", this.callback);
 

@@ -60,6 +60,7 @@ export default class Media {
 		return `
 		<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')">
 			<source src="./content/media/${this.video}" type="video/mp4">
+			${this.description}
 			</video>
 			`;
 			// ${this.description}

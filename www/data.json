@@ -8,7 +8,8 @@
       "tags": ["portrait", "events", "travel", "animals"],
       "tagline": "Voir le beau dans le quotidien",
       "price": 400,
-      "portrait": "MimiKeel.jpg"
+      "portrait": "MimiKeel.jpg",
+      "description": "portrait du semi-profil d'une femme brune"
     },
     {
       "name": "Ellie-Rose Wilkens",
@@ -18,7 +19,8 @@
       "tags": ["sport", "architecture"],
       "tagline": "Capturer des compositions complexes",
       "price": 250,
-      "portrait": "EllieRoseWilkens.jpg"
+      "portrait": "EllieRoseWilkens.jpg",
+      "description": "portrait d'une femme souriante aux cheveux colorés et portant des lunettes"
     },
     {
       "name": "Tracy Galindo",
@@ -28,7 +30,8 @@
       "tags": ["art", "fashion", "events"],
       "tagline": "Photographe freelance",
       "price": 500,
-      "portrait": "TracyGalindo.jpg"
+      "portrait": "TracyGalindo.jpg",
+      "description": "portrait du profil en noir et blanc d'un homme au cheveux bouclés"
     },
     {
       "name": "Nabeel Bradford",
@@ -38,7 +41,8 @@
       "tags": ["travel", "portrait"],
       "tagline": "Toujours aller de l'avant",
       "price": 350,
-      "portrait": "NabeelBradford.jpg"
+      "portrait": "NabeelBradford.jpg",
+      "description": "homme en montagne avec un trépied, regardant le paysage sur fond de coucher de soleil"
     },
     {
       "name": "Rhode Dubois",
@@ -48,7 +52,8 @@
       "tags": ["sport", "fashion", "events", "animals"],
       "tagline": "Je crée des souvenirs",
       "price": 275,
-      "portrait": "RhodeDubois.jpg"
+      "portrait": "RhodeDubois.jpg",
+      "description": "portrait d'une femme brune sur fond noir"
     },
     {
       "name": "Marcel Nikolic",
@@ -58,7 +63,8 @@
       "tags": ["travel", "architecture"],
       "tagline": "Toujours à la recherche de LA photo",
       "price": 300,
-      "portrait": "MarcelNikolic.jpg"
+      "portrait": "MarcelNikolic.jpg",
+      "description": "portrait en noir et blanc d'un homme regardant vers le bas et manipulant son appareil photo"
     }
   ],
   "media": [
@@ -136,7 +142,8 @@
       "tags": ["art"],
       "likes": 24,
       "date": "2011-12-08",
-      "price": 100
+      "price": 100,
+      "description": "vidéo rapprochée d'une sculpture de cheval en bois"
     },
     {
       "id": 7502053,
@@ -269,7 +276,7 @@
       "likes": 52,
       "date": "2016-06-12",
       "price": 70,
-      "description": "animal chiot"
+      "description": "Chiot jouant dans le sable avec un coucher de soleil en fond"
     },
 
     {
@@ -468,7 +475,8 @@
       "tags": ["animals"],
       "likes": 142,
       "date": "2019-08-23",
-      "price": 60
+      "price": 60,
+      "description": "un troupeau de chevaux sauvages au galop dans les montagnes"
     },
     {
       "id": 95234343,
@@ -578,7 +586,8 @@
       "tags": ["architecture"],
       "likes": 57,
       "date": "2020-01-20",
-      "price": 65
+      "price": 65,
+      "description": "Autoroutes de Buenos Aires vues de dessus"
     },
     {
       "id": 3523523534,
@@ -600,7 +609,8 @@
       "tags": ["sport"],
       "likes": 150,
       "date": "2018-02-30",
-      "price": 70
+      "price": 70,
+      "description": "femme faisant de l'acrobatie aérienne"
     },
     {
       "id": 235234343,
@@ -611,7 +621,7 @@
       "likes": 101,
       "date": "2018-03-05",
       "price": 65,
-      "description": "sport grimpe"
+      "description": "femme grimpant sur une falaise dans la nature"
     },
     {
       "id": 235343222,
@@ -622,7 +632,7 @@
       "likes": 103,
       "date": "2018-03-10",
       "price": 70,
-      "description": "sport surf"
+      "description": "vue de face d'un surfer dans un rouleau"
     },
     {
       "id": 7775342343,
@@ -633,7 +643,7 @@
       "likes": 77,
       "date": "2018-04-16",
       "price": 50,
-      "description": "sport ski"
+      "description": "vue de profil du saut en l'air d'un skieur sur une piste enneigée"
     },
     {
       "id": 9253445784,
@@ -644,7 +654,7 @@
       "likes": 88,
       "date": "2018-04-22",
       "price": 65,
-      "description": "sport course"
+      "description": "plusieurs femmes courant sur une piste de course"
     },
     {
       "id": 22299394,
@@ -655,7 +665,7 @@
       "likes": 95,
       "date": "2018-04-27",
       "price": 70,
-      "description": "sport skate"
+      "description": "saut en l'air d'un homme en skate dans un skatepark"
     },
     {
       "id": 3452342633,
@@ -666,7 +676,7 @@
       "likes": 52,
       "date": "2018-05-03",
       "price": 75,
-      "description": "architecture lumière"
+      "description": "vue d'en bas des étages et plafond d'une architecture tout en blanc, arrondie et lumineuse"
     },
     {
       "id": 939234243,
@@ -677,7 +687,7 @@
       "likes": 55,
       "date": "2018-05-10",
       "price": 72,
-      "description": "architecture eau"
+      "description": "vue de l'extérieur d'une architecture courbée, avec de l'eau par dessus"
     },
     {
       "id": 222959233,
@@ -688,7 +698,7 @@
       "likes": 85,
       "date": "2018-05-15",
       "price": 71,
-      "description": "architecture moderne"
+      "description": "vue d'en bas d'une architecture pleine de courbes, photo en noir et blanc"
     },
     {
       "id": 965933434,
@@ -699,7 +709,7 @@
       "likes": 66,
       "date": "2018-05-20",
       "price": 58,
-      "description": "architecture barres"
+      "description": "vue d'en bas d'une architecture avec des reflets orange et pleine de barres se croisant"
     },
     {
       "id": 777723343,
@@ -710,7 +720,7 @@
       "likes": 79,
       "date": "2018-05-21",
       "price": 80,
-      "description": "architecture courbes"
+      "description": "vue d'en bas d'une architecture pleine de courbes et liées au milieu, sous un ciel bleu"
     }
   ]
 }
