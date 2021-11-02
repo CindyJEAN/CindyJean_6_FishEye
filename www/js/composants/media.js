@@ -73,6 +73,3 @@ export default class Media {
 		`;
 	};
 };
-
-// ${this.photographerId}/${this.id}
-// ${this.id}/${this.photographerId}
