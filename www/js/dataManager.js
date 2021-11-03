@@ -87,11 +87,11 @@ async function getPhotographerById(id) {
 async function getMediaByPhotographerId(id) {
 	if (data === null) await getAllData();
 	let media = [];
-	console.log(typeof id)
+	// console.log(typeof id)
 	data.media.forEach((medium) => {
 		if (medium.photographerId === id) media.push(medium);
 	});
-	console.log(media,"...")
+	// console.log(media,"...")
 	return media;
 }
 

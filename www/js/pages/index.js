@@ -30,11 +30,15 @@ export default class Index{
     });
   }
 
-  clickOnTag(tagName) {
+  clickOnTag(tagName, page) {
+    // if (page !== "index") {
+    //   window.changePage('index');
+    // }
     const position = this.activeTags.indexOf(tagName);
     if (position === -1) this.activeTags.push(tagName);
     else this.activeTags.splice(position, 1);
     console.log(tagName);
-    this.render()
+    this.render();
   }
 }
+

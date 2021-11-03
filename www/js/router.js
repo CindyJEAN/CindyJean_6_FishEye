@@ -72,7 +72,6 @@ const showPage = function (page, photographerId=undefined, mediaId=undefined) {
 			DOM.innerHTML = "404";
 			break;
 	}
-	console.log("showpage page", page, photographerId, mediaId);
 };
 
 /**
@@ -92,6 +91,5 @@ window.changePage = function (page, photographerId=undefined, mediaId=undefined)
 		if (mediaId) newUrl += "/"+mediaId;
 	}
 	history.pushState({}, "",newUrl);
-	console.log("changepage page", {page, photographerId, mediaId});
 	showPage(page, photographerId, mediaId);
 }

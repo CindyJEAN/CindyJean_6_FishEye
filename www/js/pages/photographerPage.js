@@ -29,7 +29,8 @@ export default class PhotographerPage {
 		main.className = "photographerMain";
 
 		new Profile(main, profileData, "photographer", this.openForm.bind(this));
-		new Dropdown(main);
+		// new Profile(main, profileData, "photographer", this.openForm.bind(this), this.clickOnTag.bind(this));
+		new Dropdown(main, this.filterMedia.bind(this));
 		
 		const gallery = document.createElement("div");
 		main.appendChild(gallery);
@@ -55,5 +56,13 @@ export default class PhotographerPage {
 		this.totalLikes += increment ? 1 : -1;
 		this.information.update(this.totalLikes);
 	};
+
+	filterMedia(filter) {
+		console.log(filter);
+	}
+
+	// clickOnTag(tagName) {
+	// 	window.changePage('index');
+	// }
 
 };

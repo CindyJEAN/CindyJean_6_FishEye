@@ -8,13 +8,14 @@ export default class Dropdown{
 	 * @param   {HTMLElement}  domTarget  [domTarget description]
 	 *
 	 */
-	constructor(domTarget) {
+	constructor(domTarget, callback) {
 		this.DOM = document.createElement("div");
 		domTarget.appendChild(this.DOM);
 		this.DOM.className = "filter";
+		this.callback = callback;
 
 		this.filters = new Set(["Popularité"]);
-		this.filter = this.filters[0];
+		// this.filter = this.filters[0];
 		
 		this.render();
 	}
@@ -23,11 +24,6 @@ export default class Dropdown{
 		this.DOM.innerHTML = `
     <p class="dropdown-label">Trier par</p>
     `;
-    // <ul class="dropdown">
-    //   <li>Popularité</li>
-    //   <li>Date</li>
-    //   <li>Titre</li>
-    // </ul>
 
 		const ul = document.createElement("ul");
 		ul.className = "dropdown";
@@ -36,23 +32,20 @@ export default class Dropdown{
 		this.filters.forEach(filter => {
 			new ListItem(ul, filter, this.changeFilters.bind(this)); 
 		});
-	
-		// this.selectedListItem = document.createElement("li");
-		// this.selectedListItem.innerHTML = this.filter;
-		// ul.appendChild(this.selectedListItem);
-
-		// this.selectedListItem.onclick = () => ;
+		// console.log(this.filters);
+		// console.log(window.console);
 	}
 
 	changeFilters(name) {
 		if (this.filters.size === 1) {
 			filters.forEach(filter => {
 				this.filters.add(filter);
-			})
+			});
 		}
 		else {
-			this.filters.clear;
+			this.filters.clear();
 			this.filters.add(name);
+			this.callback(name);
 		}
 		this.render();
 	}

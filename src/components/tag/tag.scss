@@ -1,20 +1,25 @@
 span.tag {
-  font-weight: 500;
-  font-size: 12px;
-  width: fit-content;
-  height: fit-content;
-  color: $colorPrimary;
-  text-decoration: none;
-  border: solid 1px $grey;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  padding: 2px 6px;
-  margin: 0 5px 5px 0;
+	font-weight: 500;
+	font-size: 12px;
+	width: fit-content;
+	height: fit-content;
+	color: $colorPrimary;
+	text-decoration: none;
+	border: solid 1px $grey;
+	border-radius: 25px;
+	display: flex;
+	align-items: center;
+	padding: 2px 6px;
+	margin: 0 5px 5px 0;
 
-  &:focus, &:hover {
-    color: white;
-    background-color: $colorPrimary;
-    border: none;
-  }
+	// &:focus, &:hover, &:active {
+	//   color: white;
+	//   background-color: $colorPrimary;
+	//   border: none;
+	// }
+	&.active {
+		color: white;
+		background-color: $colorPrimary;
+		border: none;
+	}
 }

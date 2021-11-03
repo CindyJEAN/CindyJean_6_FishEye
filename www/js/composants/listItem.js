@@ -5,7 +5,7 @@ export default class ListItem{
    *
    * @param   {HTMLElement}  domTarget  [domTarget description]
    * @param   {String}  name    name of filter
-   * @param   {Function}  callback   click on tag function
+   * @param   {Function}  callback   filterMedia function
    *
    */
   constructor(domTarget, name, callback=null){

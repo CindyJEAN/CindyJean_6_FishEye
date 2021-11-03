@@ -10,9 +10,23 @@ export default class Tag{
    */
   constructor(domTarget, tagName, callback=null){
     this.DOM = document.createElement("span");
-    this.DOM.className = "tag";
+    this.DOM.classList.add("tag");
     domTarget.appendChild(this.DOM);
     this.DOM.innerText = "#"+tagName;
-    this.DOM.onclick = () => callback(tagName);
+
+    this.DOM.onclick = () => {
+      this.toggleFilter();
+      callback(tagName);
+    };
+  }
+
+  toggleFilter() {
+    // if (this.DOM.classList.contains("active")) {
+    //   this.DOM.classList.remove("active");
+    // }
+    // else {
+    //   this.DOM.classList.add("active");
+    // }
+    this.DOM.classList.toggle("active");
   }
 }
