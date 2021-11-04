@@ -14,14 +14,14 @@
 /**
  * @typedef  {Object}  media
  * @property   {Number}  id  media id
- * @property   {Number}  photographerId  
- * @property   {String}  title  
- * @property   {String}  image  
- * @property   {Array}  tags  
- * @property   {Number}  likes  
- * @property   {String}  video  
- * @property   {String}  date  
- * @property   {Number}  price  
+ * @property   {Number}  photographerId
+ * @property   {String}  title
+ * @property   {String}  image
+ * @property   {Array}  tags
+ * @property   {Number}  likes
+ * @property   {String}  video
+ * @property   {String}  date
+ * @property   {Number}  price
  * @property	 {String}	 description
  */
 
@@ -87,11 +87,9 @@ async function getPhotographerById(id) {
 async function getMediaByPhotographerId(id) {
 	if (data === null) await getAllData();
 	let media = [];
-	// console.log(typeof id)
 	data.media.forEach((medium) => {
 		if (medium.photographerId === id) media.push(medium);
 	});
-	// console.log(media,"...")
 	return media;
 }
 

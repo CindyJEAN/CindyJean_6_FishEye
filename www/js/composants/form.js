@@ -1,3 +1,5 @@
+import Button from "./button.js";
+
 export default class Form {
 	/**
 	 * [constructor description]
@@ -17,19 +19,23 @@ export default class Form {
 	}
 
 	render() {
-		this.DOM.innerHTML = `
-		<div class="formModal">
-		<h1 class="formTitle">Contactez-moi</h1>
+		const modal = document.createElement("div");
+		modal.className = "formModal";
+		this.DOM.appendChild(modal);
+
+		modal.innerHTML = `
+			<h2 class="formTitle">Contactez-moi</h2>
 			<form>
 				<label for="firstName"> Prénom </label>
 				<input type="text" id="firstName" name="firstName" />
-				<label for="lastName"> Prénom </label>
+				<label for="lastName"> Nom </label>
 				<input type="text" id="lastName" name="lastName" />
-				<label for="email"> Prénom </label>
+				<label for="email"> Email </label>
 				<input type="email" id="email" name="email" />
+				<label for="message"> Votre message </label>
+				<textarea id="message" name="message"></textarea>
 			</form>
-		</div>
 	`;
+	new Button(modal, "Envoyer", null);
 	}
 }
-//button à ajouter

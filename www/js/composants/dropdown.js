@@ -15,7 +15,7 @@ export default class Dropdown{
 		this.callback = callback;
 
 		this.filters = new Set(["Popularité"]);
-		// this.filter = this.filters[0];
+		this.sorting = this.filters[0];
 		
 		this.render();
 	}

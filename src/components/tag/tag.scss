@@ -11,13 +11,18 @@ span.tag {
 	align-items: center;
 	padding: 2px 6px;
 	margin: 0 5px 5px 0;
+}
 
-	// &:focus, &:hover, &:active {
-	//   color: white;
-	//   background-color: $colorPrimary;
-	//   border: none;
-	// }
+nav .tag {
 	&.active {
+		color: white;
+		background-color: $colorPrimary;
+		border: none;
+	}
+}
+
+.photographerMain .tag {
+	&:hover {
 		color: white;
 		background-color: $colorPrimary;
 		border: none;
