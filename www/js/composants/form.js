@@ -25,6 +25,7 @@ export default class Form {
 
 		modal.innerHTML = `
 			<h2 class="formTitle">Contactez-moi</h2>
+			<button class="close"><i class="fas fa-times"></i></button>
 			<form>
 				<label for="firstName"> Prénom </label>
 				<input type="text" id="firstName" name="firstName" />

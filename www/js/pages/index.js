@@ -7,26 +7,32 @@ export default class Index{
    *
    * @param   {HTMLElement}  domTarget    [domTarget description]
    */
-  constructor(domTarget){
-    this.activeTags = [];
+  constructor(domTarget, selectedTag){
+    this.activeTags = selectedTag === undefined ? [] : [selectedTag];
     this.DOM = domTarget;
-    this.tags = [];
+    // this.tags = [];
     this.render();
   }
 
   async render(){
     this.DOM.innerText="";
-    if (this.tags.length === 0) this.tags = await getPhotographersTags();
-    const profiles = await getPhotographersList(this.activeTags);
+    const tags = await getPhotographersTags();
 
-    new Header(this.DOM, this.tags, this.clickOnTag.bind(this));
+    new Header(this.DOM, tags, this.clickOnTag.bind(this));
 
-    const main = document.createElement("main");
-    this.DOM.appendChild(main);
-    main.className = "index-main";
-    main.innerHTML = `<h1>Nos photographes</h1>`;
+    this.main = document.createElement("main");
+    this.DOM.appendChild(this.main);
+    this.main.className = "index-main";
+    this.showPhotographers();
+  }
+
+  showPhotographers(){
+    
+    this.main.innerHTML = `<h1>Nos photographes</h1>`;
+    const profiles = getPhotographersList(this.activeTags);
+    
     profiles.forEach(profilePhotographer => {
-      new Profile(main, profilePhotographer, "index");
+      new Profile(this.main, profilePhotographer, "index");
     });
   }
 
@@ -38,7 +44,7 @@ export default class Index{
     if (position === -1) this.activeTags.push(tagName);
     else this.activeTags.splice(position, 1);
     console.log(tagName);
-    this.render();
+    this.showPhotographers();
   }
 }
 

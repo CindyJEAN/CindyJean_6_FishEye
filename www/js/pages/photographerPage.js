@@ -17,34 +17,42 @@ export default class PhotographerPage {
 	constructor(domTarget, id) {
 		this.DOM = domTarget;
 		this.id = id;
+		this.filters = ["Popularité", "Date", "Titre"];
 		this.totalLikes = 0;
+		this.activeFilter = this.filters[0];
 		this.render();
 	}
 
-	async render() {
+	async render(){
 		const profileData = await getPhotographerById(this.id);
-		let media = await this.sortMedia();
-
 		new Header(this.DOM, null, null);
-
 		const main = document.createElement("main");
 		this.DOM.appendChild(main);
 		main.className = "photographerMain";
-
 		new Profile(main, profileData, "photographer", this.openForm.bind(this));
-		// new Profile(main, profileData, "photographer", this.openForm.bind(this), this.clickOnTag.bind(this));
-		new Dropdown(main, this.sortMedia.bind(this));
+		new Dropdown(main, this.filters, this.sortMedia.bind(this));
 
-		const gallery = document.createElement("div");
-		main.appendChild(gallery);
-		gallery.className = "gallery";
+		this.gallery = document.createElement("div");
+		main.appendChild(this.gallery);
+		this.gallery.className = "gallery";
+		this.udpdateGallery();
+		this.information = new PhotographerInfo(main, profileData, this.totalLikes);
+
+	}
+
+	async udpdateGallery() {
+		this.gallery.innerText = "";
+		const media = getMediaByPhotographerId(this.id, this.activeFilter);
+
+
+		// new Profile(main, profileData, "photographer", this.openForm.bind(this), this.clickOnTag.bind(this));
+
 
 		media.forEach((medium) => {
-			new Media(gallery, medium, this.updateLikes.bind(this));
+			new Media(this.gallery, medium, this.updateLikes.bind(this));
 			this.totalLikes += medium.likes;
 		});
 
-		this.information = new PhotographerInfo(main, profileData, this.totalLikes);
 	}
 
 	openForm() {
@@ -60,39 +68,11 @@ export default class PhotographerPage {
 		this.information.update(this.totalLikes);
 	}
 
-	async sortMedia(filter) {
-		const media = await getMediaByPhotographerId(this.id);
-		if (filter === undefined) {
-			filter = "Popularité";
-		};
-		console.log("filter", filter);
-		let sortedMedia = [...media];
-		switch (filter) {
-			case "Popularité":
-				sortedMedia.sort((a, b) => b.likes - a.likes);
-				break;
-			case "Date":
-				sortedMedia.sort((a, b) => {
-					let dateB = new Date(b.date);
-					let dateA = new Date(a.date);
-					return dateB < dateA ? -1 : 1;
-				});
-				break;
-			case "Titre":
-				sortedMedia.sort((a, b) => (b.title < a.title ? 1 : -1));
-				break;
-			default:
-				sortedMedia;
-				break;
-		}
-		sortedMedia.map((medium) => console.log("mediumFilter", medium[filter]));
+	sortMedia(filter){
+		this.activeFilter = filter;
+		this.udpdateGallery();
 
-		console.log("media", media);
-		console.log("sortedMedia", sortedMedia);
-		console.log(window.console);
-		return sortedMedia;
 	}
-
 	// clickOnTag(tagName) {
 	// 	window.changePage('index');
 	// }

@@ -62,10 +62,10 @@ async function getPhotographersTags() {
  *
  * @param   {Array}  filters  [filters description]
  *
- * @return  {Promise.<Array.<photographerProfile>>}           [return description]
+ * @return  {Array.<photographerProfile>}           [return description]
  */
-async function getPhotographersList(filters) {
-	if (data === null) await getAllData();
+function getPhotographersList(filters) {
+	// if (data === null) await getAllData();
 	if (filters.length === 0) return data.photographers;
 	let photographers = [];
 	data.photographers.forEach((photographer) => {
@@ -84,12 +84,39 @@ async function getPhotographerById(id) {
 	}
 }
 
-async function getMediaByPhotographerId(id) {
-	if (data === null) await getAllData();
+/**
+ * @param   {Number}          id
+ * @param   {String}          filter
+ * @returns {Array}
+ */
+function getMediaByPhotographerId(id, filter) {
 	let media = [];
 	data.media.forEach((medium) => {
 		if (medium.photographerId === id) media.push(medium);
 	});
+	
+	switch (filter) {
+		case "Popularité":
+			media.sort((a, b) => b.likes - a.likes);
+			break;
+		case "Date":
+			media.sort((a, b) => {
+				let dateB = new Date(b.date);
+				let dateA = new Date(a.date);
+				return dateB < dateA ? -1 : 1;
+			});
+			break;
+		case "Titre":
+			media.sort((a, b) => (b.title < a.title ? 1 : -1));
+			break;
+		default:
+			break;
+	}
+	//sortedMedia.map((medium) => console.log("mediumFilter", medium[filter]));
+
+	console.log("media", media);
+	// console.log("sortedMedia", sortedMedia);
+	// console.log(window.console);
 	return media;
 }
 

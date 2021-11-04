@@ -1,22 +1,24 @@
 import ListItem from "./listItem.js";
 
-const filters = ["Popularité", "Date", "Titre"];
 export default class Dropdown{
 	/**
 	 * [constructor description]
 	 *
 	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {Function}  callback  [domTarget description]
+	 * @param   {Array}  filters  [domTarget description]
 	 *
 	 */
-	constructor(domTarget, callback) {
+	constructor(domTarget, filters, callback) {
 		this.DOM = document.createElement("div");
 		domTarget.appendChild(this.DOM);
 		this.DOM.className = "filter";
 		this.callback = callback;
 
-		this.filters = new Set(["Popularité"]);
+		this.filters = filters;
 		this.sorting = this.filters[0];
-		
+		this.folded = true;
+
 		this.render();
 	}
 
@@ -27,24 +29,21 @@ export default class Dropdown{
 
 		const ul = document.createElement("ul");
 		ul.className = "dropdown";
+		if (!this.folded) ul.classList.add("list");
 		this.DOM.appendChild(ul);
-
+		if (this.folded){
+			new ListItem(ul, this.sorting, this.changeFilters.bind(this));
+			return;
+		}
 		this.filters.forEach(filter => {
 			new ListItem(ul, filter, this.changeFilters.bind(this)); 
 		});
-		// console.log(this.filters);
-		// console.log(window.console);
 	}
 
 	changeFilters(name) {
-		if (this.filters.size === 1) {
-			filters.forEach(filter => {
-				this.filters.add(filter);
-			});
-		}
-		else {
-			this.filters.clear();
-			this.filters.add(name);
+		this.folded = ! this.folded;
+		if (this.folded) {
+			this.sorting = name;
 			this.callback(name);
 		}
 		this.render();

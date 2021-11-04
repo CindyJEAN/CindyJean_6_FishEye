@@ -51,7 +51,7 @@ const extract = function extractPageFromUrl(){
  * [showPage description]
  *
  * @param   {String}  page  
- * @param   {String}  photographerId 
+ * @param   {String}  photographerId  l'id du photographe ou le tag sélectionné
  * @param   {String}  mediaId 
  *
  */
@@ -59,7 +59,8 @@ const showPage = function (page, photographerId=undefined, mediaId=undefined) {
 	DOM.innerText= "";
 	switch (page) {
 		case "index":
-			new Index(DOM);
+			const selectedTag = photographerId;
+			new Index(DOM, selectedTag);
 			break;
 		case "photographer":
 			new PhotographerPage(DOM, parseInt(photographerId));
