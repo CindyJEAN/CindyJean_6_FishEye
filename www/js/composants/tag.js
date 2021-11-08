@@ -15,18 +15,16 @@ export default class Tag{
     this.DOM.innerText = "#"+tagName;
 
     this.DOM.onclick = () => {
-      this.toggleDropdown();
-      callback(tagName);
+      this.toggleFilter();
+      if (callback) {
+        callback(tagName);
+        return;
+      }
+      window.changePage("index", tagName);
     };
   }
 
-  toggleDropdown() {
-    // if (this.DOM.classList.contains("active")) {
-    //   this.DOM.classList.remove("active");
-    // }
-    // else {
-    //   this.DOM.classList.add("active");
-    // }
+  toggleFilter() {
     this.DOM.classList.toggle("active");
   }
 }

@@ -16,7 +16,7 @@ export default class Dropdown{
 		this.callback = callback;
 
 		this.filters = filters;
-		this.sorting = this.filters[0];
+		this.activeFilter = this.filters[0];
 		this.folded = true;
 
 		this.render();
@@ -32,7 +32,7 @@ export default class Dropdown{
 		if (!this.folded) ul.classList.add("list");
 		this.DOM.appendChild(ul);
 		if (this.folded){
-			new ListItem(ul, this.sorting, this.changeFilters.bind(this));
+			new ListItem(ul, this.activeFilter, this.changeFilters.bind(this));
 			return;
 		}
 		this.filters.forEach(filter => {
@@ -43,7 +43,7 @@ export default class Dropdown{
 	changeFilters(name) {
 		this.folded = ! this.folded;
 		if (this.folded) {
-			this.sorting = name;
+			this.activeFilter = name;
 			this.callback(name);
 		}
 		this.render();

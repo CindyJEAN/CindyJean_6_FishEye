@@ -12,7 +12,7 @@ export default class Profile {
 	 * @param {import("../dataManager.js").photographerProfile} profileData
 	 *
 	 */
-	constructor(domTarget, profileData, page, formCallback, tagCallback) {
+	constructor(domTarget, profileData, page, formCallback) {
 		this.DOM = document.createElement("article");
 		domTarget.appendChild(this.DOM);
 		this.DOM.className = "profile";
@@ -25,7 +25,6 @@ export default class Profile {
 		this.tagline = profileData.tagline;
 		this.price = profileData.price;
 		this.callback = formCallback;
-		this.tagCallback = tagCallback;
 		this.id = profileData.id;
 		this.description = profileData.description;
 
@@ -34,7 +33,6 @@ export default class Profile {
 		}
 		else this.photographerRender();
 
-    // this.render();
 	}
 
 	indexRender() {
@@ -66,7 +64,7 @@ export default class Profile {
 		this.DOM.appendChild(tags);
 		tags.className = "tags";
 		this.profileData.tags.forEach((tag) => {
-			new Tag(tags, tag, this.tagCallback);
+			new Tag(tags, tag);
 		})
 	}
 }

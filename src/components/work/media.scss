@@ -8,6 +8,7 @@
 	grid-template-areas:
 		"media media"
 		"title likes";
+	align-items: center;
 
 	@include desktop {
 		width: fit-content;

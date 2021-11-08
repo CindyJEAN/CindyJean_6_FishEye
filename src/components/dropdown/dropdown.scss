@@ -18,7 +18,7 @@
 // 	}
 // }
 
-.filter	{
+.filter {
 	width: 100%;
 	height: 4rem;
 	padding-top: 1rem;
@@ -32,7 +32,7 @@
 
 .dropdown-label {
 	// display: none;
-	
+
 	@include desktop {
 		position: absolute;
 		display: block;
@@ -43,7 +43,7 @@
 
 .dropdown {
 	// display: none;
-	
+
 	@include desktop {
 		position: absolute;
 		left: 10rem;
@@ -59,7 +59,7 @@
 		// padding: 0;
 		padding: 5px 0;
 		border: none;
-		border-radius: 5px;		
+		border-radius: 5px;
 	}
 
 	li {
@@ -89,10 +89,16 @@
 			&::before {
 				content: none;
 			}
-
 			&::after {
-				// content: "\f078";
-			content: "\f077";
+				content: "\f078";
+			}
+		}
+	}
+
+	&.list {
+		li {
+			&:first-of-type::after {
+				content: "\f077";
 			}
 		}
 	}

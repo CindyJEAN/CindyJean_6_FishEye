@@ -73,7 +73,4 @@ export default class PhotographerPage {
 		this.udpdateGallery();
 
 	}
-	// clickOnTag(tagName) {
-	// 	window.changePage('index');
-	// }
 }
