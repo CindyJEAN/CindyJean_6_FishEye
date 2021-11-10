@@ -36,7 +36,7 @@
 	@include desktop {
 		position: absolute;
 		display: block;
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: bold;
 	}
 }
@@ -52,7 +52,7 @@
 		list-style-type: none;
 		flex-direction: column;
 		width: 165px;
-		font-size: 18px;
+		font-size: 1.125rem;
 		color: white;
 		background-color: $colorPrimary;
 		// padding: 0 15px;

@@ -35,12 +35,12 @@ p {
 		align-items: center;
 		cursor: pointer;
 		h2 {
-			font-size: 36px;
+			font-size: 2.25rem;
 			text-align: center;
 		}
 	}
 	address {
-		font-size: 13px;
+		font-size: 0.82rem;
 		width: 100%;
 	}
 }
@@ -59,11 +59,12 @@ p {
 		width: 100%;
 
 		&.tagline {
-			font-size: 10px;
+			font-size: 0.625rem;
 		}
 		&.price {
 			color: $grey;
-			font-size: 9px;
+			// font-size: 9px;
+			font-size: 0.57rem;
 		}
 	}
 
@@ -116,20 +117,19 @@ p {
 	}
 
 	h1 {
-		font-size: 36px;
+		font-size: 2.25rem;
 		font-weight: 400;
-		color: $colorSecondary;
 		grid-area: name;
 
 		@include desktop {
-			font-size: 64px;
+			font-size: 4rem;
 		}
 	}
 
 	address {
 		grid-area: address;
 		@include desktop {
-			font-size: 24px;
+			font-size: 1.5rem;
 		}
 	}
 
@@ -138,17 +138,17 @@ p {
 		grid-area: tag;
 		margin-top: 0.5rem;
 		@include desktop {
-			font-size: 18px;
+			font-size: 1.125rem;
 		}
 	}
 
 	p.tagline {
 		grid-area: tagline;
-		font-size: 13px;
+		font-size: 0.82rem;
 		color: $darkGrey;
 
 		@include desktop {
-			font-size: 18px;
+			font-size: 1.125rem;
 		}
 	}
 
