@@ -56,7 +56,8 @@ export default class PhotographerPage {
 	}
 
 	openForm() {
-		new Form(this.DOM, this.closeForm.bind(this));
+		this.DOM.className = "noscroll";
+		new Form(this.DOM, this.id, this.closeForm.bind(this));
 	}
 
 	closeForm(modal) {

@@ -114,7 +114,7 @@ function getMediaByPhotographerId(id, filter) {
 	}
 	//sortedMedia.map((medium) => console.log("mediumFilter", medium[filter]));
 
-	console.log("media", media);
+	// console.log("media", media);
 	// console.log("sortedMedia", sortedMedia);
 	// console.log(window.console);
 	return media;

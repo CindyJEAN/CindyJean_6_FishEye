@@ -1,3 +1,5 @@
+import Form from "./form.js";
+
 export default class Button{
   /**
    * [constructor description]
@@ -10,8 +12,12 @@ export default class Button{
     domTarget.appendChild(this.DOM);
     this.DOM.className = "contact";
     this.DOM.innerText = text;
+    this.domTarget = domTarget;
 
-    this.DOM.onclick = () => callback("formModal")
-
+    if (text === "Envoyer") {
+      this.DOM.onclick = (e) => callback(e);
+      return;
+    }
+    this.DOM.onclick = () => callback("formModal");
   }
 }
