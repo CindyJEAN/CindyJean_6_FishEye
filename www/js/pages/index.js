@@ -43,7 +43,7 @@ export default class Index{
     const position = this.activeTags.indexOf(tagName);
     if (position === -1) this.activeTags.push(tagName);
     else this.activeTags.splice(position, 1);
-    console.log(tagName);
+    // console.log(tagName);
     this.showPhotographers();
   }
 }

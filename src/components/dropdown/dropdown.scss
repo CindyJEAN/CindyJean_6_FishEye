@@ -24,6 +24,7 @@
 	padding-top: 1rem;
 	display: none;
 	position: relative;
+	z-index: 1;
 
 	@include desktop {
 		display: block;

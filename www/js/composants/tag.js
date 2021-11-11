@@ -22,6 +22,16 @@ export default class Tag{
       }
       window.changePage("index", tagName);
     };
+
+    let redirectedTag = this.extractAtiveTag();
+    if (tagName === redirectedTag) {
+      this.toggleFilter();
+    }
+  }
+
+  extractAtiveTag() {
+    let redirectedTag = window.location.hash.slice(1).split("/")[1];
+    return redirectedTag;
   }
 
   toggleFilter() {

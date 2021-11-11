@@ -35,7 +35,7 @@ window.onpopstate = function(event) {
  *
  * @return  {Object} page to show, args of the page to show
  */
-const extract = function extractPageFromUrl(){
+const extract = function extractPageFromUrl() {
 	// let url = window.location.hash.slice(1).split("/");
 	// console.log("url", url);
 	// let page = url.shift();

@@ -25,7 +25,7 @@ export default class Lightbox {
 	}
 
 	async render() {
-		this.media = await getMediaByPhotographerId(this.photographerId);
+		this.media = await getMediaByPhotographerId(this.photographerId, null);
 		this.index = this.media.findIndex((element) => element.id === this.id);
 		this.actualMedia = this.media[this.index];
 		this.description = this.actualMedia.description || "";
@@ -50,9 +50,9 @@ export default class Lightbox {
 		this.lightbox.appendChild(rightButton);
 		rightButton.onclick = () => this.changeIndex("next");
 
-		console.log("mediaId", this.id, typeof this.id);
-		console.log("index", this.index);
-		console.log("actualMedia", this.actualMedia);
+		// console.log("mediaId", this.id, typeof this.id);
+		// console.log("index", this.index);
+		// console.log("actualMedia", this.actualMedia);
 	}
 
 	addVideo() {
