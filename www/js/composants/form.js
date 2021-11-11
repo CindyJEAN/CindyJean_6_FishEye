@@ -21,12 +21,12 @@ export default class Form {
 
 	async render() {
 		const profileData = await getPhotographerById(this.photographerId);
-		const modal = document.createElement("div");
+		const modal = document.createElement("section");
 		modal.className = "formModal";
 		this.DOM.appendChild(modal);
 		modal.focus;
 
-		modal.innerHTML = `<h2 class="formTitle">Contactez-moi ${profileData.name}</h2>`;
+		modal.innerHTML = `<h1 class="formTitle">Contactez-moi ${profileData.name}</h2>`;
 
 		const closeButton = document.createElement("button");
 		closeButton.className = "close";

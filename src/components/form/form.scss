@@ -31,14 +31,16 @@
 
 	@include desktop {
 		width: 700px;
-		height: 90vh;
+		// height: 90vh;
+		height: fit-content;
 	}
 
-	h2.formTitle {
+	h1.formTitle {
 		color: black;
 		width: 90%;
 		margin: 1rem auto;
 		// margin: auto;
+		font-weight: 400;
 		font-size: 2.25rem;
 		grid-area: title;
 
@@ -67,7 +69,8 @@
 		textarea {
 			border: none;
 			border-radius: 5px;
-			margin: 0.5rem 0 1rem;
+			// margin: 0.5rem 0 1rem;
+			margin-bottom: 0.5rem;
 			font-size: 1.2rem;
 			// outline-offset: -3px;
 

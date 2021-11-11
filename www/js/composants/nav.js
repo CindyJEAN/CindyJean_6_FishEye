@@ -11,6 +11,7 @@ export default class Nav{
   constructor(domTarget, tags, callback){
     this.DOM = document.createElement("nav");
     domTarget.appendChild(this.DOM);
+    this.DOM.ariaLabel = "photographer categories";
     tags.forEach(tag => {
       new Tag(this.DOM, tag, callback);
     });

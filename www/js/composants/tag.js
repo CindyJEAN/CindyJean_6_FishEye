@@ -14,6 +14,8 @@ export default class Tag{
     domTarget.appendChild(this.DOM);
     this.DOM.innerText = "#"+tagName;
 
+    this.DOM.ariaLabel = "Tag";
+
     this.DOM.onclick = () => {
       this.toggleFilter();
       if (callback) {
