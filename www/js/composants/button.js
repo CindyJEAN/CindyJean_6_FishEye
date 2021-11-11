@@ -12,7 +12,6 @@ export default class Button{
     domTarget.appendChild(this.DOM);
     this.DOM.className = "contact";
     this.DOM.innerText = text;
-    this.domTarget = domTarget;
 
     if (text === "Envoyer") {
       this.DOM.onclick = (e) => callback(e);

@@ -66,7 +66,6 @@ const showPage = function (page, photographerId=undefined, mediaId=undefined) {
 			new PhotographerPage(DOM, parseInt(photographerId));
 			break;
 		case "lightbox":
-			// const [photographerId, mediaId] = args.split("/")
 			new Lightbox(DOM, {photographerId, mediaId});
 			break;
 		default:

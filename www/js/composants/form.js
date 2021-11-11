@@ -33,8 +33,10 @@ export default class Form {
 		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
 		modal.appendChild(closeButton);
 		closeButton.onclick = () => {
-			this.callback(this.DOM);
-			this.domTarget.className = "";
+			// this.callback(this.DOM);
+			// this.domTarget.className = "";
+			this.DOM.parentElement.className = "";
+			this.DOM.parentNode.removeChild(this.DOM);
 		};
 
 		this.form = document.createElement("form");
@@ -61,12 +63,14 @@ export default class Form {
 	 */
 	validateForm(e) {
 		e.stopPropagation();
+		
     if (this.form.checkValidity()) {
       e.preventDefault();
+			const inputs = this.DOM.querySelectorAll("input");
+			inputs.forEach((input) => console.log(input.name + " : ", input.value));
+			console.log("message : ", document.querySelector("textarea").value);
+			this.DOM.parentNode.removeChild(this.DOM);
     }
-    const inputs = document.querySelectorAll("input");
-    inputs.forEach((input) => console.log(input.name + " : ", input.value));
-    console.log("message : ", document.querySelector("textarea").value);
   }
 	
 }

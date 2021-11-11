@@ -44,10 +44,6 @@ export default class PhotographerPage {
 		this.gallery.innerText = "";
 		const media = getMediaByPhotographerId(this.id, this.activeFilter);
 
-
-		// new Profile(main, profileData, "photographer", this.openForm.bind(this), this.clickOnTag.bind(this));
-
-
 		media.forEach((medium) => {
 			new Media(this.gallery, medium, this.updateLikes.bind(this));
 			this.totalLikes += medium.likes;
