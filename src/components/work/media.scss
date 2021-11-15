@@ -14,20 +14,24 @@
 		width: fit-content;
 	}
 
-	img, video {
-		width: 100%;
-		height: 190px;
-		object-fit: cover;
-		border-radius: 5px;
+	// button {
+	a {
 		grid-area: media;
-		cursor: pointer;
+		padding: 0;
+		img,
+		video {
+			width: 100%;
+			height: 190px;
+			border-radius: 5px;
+			cursor: pointer;
+			object-fit: cover;
 
-		@include desktop {
-			width: 350px;
-			height: 300px;
+			@include desktop {
+				width: 350px;
+				height: 300px;
+			}
 		}
 	}
-
 
 	h3 {
 		//   color: $colorPrimary;
@@ -60,10 +64,10 @@
 	// 	}
 	// }
 
-	button {
-    background-color: transparent;
-    border: none;
-    color: $colorPrimary;
+	button.like {
+		background-color: transparent;
+		border: none;
+		color: $colorPrimary;
 		font-size: 0.875rem;
 		font-weight: 500;
 		grid-area: likes;

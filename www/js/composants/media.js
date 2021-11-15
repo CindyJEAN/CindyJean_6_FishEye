@@ -39,15 +39,18 @@ export default class Media {
 	render() {
 		this.DOM.innerHTML = `
 		<h3>${this.title}</h3> 
-		${this.video ? this.addVideo() : this.addImage()}`;
+		<a href="index.html#lightbox/${this.photographerId}/${this.id}">
+		${this.video ? this.addVideo() : this.addImage()}
+		</a>`;
 		
-		const buttonLikes = document.createElement("button");
+		const likeButton = document.createElement("button");
 		const likes = parseInt(this.likes) + (this.liked ? 1 : 0);
-		buttonLikes.innerHTML = `${likes}<i class="fa${
+		likeButton.innerHTML = `${likes}<i class="fa${
 			this.liked ? "s" : "r"
 		} fa-heart"></i>`;
-		buttonLikes.onclick = () => this.addLike();
-		this.DOM.appendChild(buttonLikes);
+		likeButton.className = "like";
+		likeButton.onclick = () => this.addLike();
+		this.DOM.appendChild(likeButton);
 	};
 
 	addLike() {

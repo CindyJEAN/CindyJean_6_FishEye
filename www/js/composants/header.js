@@ -16,7 +16,7 @@ export default class Header {
 
 	render() {
 		this.DOM.innerHTML = `
-    <a href="index.html"><img src="content/logo.svg" alt="Fisheye Home page" role="Image link"/></a>
+    <a href="index.html"><img src="content/logo.svg" alt="Fisheye Home page"/></a>
     `;
 		if (this.tagList !== null) new Nav(this.DOM, this.tagList, this.callback);
 	}

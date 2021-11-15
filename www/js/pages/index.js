@@ -1,6 +1,7 @@
 import Profile from "../composants/profile.js";
 import Header from "../composants/header.js";
 import { getPhotographersTags, getPhotographersList} from "../dataManager.js";
+import Button from "../composants/button.js";
 export default class Index{
   /**
    * [constructor description]
@@ -23,6 +24,7 @@ export default class Index{
     this.main = document.createElement("main");
     this.DOM.appendChild(this.main);
     this.main.className = "index-main";
+
     this.showPhotographers();
   }
 

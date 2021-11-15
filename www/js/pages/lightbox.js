@@ -36,8 +36,8 @@ export default class Lightbox {
 		this.lightbox.innerHTML = `
 				${this.video ? this.addVideo() : this.addImage()}
 				<h3>${this.title}</h3>
-        <button class="close" onclick="window.changePage('photographer','${this.photographerId}')"><i class="fas fa-times"></i></button>
     `;
+		// <button class="close" onclick="window.changePage('photographer','${this.photographerId}')"><i class="fas fa-times"></i></button>
 
 		const leftButton = document.createElement("button");
 		leftButton.className = "left";
@@ -49,10 +49,12 @@ export default class Lightbox {
 		rightButton.innerHTML = `<i class="fas fa-chevron-right"></i>`;
 		this.lightbox.appendChild(rightButton);
 		rightButton.onclick = () => this.changeIndex("next");
+		const closeButton = document.createElement("button");
+		closeButton.className = "close";
+		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
+		this.lightbox.appendChild(closeButton);
+		closeButton.onclick = () => window.changePage("photographer",`${this.photographerId}`);
 
-		// console.log("mediaId", this.id, typeof this.id);
-		// console.log("index", this.index);
-		// console.log("actualMedia", this.actualMedia);
 	}
 
 	addVideo() {

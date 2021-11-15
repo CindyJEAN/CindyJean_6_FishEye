@@ -32,6 +32,7 @@ main {
 		align-items: center;
 		justify-content: flex-end;
 		margin-bottom: 5rem;
+		color: $colorPrimary;
 		// margin-bottom: 3rem;
 
 		@include desktop {

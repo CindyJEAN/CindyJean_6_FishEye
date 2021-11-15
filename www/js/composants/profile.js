@@ -37,10 +37,10 @@ export default class Profile {
 
 	indexRender() {
 		this.DOM.innerHTML = `
-    <div onclick="window.changePage('photographer',${this.id})">
+    <button onclick="window.changePage('photographer',${this.id})" class="photographer">
 		  <img src=${this.photo} alt="${this.description}" class="profile-photo" />
 		  <h2>${this.name}</h2>
-	  </div>
+	  </button>
     <address>${this.city}, ${this.country}</address>
 		<p class="tagline">${this.tagline}</p>
 		<p class="price">${this.price}€/jour</p>
@@ -58,13 +58,14 @@ export default class Profile {
 		
 		<img src=${this.photo} alt="${this.description}" class="profile-photo" />
     `;
-		new Button(this.DOM, "Contactez-moi", this.callback);
-
+		
 		const tags = document.createElement("div");
 		this.DOM.appendChild(tags);
 		tags.className = "tags";
 		this.profileData.tags.forEach((tag) => {
 			new Tag(tags, tag);
 		})
+		
+		new Button(this.DOM, "Contactez-moi", this.callback);
 	}
 }
