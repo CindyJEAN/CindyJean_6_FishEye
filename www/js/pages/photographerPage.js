@@ -53,12 +53,10 @@ export default class PhotographerPage {
 
 	openForm() {
 		this.DOM.className = "noscroll";
-		new Form(this.DOM, this.id, this.closeForm.bind(this));
+		this.DOM.setAttribute("aria-hidden", "true");
+		new Form(this.DOM, this.id);
 	}
 
-	closeForm(modal) {
-		this.DOM.removeChild(modal);
-	}
 
 	updateLikes(increment) {
 		this.totalLikes += increment ? 1 : -1;

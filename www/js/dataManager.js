@@ -87,7 +87,7 @@ async function getPhotographerById(id) {
 /**
  * @param   {Number}          id
  * @param   {String}          filter
- * @returns {Array}
+ * @return {Array}
  */
 function getMediaByPhotographerId(id, filter) {
 	let media = [];

@@ -72,10 +72,19 @@
 			// margin: 0.5rem 0 1rem;
 			margin-bottom: 0.5rem;
 			font-size: 1.2rem;
+			// outline-offset: -3px;
 
 			@include desktop {
 				font-size: 1.8rem;
 			}
+
+			// &:invalid {
+			// 	outline: 2px solid red;
+			// }
+
+			// &:valid {
+			// 	outline: 2px solid green;
+			// }
 		}
 
 		input {
