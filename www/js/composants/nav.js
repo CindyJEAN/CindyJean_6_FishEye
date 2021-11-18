@@ -12,6 +12,7 @@ export default class Nav{
     this.DOM = document.createElement("nav");
     domTarget.appendChild(this.DOM);
     this.DOM.ariaLabel = "photographer categories";
+    this.DOM.setAttribute("role", "navigation");
     tags.forEach(tag => {
       new Tag(this.DOM, tag, callback);
     });

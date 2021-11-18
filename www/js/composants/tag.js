@@ -9,11 +9,13 @@ export default class Tag {
 	 */
 	constructor(domTarget, tagName, callback = null) {
 		// this.DOM = document.createElement("span");
-		this.DOM = document.createElement("button");
+		this.DOM = document.createElement("span");
 		this.DOM.classList.add("tag");
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = "#" + tagName;
 		this.DOM.ariaLabel = "Tag";
+		this.DOM.setAttribute("role", "Link");
+		this.DOM.tabIndex = 0;
 
 		this.DOM.onclick = () => {
 			this.toggleFilter();
@@ -22,6 +24,16 @@ export default class Tag {
 				return;
 			}
 			window.changePage("index", tagName);
+		};
+		this.DOM.onkeydown = (e) => {
+			if (e.key === "Enter") {
+			this.toggleFilter();
+			if (callback) {
+				callback(tagName);
+				return;
+			}
+			window.changePage("index", tagName);
+		}
 		};
 
 		let redirectedTag = this.extractAtiveTag();
