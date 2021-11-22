@@ -37,18 +37,19 @@ export default class Form {
 		closeButton.className = "close";
 		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
 		closeButton.ariaLabel = "close contact form";
+		// closeButton.tabIndex = 0;
 		modal.appendChild(closeButton);
 
 		this.form = document.createElement("form");
-		this.form.innerHTML = `
+		this.form.innerHTML = /*html*/`	
 			<label for="firstName">Prénom</label>
-			<input type="text" id="firstName" name="firstName" required aria-required=true minlength="2" pattern="[A-Za-z' -]+"
+			<input type="text" id="firstName" name="firstName" required aria-required=true pattern="[A-Za-z' -]{2,30}"
 			title="Veuillez entrer un prénom de 2 à 30 caractères, sans chiffre."/>
 			<label for="lastName">Nom</label>
-			<input type="text" id="lastName" name="lastName" required aria-required=true minlength="2" pattern="[A-Za-z' -]+"
+			<input type="text" id="lastName" name="lastName" required aria-required=true pattern="[A-Za-z' -]{2,30}"
 			title="Veuillez entrer un nom de 2 à 30 caractères, sans chiffre."/>
 			<label for="email">Email</label>
-			<input type="email" id="email" name="email" required aria-required=true pattern="\S+@\S+\.\S+/"
+			<input type="email" id="email" name="email" required aria-required=true
 			title="Veuillez entrer une adresse mail valide"/>
 			<label for="message">Votre message</label>
 			<textarea id="message" name="message" required aria-required=true></textarea>

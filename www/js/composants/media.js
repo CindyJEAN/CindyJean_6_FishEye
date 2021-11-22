@@ -60,6 +60,13 @@ export default class Media {
 	};
 
 	addVideo() {
+		// const video = document.createElement("video");
+		// video.setAttribute("preload", "auto");
+		// video.innerHTML =`
+		// <source src="./content/media/${this.video}" type="video/mp4">
+		// 	${this.description}
+		// 	</video>
+		// 	`;
 		return `
 		<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')">
 			<source src="./content/media/${this.video}" type="video/mp4">
