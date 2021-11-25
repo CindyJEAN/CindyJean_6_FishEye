@@ -53,8 +53,19 @@ export default class PhotographerPage {
 
 	openForm() {
 		this.DOM.className = "noscroll";
-		this.DOM.setAttribute("aria-hidden", "true");
+		// this.DOM.setAttribute("aria-hidden", "true");
+		document.querySelector("main").setAttribute("aria-hidden", "true");
+		document.querySelector("header").setAttribute("aria-hidden", "true");
 		new Form(this.DOM, this.id);
+
+		/**
+		 * [querySelector description]
+		 *
+		 * @type   {HTMLElement}  .closeForm  [.closeForm description]
+		 *
+		 */
+		const closeFormButton = document.querySelector(".closeForm");
+		closeFormButton.focus();
 	}
 
 

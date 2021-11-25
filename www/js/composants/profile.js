@@ -1,4 +1,4 @@
-import Tag from "../composants/tag.js"
+import Tag from "../composants/tag.js";
 import Button from "./button.js";
 export default class Profile {
 	// src = null;
@@ -7,7 +7,7 @@ export default class Profile {
 	/**
 	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget    
+	 * @param   {HTMLElement}  domTarget
 	 * @param   {String}  page    page where the profile is implemented: index or photographer-page
 	 * @param {import("../dataManager.js").photographerProfile} profileData
 	 *
@@ -30,21 +30,40 @@ export default class Profile {
 
 		if (page === "index") {
 			this.indexRender();
-		}
-		else this.photographerRender();
-
+		} else this.photographerRender();
 	}
 
 	indexRender() {
-		this.DOM.innerHTML = `
-    <button onclick="window.changePage('photographer',${this.id})" class="photographer">
-		  <img src=${this.photo} alt="${this.description}" class="profile-photo" />
+		const profile = document.createElement("div");
+		profile.setAttribute("role", "link");
+		profile.className = "photographer";
+		profile.innerHTML = /*HTML*/ `
+			<img src=${this.photo} alt="" class="profile-photo" />
 		  <h2>${this.name}</h2>
-	  </button>
-    <address>${this.city}, ${this.country}</address>
-		<p class="tagline">${this.tagline}</p>
-		<p class="price">${this.price}€/jour</p>
-    `;
+		`;
+		profile.tabIndex = 0;		
+		profile.onclick = () => window.changePage('photographer', this.id);
+		profile.onkeydown = (e) => {
+			if (e.key === "Space" || "Enter" && e.key !== "Tab") {
+				window.changePage('photographer', this.id);
+			}
+		}
+
+		const address = document.createElement("address");
+		address.innerHTML = this.city, this.country;
+		const tagline = document.createElement("p");
+		tagline.className = "tagline";
+		tagline.innerHTML = this.tagline;
+		const priceInfo = document.createElement("p");
+		priceInfo.className = "price";
+		priceInfo.innerHTML = `${this.price}€/jour`;
+
+		this.DOM.appendChild(profile);
+		this.DOM.appendChild(address);
+		this.DOM.appendChild(tagline);
+		this.DOM.appendChild(priceInfo);
+
+
 		this.profileData.tags.forEach((tag) => {
 			new Tag(this.DOM, tag);
 		});
@@ -58,14 +77,15 @@ export default class Profile {
 		
 		<img src=${this.photo} alt="${this.description}" class="profile-photo" />
     `;
-		
+
 		const tags = document.createElement("div");
 		this.DOM.appendChild(tags);
 		tags.className = "tags";
 		this.profileData.tags.forEach((tag) => {
 			new Tag(tags, tag);
-		})
-		
+		});
+
 		new Button(this.DOM, "Contactez-moi", this.callback);
 	}
+
 }

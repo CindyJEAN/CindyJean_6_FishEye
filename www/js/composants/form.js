@@ -34,7 +34,7 @@ export default class Form {
 		modal.innerHTML = `<h1 class="formTitle" id="formTitle">Contactez-moi ${profileData.name}</h2>`;
 
 		const closeButton = document.createElement("button");
-		closeButton.className = "close";
+		closeButton.className = "closeForm";
 		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
 		closeButton.ariaLabel = "close contact form";
 		// closeButton.tabIndex = 0;
@@ -59,7 +59,7 @@ export default class Form {
 		new Button(this.form, "Envoyer", this.validateForm.bind(this));
 
 		//Accessibility
-		modal.focus();
+		closeButton.focus();
 		modal.setAttribute("role", "dialog");
 		modal.setAttribute("aria-modal", "true");
 		modal.setAttribute("arial-labelledby", "formTitle");
