@@ -14,12 +14,6 @@ export default class Form {
 		this.DOM.className = "modalBackground";
 		this.domTarget = domTarget;
 		this.photographerId = photographerId;
-		// this.DOM.setAttribute("role", "dialog");
-		// this.DOM.setAttribute("aria-modal", "true");
-		// this.DOM.setAttribute("arial-labelledby", "formTitle");
-		// // this.DOM.setAttribute("arial-describedby", "formTitle");
-		// this.DOM.setAttribute("aria-hidden", "false");
-		// this.DOM.tabIndex = -1;
 
 		this.render();
 	}
@@ -74,7 +68,7 @@ export default class Form {
 			this.DOM.parentNode.removeChild(this.DOM);
 		};
 		document.querySelector("body").addEventListener("keydown", e => {
-			if (this.DOM.getAttribute("aria-hidden") == "false" && e.key === "Escape") {
+			if (modal.getAttribute("aria-hidden") == "false" && e.key === "Escape") {
 			this.DOM.parentElement.className = "";
 			this.DOM.parentElement.setAttribute("aria-hidden", "false");
 			this.DOM.parentNode.removeChild(this.DOM);
