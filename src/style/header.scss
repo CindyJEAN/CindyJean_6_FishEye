@@ -12,7 +12,8 @@ header {
 	grid-template-areas:
 		"logo ."
 		"nav nav";
-	align-items: center;
+	align-items: flex-end;
+	// align-items: center;
 
 	@include desktop {
 		top: 0;
@@ -28,4 +29,6 @@ header {
 			justify-self: center;
 		}
 	}
+
+	
 }

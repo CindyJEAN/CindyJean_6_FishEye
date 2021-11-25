@@ -14,7 +14,8 @@ const autoprefixer = require("gulp-autoprefixer");
 
 function makeCss() {
 	return gulp
-		.src(["./src/components/base.scss", "./src/**/*.scss"])
+		// .src(["./src/components/base.scss", "./src/**/*.scss"])
+		.src(["./src/style/base.scss", "./src/**/*.scss"])
 		.pipe(concat("style.css"))
 		.pipe(sass().on("error", sass.logError))
 		.pipe(

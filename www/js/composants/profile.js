@@ -41,16 +41,16 @@ export default class Profile {
 			<img src=${this.photo} alt="" class="profile-photo" />
 		  <h2>${this.name}</h2>
 		`;
-		profile.tabIndex = 0;		
-		profile.onclick = () => window.changePage('photographer', this.id);
+		profile.tabIndex = 0;
+		profile.onclick = () => window.changePage("photographer", this.id);
 		profile.onkeydown = (e) => {
-			if (e.key === "Space" || "Enter" && e.key !== "Tab") {
-				window.changePage('photographer', this.id);
+			if (e.key === "Enter") {
+				window.changePage("photographer", this.id);
 			}
-		}
+		};
 
 		const address = document.createElement("address");
-		address.innerHTML = this.city, this.country;
+		(address.innerHTML = this.city), this.country;
 		const tagline = document.createElement("p");
 		tagline.className = "tagline";
 		tagline.innerHTML = this.tagline;
@@ -62,7 +62,6 @@ export default class Profile {
 		this.DOM.appendChild(address);
 		this.DOM.appendChild(tagline);
 		this.DOM.appendChild(priceInfo);
-
 
 		this.profileData.tags.forEach((tag) => {
 			new Tag(this.DOM, tag);
@@ -87,5 +86,4 @@ export default class Profile {
 
 		new Button(this.DOM, "Contactez-moi", this.callback);
 	}
-
 }

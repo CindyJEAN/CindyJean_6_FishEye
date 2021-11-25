@@ -17,11 +17,24 @@ export default class Button {
 		if (text === "Envoyer") {
 			this.DOM.ariaLabel = "send";
 			this.DOM.onclick = (e) => callback(e);
+			this.DOM.onkeydown = (e) => {
+				if (e.key === "Space") {
+					callback(e);
+				}
+			};
 			return;
 		}
 		//Open form on click on "Contactez-moi" button
 		if (text === "Contactez-moi") {
 			this.DOM.onclick = () => callback("formModal");
+			this.DOM.onkeydown = (e) => {
+				if (e.key === "Space") {
+					callback("formModal");
+				}
+			};
+		}
+		if (text === "Passer au contenu") {
+			this.DOM.className = "redirect";
 		}
 	}
 }

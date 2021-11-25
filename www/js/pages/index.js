@@ -21,6 +21,7 @@ export default class Index{
 
     new Header(this.DOM, tags, this.clickOnTag.bind(this));
 
+    
     this.main = document.createElement("main");
     this.DOM.appendChild(this.main);
     this.main.className = "index-main";

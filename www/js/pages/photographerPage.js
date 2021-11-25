@@ -23,7 +23,7 @@ export default class PhotographerPage {
 		this.render();
 	}
 
-	async render(){
+	async render() {
 		const profileData = await getPhotographerById(this.id);
 		new Header(this.DOM, null, null);
 		const main = document.createElement("main");
@@ -48,7 +48,6 @@ export default class PhotographerPage {
 			new Media(this.gallery, medium, this.updateLikes.bind(this));
 			this.totalLikes += medium.likes;
 		});
-
 	}
 
 	openForm() {
@@ -59,15 +58,13 @@ export default class PhotographerPage {
 		new Form(this.DOM, this.id);
 	}
 
-
 	updateLikes(increment) {
 		this.totalLikes += increment ? 1 : -1;
 		this.information.update(this.totalLikes);
 	}
 
-	sortMedia(filter){
+	sortMedia(filter) {
 		this.activeFilter = filter;
 		this.udpdateGallery();
-
 	}
 }

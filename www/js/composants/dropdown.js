@@ -29,39 +29,33 @@ export default class Dropdown {
 
 		this.ul = document.createElement("ul");
 		this.ul.className = "dropdown absolutePosition";
-		// this.DOM.appendChild(this.ul);
 
 		if (!this.folded) {
 			this.DOM.appendChild(this.ul);
 			this.ul.classList.add("list");
 			this.ul.setAttribute("aria-expanded", "true");
 			this.filters.forEach((filter) => {
-				new ListItem(this.ul, filter, this.changeFilters.bind(this));
+				new ListItem(
+					this.ul,
+					filter,
+					this.changeFilters.bind(this),
+					this.changeFocus.bind(this),
+					false
+				);
 			});
 		}
+
 		if (this.folded) {
-			const button = true;
-			// new ListItem(this.ul, this.activeFilter, this.changeFilters.bind(this), button);
 			new ListItem(
 				this.DOM,
 				this.activeFilter,
 				this.changeFilters.bind(this),
-				button
+				null,
+				true
 			);
-
-			//Accessibility
-			// this.ul.setAttribute("aria-expanded", "false");
-
-			// const dropdownButton = document.querySelector("li");
-			// dropdownButton.setAttribute("role", "button");
-			// dropdownButton.setAttribute("aria-haspopup", "listbox");
 
 			return;
 		}
-
-		// this.filters.forEach((filter) => {
-		// 	new ListItem(this.ul, filter, this.changeFilters.bind(this));
-		// });
 
 		//Accessibility
 		this.ul.tabIndex = 0;
@@ -102,6 +96,25 @@ export default class Dropdown {
 				li.focus();
 			} else {
 				li.setAttribute("aria-selected", "false");
+			}
+		});
+	}
+
+	//access by arroDown or arrowUp
+	changeFocus(name, move) {
+		let index = this.filters.findIndex((filter) => filter === name);
+		document.querySelectorAll("li").forEach((li) => {
+			if (li.getAttribute("aria-selected") === "true") {
+				if (move === "down") {
+					let newFocus = this.filters.find((filter) => this.filters.indexOf(filter) === index+1);
+					// @ts-ignore
+					document.querySelector(`#${newFocus}`).focus();
+				}
+				if (move === "up") {
+					let newFocus = this.filters.find((filter) => this.filters.indexOf(filter) === index-1);
+					// @ts-ignore
+					document.querySelector(`#${newFocus}`).focus();
+				}
 			}
 		});
 	}
