@@ -31,8 +31,13 @@ button.contact {
 	}
 }
 
-button {
+a {
 	&.redirect {
+		// display: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
 		color: white;
 		font-size: 1.125rem;
 		font-weight: 500;
@@ -46,6 +51,11 @@ button {
 		// left: 30vw;
 		// margin: auto;
 		margin: 0 calc(45vw - 6rem);
+		transition: opacity, 1s;
+		&.visible{
+			// display: block;
+			opacity: 1;
+		}
 
 		@include desktop {
 			width: fit-content;

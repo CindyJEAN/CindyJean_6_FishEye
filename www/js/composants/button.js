@@ -33,8 +33,9 @@ export default class Button {
 				}
 			};
 		}
-		if (text === "Passer au contenu") {
-			this.DOM.className = "redirect";
-		}
+		// if (text === "Passer au contenu") {
+		// 	this.DOM.className = "redirect";
+		// 	this.DOM.setAttribute("role", "link");
+		// }
 	}
 }

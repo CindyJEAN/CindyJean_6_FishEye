@@ -27,13 +27,13 @@ export default class Tag {
 		};
 		this.DOM.onkeydown = (e) => {
 			if (e.key === "Enter") {
-			this.toggleFilter();
-			if (callback) {
-				callback(tagName);
-				return;
+				this.toggleFilter();
+				if (callback) {
+					callback(tagName);
+					return;
+				}
+				window.changePage("index", tagName);
 			}
-			window.changePage("index", tagName);
-		}
 		};
 
 		let redirectedTag = this.extractAtiveTag();
@@ -49,5 +49,11 @@ export default class Tag {
 
 	toggleFilter() {
 		this.DOM.classList.toggle("active");
+		const current = this.DOM.hasAttribute("aria-current");
+		if (current) {
+			this.DOM.removeAttribute("aria-current");
+			return;
+		}
+		this.DOM.setAttribute("aria-current", "");
 	}
 }

@@ -22,15 +22,15 @@ main {
 	}
 }
 
-.index-main {
+#indexMain {
 	h1 {
 		font-size: 0.875rem;
 		font-weight: 400;
 		width: 100%;
 		height: 80px;
 		display: flex;
-		align-items: flex-end;
-		// align-items: center;
+		// align-items: flex-end;
+		align-items: center;
 		justify-content: flex-end;
 		margin-bottom: 5rem;
 		color: $colorPrimary;
@@ -44,7 +44,7 @@ main {
 	}
 }
 
-.photographerMain {
+#photographerMain {
 	// margin-top: 80px;
 	margin-top: 100px;
 	margin-bottom: 3rem;

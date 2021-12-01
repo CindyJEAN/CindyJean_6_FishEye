@@ -24,7 +24,8 @@ export default class Index{
     
     this.main = document.createElement("main");
     this.DOM.appendChild(this.main);
-    this.main.className = "index-main";
+    // this.main.className = "indexMain";
+    this.main.id = "indexMain";
 
     this.showPhotographers();
   }

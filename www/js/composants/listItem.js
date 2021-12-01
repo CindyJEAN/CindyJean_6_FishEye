@@ -7,25 +7,35 @@ export default class ListItem {
 	 * @param   {Function}  callback   sortMedia function
 	 *
 	 */
-	constructor(domTarget, name, callback = null, focusCallback = null, button = false) {
+	constructor(
+		domTarget,
+		name,
+		callback = null,
+		focusCallback = null,
+		button = false
+	) {
 		this.DOM = document.createElement("li");
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = name;
-    this.DOM.id = name;
+		this.DOM.id = name;
 
 		this.DOM.onclick = () => callback(name);
 
 		this.DOM.onkeydown = (e) => {
+			if (e.key === "Enter" || e.key === "ArrowDown" || e.key === "ArrowUp") {
+				e.preventDefault();
+				e.stopPropagation();
+			}
 			if (e.key === "Enter") {
 				// if (e.key === "Space" || e.key === "Enter") {
 				callback(name);
 			}
-      if (e.key === "ArrowDown") {
-        focusCallback(name, "down");
-      }
-      if (e.key === "ArrowUp") {
-        focusCallback(name, "up");
-      }
+			if (e.key === "ArrowDown") {
+				focusCallback(name, "down");
+			}
+			if (e.key === "ArrowUp") {
+				focusCallback(name, "up");
+			}
 		};
 
 		if (button === true) {

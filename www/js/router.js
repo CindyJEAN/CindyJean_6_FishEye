@@ -69,7 +69,11 @@ const showPage = function (page, photographerId=undefined, mediaId=undefined) {
 			new Lightbox(DOM, {photographerId, mediaId});
 			break;
 		default:
-			DOM.innerHTML = "404";
+			DOM.innerHTML = /*HTML*/`
+			<h1>404 error</h1>
+			<p>Page not found</p>
+			`;
+			DOM.className = "errorPage";
 			break;
 	}
 };
