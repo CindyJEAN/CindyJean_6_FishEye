@@ -49,6 +49,7 @@ export default class Media {
 			this.liked ? "s" : "r"
 		} fa-heart"></i>`;
 		likeButton.className = "like";
+		likeButton.ariaLabel = "likes";
 		likeButton.onclick = () => this.addLike();
 		this.DOM.appendChild(likeButton);
 	};
@@ -67,18 +68,17 @@ export default class Media {
 		// 	${this.description}
 		// 	</video>
 		// 	`;
-		return `
-		<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')">
+		return /*HTML*/`
+			<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')"
+			aria-label="${this.description}, vidéo agrandie">
 			<source src="./content/media/${this.video}" type="video/mp4">
-			${this.description}
 			</video>
 			`;
-			// ${this.description}
 	};
 
 	addImage() {
-		return `
-			<img src="./content/media/${this.image.replace(".", "-small.")}" alt="${this.description}" 
+		return /*HTML*/`
+			<img src="./content/media/${this.image.replace(".", "-small.")}" alt="${this.description}, image agrandie" 
 			title="${this.title}" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')">
 		`;
 	};

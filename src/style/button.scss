@@ -21,7 +21,6 @@ button.contact {
 		margin: 0;
 		width: 11rem;
 		height: fit-content;
-		// align-self: center;
 	}
 
 	&:hover,
@@ -31,7 +30,7 @@ button.contact {
 	}
 }
 
-a {
+button {
 	&.redirect {
 		// display: none;
 		display: flex;
@@ -48,19 +47,19 @@ a {
 		width: 12rem;
 		position: fixed;
 		top: 1rem;
-		// left: 30vw;
-		// margin: auto;
+
 		margin: 0 calc(45vw - 6rem);
 		transition: opacity, 1s;
-		&.visible{
-			// display: block;
+		pointer-events: none;
+
+		&.visible {
+			pointer-events: auto;
 			opacity: 1;
 		}
 
 		@include desktop {
 			width: fit-content;
 			height: fit-content;
-			// align-self: center;
 		}
 
 		&:hover,

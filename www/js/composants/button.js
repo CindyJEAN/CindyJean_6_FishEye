@@ -15,7 +15,7 @@ export default class Button {
 		this.DOM.innerText = text;
 
 		if (text === "Envoyer") {
-			this.DOM.ariaLabel = "send";
+			this.DOM.ariaLabel = "envoyer";
 			this.DOM.onclick = (e) => callback(e);
 			this.DOM.onkeydown = (e) => {
 				if (e.key === "Space") {
@@ -26,6 +26,7 @@ export default class Button {
 		}
 		//Open form on click on "Contactez-moi" button
 		if (text === "Contactez-moi") {
+			this.DOM.ariaLabel = "contactez-moi";
 			this.DOM.onclick = () => callback("formModal");
 			this.DOM.onkeydown = (e) => {
 				if (e.key === "Space") {

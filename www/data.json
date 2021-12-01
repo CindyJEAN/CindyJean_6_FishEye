@@ -8,8 +8,7 @@
       "tags": ["portrait", "events", "travel", "animals"],
       "tagline": "Voir le beau dans le quotidien",
       "price": 400,
-      "portrait": "MimiKeel.jpg",
-      "description": "portrait du semi-profil d'une femme brune"
+      "portrait": "MimiKeel.jpg"
     },
     {
       "name": "Ellie-Rose Wilkens",
@@ -19,8 +18,7 @@
       "tags": ["sport", "architecture"],
       "tagline": "Capturer des compositions complexes",
       "price": 250,
-      "portrait": "EllieRoseWilkens.jpg",
-      "description": "portrait d'une femme souriante aux cheveux colorés et portant des lunettes"
+      "portrait": "EllieRoseWilkens.jpg"
     },
     {
       "name": "Tracy Galindo",
@@ -30,8 +28,7 @@
       "tags": ["art", "fashion", "events"],
       "tagline": "Photographe freelance",
       "price": 500,
-      "portrait": "TracyGalindo.jpg",
-      "description": "portrait du profil en noir et blanc d'un homme au cheveux bouclés"
+      "portrait": "TracyGalindo.jpg"
     },
     {
       "name": "Nabeel Bradford",
@@ -41,8 +38,7 @@
       "tags": ["travel", "portrait"],
       "tagline": "Toujours aller de l'avant",
       "price": 350,
-      "portrait": "NabeelBradford.jpg",
-      "description": "homme en montagne avec un trépied, regardant le paysage sur fond de coucher de soleil"
+      "portrait": "NabeelBradford.jpg"
     },
     {
       "name": "Rhode Dubois",
@@ -52,8 +48,7 @@
       "tags": ["sport", "fashion", "events", "animals"],
       "tagline": "Je crée des souvenirs",
       "price": 275,
-      "portrait": "RhodeDubois.jpg",
-      "description": "portrait d'une femme brune sur fond noir"
+      "portrait": "RhodeDubois.jpg"
     },
     {
       "name": "Marcel Nikolic",
@@ -63,8 +58,7 @@
       "tags": ["travel", "architecture"],
       "tagline": "Toujours à la recherche de LA photo",
       "price": 300,
-      "portrait": "MarcelNikolic.jpg",
-      "description": "portrait en noir et blanc d'un homme regardant vers le bas et manipulant son appareil photo"
+      "portrait": "MarcelNikolic.jpg"
     }
   ],
   "media": [

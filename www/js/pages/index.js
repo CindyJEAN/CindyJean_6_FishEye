@@ -33,10 +33,17 @@ export default class Index{
   showPhotographers(){
     
     this.main.innerHTML = `<h1>Nos photographes</h1>`;
+    //test redirect
+    const mainContent = document.createElement("div");
+    mainContent.className = "gallery";
+    mainContent.id = "indexMainContent";
+    this.main.appendChild(mainContent);
+    //end test redirect
     const profiles = getPhotographersList(this.activeTags);
     
     profiles.forEach(profilePhotographer => {
-      new Profile(this.main, profilePhotographer, "index");
+      // new Profile(this.main, profilePhotographer, "index");
+      new Profile(mainContent, profilePhotographer, "index");
     });
   }
 

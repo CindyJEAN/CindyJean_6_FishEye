@@ -17,6 +17,7 @@ export default class Lightbox {
 		this.lightbox = document.createElement("div");
 		main.appendChild(this.lightbox);
 		this.lightbox.className = "lightboxContent";
+		this.lightbox.ariaLabel = "image agrandie";
 		
 		this.photographerId = parseInt(props.photographerId);
 		this.id = parseInt(props.mediaId);
@@ -37,36 +38,40 @@ export default class Lightbox {
 				${this.video ? this.addVideo() : this.addImage()}
 				<h3>${this.title}</h3>
     `;
-		// <button class="close" onclick="window.changePage('photographer','${this.photographerId}')"><i class="fas fa-times"></i></button>
 
 		const leftButton = document.createElement("button");
 		leftButton.className = "left";
 		leftButton.innerHTML = `<i class="fas fa-chevron-left"></i>`;
+		leftButton.ariaLabel = "image précédente"
 		this.lightbox.appendChild(leftButton);
 		leftButton.onclick = () => this.changeIndex("previous");
+
 		const rightButton = document.createElement("button");
 		rightButton.className = "right";
 		rightButton.innerHTML = `<i class="fas fa-chevron-right"></i>`;
+		rightButton.ariaLabel = "image suivante"
 		this.lightbox.appendChild(rightButton);
 		rightButton.onclick = () => this.changeIndex("next");
+
 		const closeButton = document.createElement("button");
 		closeButton.className = "close";
 		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
+		closeButton.ariaLabel = "fermer l'image"
 		this.lightbox.appendChild(closeButton);
 		closeButton.onclick = () => window.changePage("photographer",`${this.photographerId}`);
 
 	}
 
 	addVideo() {
-		return `
-		<video preload="auto" controls>
+		return /*HTML*/`
+		<video preload="auto" controls aria-label="${this.description}">
 			<source src="./content/media/${this.video}" type="video/mp4">
 		</video>
 		`;
 	};
 
 	addImage() {
-		return `
+		return /*HTML*/`
 			<img src="./content/media/${this.image}" alt="${this.description}">
 		`;
 	};

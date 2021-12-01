@@ -26,7 +26,6 @@ export default class Profile {
 		this.price = profileData.price;
 		this.callback = formCallback;
 		this.id = profileData.id;
-		this.description = profileData.description;
 
 		if (page === "index") {
 			this.indexRender();
@@ -37,10 +36,13 @@ export default class Profile {
 		const profile = document.createElement("div");
 		profile.setAttribute("role", "link");
 		profile.className = "photographer";
+		profile.ariaLabel = `${this.name}`;
 		profile.innerHTML = /*HTML*/ `
 			<img src=${this.photo} alt="" class="profile-photo" />
 		  <h2>${this.name}</h2>
 		`;
+
+		//Accessibility
 		profile.tabIndex = 0;
 		profile.onclick = () => window.changePage("photographer", this.id);
 		profile.onkeydown = (e) => {
@@ -48,6 +50,7 @@ export default class Profile {
 				window.changePage("photographer", this.id);
 			}
 		};
+		//
 
 		const address = document.createElement("address");
 		(address.innerHTML = this.city), this.country;
@@ -74,7 +77,7 @@ export default class Profile {
     <address>${this.city}, ${this.country}</address>
 		<p class="tagline">${this.tagline}</p>
 		
-		<img src=${this.photo} alt="${this.description}" class="profile-photo" />
+		<img src=${this.photo} alt="${this.name}" class="profile-photo" />
     `;
 
 		const tags = document.createElement("div");

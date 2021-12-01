@@ -25,15 +25,17 @@ export default class Header {
 
 		// this.btn = new Button(this.DOM, "Passer au contenu", null);
 		//---- Redirect to main content button/link ----//
-		this.btn = document.createElement("a");
+		this.btn = document.createElement("button");
 		this.DOM.appendChild(this.btn);
 		this.btn.className = "redirect";
 		this.btn.innerText = "Passer au contenu";
 		// this.btn.href = "#indexMain";
-		this.btn.href = "index.html";
+		// this.btn.href = "index.html";
 		this.btn.setAttribute("aria-hidden", "true");
 		this.btn.onclick = () => {
+			document.getElementById("indexMainContent").scrollIntoView();
 			// document.querySelector(".profile").focus();
+			// document.querySelector("#indexMainContent").focus();
 		}
 		this.btnVisible = false;
 		window.addEventListener("scroll", this.scrollHandler.bind(this));
