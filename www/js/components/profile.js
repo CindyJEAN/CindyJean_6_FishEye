@@ -1,4 +1,4 @@
-import Tag from "../composants/tag.js";
+import Tag from "../components/tag.js";
 import Button from "./button.js";
 export default class Profile {
 	// src = null;

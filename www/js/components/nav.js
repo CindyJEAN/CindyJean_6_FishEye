@@ -1,4 +1,4 @@
-import Tag from "../composants/tag.js"
+import Tag from "../components/tag.js"
 export default class Nav{
   /**
    * [constructor description]

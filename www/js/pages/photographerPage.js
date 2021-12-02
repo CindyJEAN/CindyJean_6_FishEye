@@ -1,13 +1,13 @@
-import Header from "../composants/header.js";
-import Profile from "../composants/profile.js";
-import Dropdown from "../composants/dropdown.js";
-import PhotographerInfo from "../composants/photographerInfo.js";
-import Media from "../composants/media.js";
+import Header from "../components/header.js";
+import Profile from "../components/profile.js";
+import Dropdown from "../components/dropdown.js";
+import PhotographerInfo from "../components/photographerInfo.js";
+import Media from "../components/media.js";
 import {
 	getPhotographerById,
 	getMediaByPhotographerId,
 } from "../dataManager.js";
-import Form from "../composants/form.js";
+import Form from "../components/form.js";
 export default class PhotographerPage {
 	/**
 	 * [constructor description]

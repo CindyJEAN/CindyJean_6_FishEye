@@ -1,7 +1,7 @@
-import Profile from "../composants/profile.js";
-import Header from "../composants/header.js";
+import Profile from "../components/profile.js";
+import Header from "../components/header.js";
 import { getPhotographersTags, getPhotographersList} from "../dataManager.js";
-import Button from "../composants/button.js";
+import Button from "../components/button.js";
 export default class Index{
   /**
    * [constructor description]
