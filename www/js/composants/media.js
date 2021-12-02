@@ -21,9 +21,6 @@ export default class Media {
 		this.description = media.description;
 		this.liked = false;
 		this.callback = callback;
-
-		//---click on media
-		// this.callback = callback;
 		this.medium = media;
 
 		//--- Type of media management
@@ -31,9 +28,7 @@ export default class Media {
 
 		//--- Render
 		this.render();
-		// this.DOM.onclick = () => {
-		// 	console.log("image url :", this.image, "video url :", this.video);
-		// };
+
 	}
 
 	render() {
@@ -72,6 +67,7 @@ export default class Media {
 			<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')"
 			aria-label="${this.description}, vidéo agrandie">
 			<source src="./content/media/${this.video}" type="video/mp4">
+			${this.description}
 			</video>
 			`;
 	};

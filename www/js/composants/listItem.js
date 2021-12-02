@@ -18,25 +18,17 @@ export default class ListItem {
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = name;
 		this.DOM.id = name;
+		this.DOM.ariaLabel = name; 
+		this.callback = callback;
+		this.focusCallback = focusCallback;
 
-		this.DOM.onclick = () => callback(name);
 
-		this.DOM.onkeydown = (e) => {
-			if (e.key === "Enter" || e.key === "ArrowDown" || e.key === "ArrowUp") {
-				e.preventDefault();
-				e.stopPropagation();
-			}
-			if (e.key === "Enter") {
-				// if (e.key === "Space" || e.key === "Enter") {
-				callback(name);
-			}
-			if (e.key === "ArrowDown") {
-				focusCallback(name, "down");
-			}
-			if (e.key === "ArrowUp") {
-				focusCallback(name, "up");
-			}
-		};
+		this.DOM.onclick = () => {
+			this.callback(name);
+			alert();
+		}
+
+		this.handleKeyEvents(name);
 
 		if (button === true) {
 			this.DOM.className = "dropdown-btn absolutePosition";
@@ -45,5 +37,33 @@ export default class ListItem {
 			this.DOM.setAttribute("aria-expanded", "false");
 			this.DOM.tabIndex = 0;
 		}
+	}
+
+	handleKeyEvents(name) {
+		// this.keysPressed = {};
+		this.DOM.onkeydown = (e) => {
+		// 	this.keysPressed[e.key] = true;
+
+		// 	if (this.keysPressed["insert"]) {
+				if (e.key === "Enter" || e.key ==="ArrowDown" || e.key === "ArrowUp") {
+					e.preventDefault();
+					e.stopPropagation();
+				}
+				if (e.key === "Enter") {
+					// if (e.key === "Space" || e.key === "Enter") {
+					this.callback(name);
+				}
+				if (e.key === "ArrowDown") {
+					this.focusCallback(name, "down");
+				}
+				if (e.key === "ArrowUp") {
+					this.focusCallback(name, "up");
+				}
+			}
+
+		// }
+		// this.DOM.onkeyup = (e) => {
+		// 	delete this.keysPressed[e.key];
+		// }
 	}
 }

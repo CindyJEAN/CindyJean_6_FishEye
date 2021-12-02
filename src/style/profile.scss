@@ -13,7 +13,7 @@
 	// align-items: center;
 	flex-wrap: wrap;
 
-	button.photographer  {
+	.photographer  {
 		display: flex;
 		width: 100%;
 		flex-direction: column;
@@ -62,7 +62,7 @@
 			font-size: 0.625rem;
 		}
 		&.price {
-			color: $grey;
+			color: $darkGrey;
 			// font-size: 9px;
 			font-size: 0.57rem;
 		}

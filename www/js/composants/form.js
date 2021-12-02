@@ -31,7 +31,6 @@ export default class Form {
 		closeButton.className = "closeForm";
 		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
 		closeButton.ariaLabel = "close contact form";
-		// closeButton.tabIndex = 0;
 		modal.appendChild(closeButton);
 
 		this.form = document.createElement("form");

@@ -13,7 +13,7 @@ export default class Tag {
 		this.DOM.classList.add("tag");
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = "#" + tagName;
-		this.DOM.ariaLabel = "Tag";
+		this.DOM.ariaLabel = "Tag" + tagName;
 		this.DOM.setAttribute("role", "Link");
 		this.DOM.tabIndex = 0;
 
@@ -51,9 +51,11 @@ export default class Tag {
 		this.DOM.classList.toggle("active");
 		const current = this.DOM.hasAttribute("aria-current");
 		if (current) {
-			this.DOM.removeAttribute("aria-current");
+			// this.DOM.removeAttribute("aria-current");
+			this.DOM.setAttribute("aria-current", "false");
 			return;
 		}
-		this.DOM.setAttribute("aria-current", "");
+		// this.DOM.setAttribute("aria-current", "");
+		this.DOM.setAttribute("aria-current", "true");
 	}
 }
