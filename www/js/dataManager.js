@@ -87,9 +87,10 @@ async function getPhotographerById(id) {
 /**
  * @param   {Number}          id
  * @param   {String}          filter
- * @return {Array}
+ * @return {Promise.<Array>}
  */
-function getMediaByPhotographerId(id, filter) {
+async function getMediaByPhotographerId(id, filter) {
+	if (data === null) await getAllData();
 	let media = [];
 	data.media.forEach((medium) => {
 		if (medium.photographerId === id) media.push(medium);

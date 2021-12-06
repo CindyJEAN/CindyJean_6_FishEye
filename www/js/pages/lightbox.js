@@ -58,6 +58,7 @@ export default class Lightbox {
 		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
 		closeButton.ariaLabel = "fermer l'image"
 		this.lightbox.appendChild(closeButton);
+		// @ts-ignore
 		closeButton.onclick = () => window.changePage("photographer",`${this.photographerId}`);
 
 	}

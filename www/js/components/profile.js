@@ -44,9 +44,11 @@ export default class Profile {
 
 		//Accessibility
 		profile.tabIndex = 0;
+		// @ts-ignore
 		profile.onclick = () => window.changePage("photographer", this.id);
 		profile.onkeydown = (e) => {
 			if (e.key === "Enter") {
+				// @ts-ignore
 				window.changePage("photographer", this.id);
 			}
 		};

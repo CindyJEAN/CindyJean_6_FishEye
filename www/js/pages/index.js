@@ -31,7 +31,6 @@ export default class Index{
   }
 
   showPhotographers(){
-    
     this.main.innerHTML = `<h1>Nos photographes</h1>`;
     //test redirect
     const mainContent = document.createElement("div");

@@ -14,6 +14,7 @@ export default class ListItem {
 		focusCallback = null,
 		button = false
 	) {
+		// this.DOM = document.createElement("button");
 		this.DOM = document.createElement("li");
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = name;
@@ -21,11 +22,12 @@ export default class ListItem {
 		this.DOM.ariaLabel = name; 
 		this.callback = callback;
 		this.focusCallback = focusCallback;
+		this.DOM.className = "listItem";
 
 
 		this.DOM.onclick = () => {
 			this.callback(name);
-			alert();
+			// alert();
 		}
 
 		this.handleKeyEvents(name);

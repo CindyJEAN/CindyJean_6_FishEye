@@ -72,8 +72,10 @@
 		border-radius: 5px;
 	}
 
-	li {
+	.listItem {
 		display: flex;
+		color: white;
+		font-size: 18px;
 		justify-content: space-between;
 		flex-direction: row;
 		flex-wrap: wrap;

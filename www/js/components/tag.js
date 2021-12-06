@@ -13,7 +13,7 @@ export default class Tag {
 		this.DOM.classList.add("tag");
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = "#" + tagName;
-		this.DOM.ariaLabel = "Tag" + tagName;
+		this.DOM.ariaLabel = "Tag " + tagName;
 		this.DOM.setAttribute("role", "Link");
 		this.DOM.tabIndex = 0;
 
@@ -23,6 +23,7 @@ export default class Tag {
 				callback(tagName);
 				return;
 			}
+			// @ts-ignore
 			window.changePage("index", tagName);
 		};
 		this.DOM.onkeydown = (e) => {
@@ -32,6 +33,7 @@ export default class Tag {
 					callback(tagName);
 					return;
 				}
+				// @ts-ignore
 				window.changePage("index", tagName);
 			}
 		};

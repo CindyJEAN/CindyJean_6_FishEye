@@ -56,6 +56,7 @@ const showPage = function (
 	photographerId = undefined,
 	mediaId = undefined
 ) {
+	console.log("showPage", page, photographerId, mediaId)
 	DOM.innerText = "";
 	switch (page) {
 		case "index":
@@ -87,6 +88,7 @@ const showPage = function (
  *
  * @return  {void}
  */
+// @ts-ignore
 window.changePage = function (
 	page,
 	photographerId = undefined,

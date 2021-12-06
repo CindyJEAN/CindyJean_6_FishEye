@@ -43,12 +43,13 @@ export default class PhotographerPage {
 
 	async udpdateGallery() {
 		this.gallery.innerText = "";
-		const media = getMediaByPhotographerId(this.id, this.activeFilter);
+		const media = await getMediaByPhotographerId(this.id, this.activeFilter);
 
 		media.forEach((medium) => {
 			new Media(this.gallery, medium, this.updateLikes.bind(this));
 			this.totalLikes += medium.likes;
 		});
+		this.information.update(this.totalLikes);
 	}
 
 	openForm() {
