@@ -20,23 +20,24 @@ export default class Dropdown {
 		this.folded = true;
 
 		this.render();
+		// this.testRender();
 	}
 
 	render() {
 		this.DOM.innerHTML = `
-    <p class="dropdown-label" id="sortTitle">Trier par</p>
-    `;
+	  <p class="dropdown-label" id="sortTitle">Trier par</p>
+	  `;
 
-		this.ul = document.createElement("ul");
-		this.ul.className = "dropdown absolutePosition";
+		this.dropdown = document.createElement("ul");
+		this.dropdown.className = "dropdown absolutePosition";
 
 		if (!this.folded) {
-			this.DOM.appendChild(this.ul);
-			this.ul.classList.add("list");
-			this.ul.setAttribute("aria-expanded", "true");
+			this.DOM.appendChild(this.dropdown);
+			this.dropdown.classList.add("list");
+			this.dropdown.setAttribute("aria-expanded", "true");
 			this.filters.forEach((filter) => {
 				new ListItem(
-					this.ul,
+					this.dropdown,
 					filter,
 					this.changeFilters.bind(this),
 					this.changeFocus.bind(this),
@@ -58,10 +59,10 @@ export default class Dropdown {
 		}
 
 		//Accessibility
-		this.ul.tabIndex = 0;
-		this.ul.setAttribute("role", "listbox");
-		this.ul.setAttribute("aria-activedescendant", this.activeFilter);
-		this.ul.setAttribute("aria-labelledBy", "sortTitle");
+		this.dropdown.tabIndex = 0;
+		this.dropdown.setAttribute("role", "listbox");
+		this.dropdown.setAttribute("aria-activedescendant", this.activeFilter);
+		this.dropdown.setAttribute("aria-labelledBy", "sortTitle");
 		document.querySelectorAll("li").forEach((li) => (li.tabIndex = 0));
 	}
 
@@ -89,8 +90,8 @@ export default class Dropdown {
 
 		//render and accessibility management
 		this.render();
-		this.ul.setAttribute("aria-activedescendant", name);
-		document.querySelectorAll("li").forEach((li) => {
+		this.dropdown.setAttribute("aria-activedescendant", name);
+		this.dropdown.querySelectorAll("li").forEach((li) => {
 			if (li.id === name) {
 				li.setAttribute("aria-selected", "true");
 				li.focus();
@@ -100,10 +101,10 @@ export default class Dropdown {
 		});
 	}
 
-	//access by arroDown or arrowUp
+	//access by arrowDown or arrowUp
 	changeFocus(name, move) {
 		let index = this.filters.findIndex((filter) => filter === name);
-		document.querySelectorAll("li").forEach((li) => {
+		this.dropdown.querySelectorAll("li").forEach((li) => {
 			if (li.getAttribute("aria-selected") === "true") {
 				if (move === "down") {
 					let newFocus = this.filters.find((filter) => this.filters.indexOf(filter) === index+1);

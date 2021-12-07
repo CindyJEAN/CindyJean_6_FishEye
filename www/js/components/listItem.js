@@ -39,33 +39,48 @@ export default class ListItem {
 			this.DOM.setAttribute("aria-expanded", "false");
 			this.DOM.tabIndex = 0;
 		}
+		else this.DOM.setAttribute("role", "option");
 	}
 
 	handleKeyEvents(name) {
-		// this.keysPressed = {};
+		this.keysPressed = {};
 		this.DOM.onkeydown = (e) => {
-		// 	this.keysPressed[e.key] = true;
+			// this.keysPressed[e.key] = true;
 
-		// 	if (this.keysPressed["insert"]) {
-				if (e.key === "Enter" || e.key ==="ArrowDown" || e.key === "ArrowUp") {
-					e.preventDefault();
-					e.stopPropagation();
-				}
-				if (e.key === "Enter") {
-					// if (e.key === "Space" || e.key === "Enter") {
-					this.callback(name);
-				}
-				if (e.key === "ArrowDown") {
-					this.focusCallback(name, "down");
-				}
-				if (e.key === "ArrowUp") {
-					this.focusCallback(name, "up");
-				}
+			// if (this.keysPressed["insert"]) {
+			// 	if (e.key === "Enter" || e.key ==="ArrowDown" || e.key === "ArrowUp") {
+			// 		e.preventDefault();
+			// 		e.stopPropagation();
+			// 	}
+			// 	if (e.key === "Enter") {
+			// 		// if (e.key === "Space" || e.key === "Enter") {
+			// 		this.callback(name);
+			// 	}
+			// 	if (e.key === "ArrowDown") {
+			// 		this.focusCallback(name, "down");
+			// 	}
+			// 	if (e.key === "ArrowUp") {
+			// 		this.focusCallback(name, "up");
+			// 	}
+			// }
+			if (e.key === "Enter" || e.key ==="ArrowDown" || e.key === "ArrowUp") {
+				e.preventDefault();
+				e.stopPropagation();
+			}
+			if (e.key === "Enter") {
+				// if (e.key === "Space" || e.key === "Enter") {
+				this.callback(name);
+			}
+			if (e.key === "ArrowDown") {
+				this.focusCallback(name, "down");
+			}
+			if (e.key === "ArrowUp") {
+				this.focusCallback(name, "up");
 			}
 
-		// }
-		// this.DOM.onkeyup = (e) => {
-		// 	delete this.keysPressed[e.key];
-		// }
+		}
+		this.DOM.onkeyup = (e) => {
+			delete this.keysPressed[e.key];
+		}
 	}
 }
