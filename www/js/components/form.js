@@ -3,9 +3,7 @@ import Button from "./button.js";
 
 export default class Form {
 	/**
-	 * [constructor description]
-	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {HTMLElement}  domTarget 
 	 *
 	 */
 	constructor(domTarget, photographerId) {
@@ -30,7 +28,7 @@ export default class Form {
 		const closeButton = document.createElement("button");
 		closeButton.className = "closeForm";
 		closeButton.innerHTML = `<i class="fas fa-times"></i>`;
-		closeButton.ariaLabel = "close contact form";
+		closeButton.ariaLabel = "fermer formulaire de contact";
 		modal.appendChild(closeButton);
 
 		this.form = document.createElement("form");
@@ -56,7 +54,6 @@ export default class Form {
 		modal.setAttribute("role", "dialog");
 		modal.setAttribute("aria-modal", "true");
 		modal.setAttribute("arial-labelledby", "formTitle");
-		// modal.setAttribute("arial-describedby", "formTitle");
 		modal.setAttribute("aria-hidden", "false");
 		modal.tabIndex = -1;
 
@@ -80,7 +77,7 @@ export default class Form {
 	 * Tests the validity of the form input values and textarea and displays them in the console. 
 	 * Adds aria-invalid attribute true or false.
 	 *
-	 * @param   {Event}  e  [e description]
+	 * @param   {Event}  e  
 	 *
 	 */
 	validateForm(e) {

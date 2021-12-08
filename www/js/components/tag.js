@@ -1,8 +1,7 @@
 export default class Tag {
 	/**
-	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {HTMLElement}  domTarget  
 	 * @param   {String}  tagName    text inside the tag
 	 * @param   {Function}  callback   click on tag function
 	 *
@@ -43,11 +42,21 @@ export default class Tag {
 		}
 	}
 
+	/**
+	 * gets the tag when redirected to the index by clicking on a tag
+	 *
+	 * @return  {String}  active tag from redirection
+	 */
 	extractAtiveTag() {
 		let redirectedTag = window.location.hash.slice(1).split("/")[1];
 		return redirectedTag;
 	}
 
+	/**
+	 * sets the style for active or non active tag, 
+	 * and sets the aria-current attribute to true or false
+	 *
+	 */
 	toggleFilter() {
 		this.DOM.classList.toggle("active");
 		const current = this.DOM.hasAttribute("aria-current");

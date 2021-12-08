@@ -1,15 +1,12 @@
 import Tag from "../components/tag.js";
 import Button from "./button.js";
 export default class Profile {
-	// src = null;
-	// name = null;
-
 	/**
-	 * [constructor description]
 	 *
 	 * @param   {HTMLElement}  domTarget
 	 * @param   {String}  page    page where the profile is implemented: index or photographer-page
-	 * @param {import("../dataManager.js").photographerProfile} profileData
+	 * @param 	{import("../dataManager.js").photographerProfile}   profileData
+	 * @param   {Function}  [formCallback]   openForm function
 	 *
 	 */
 	constructor(domTarget, profileData, page, formCallback) {

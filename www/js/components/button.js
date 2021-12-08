@@ -2,8 +2,6 @@ import Form from "./form.js";
 
 export default class Button {
 	/**
-	 * constructor
-	 *
 	 * @param   {HTMLElement}  domTarget
 	 * @param   {String}  text            text inside the button : Contactez-moi or Envoyer
 	 * @param   {Function}  callback      validateForm or openForm depending on the button

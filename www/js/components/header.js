@@ -2,9 +2,10 @@ import Nav from "../components/nav.js";
 import Button from "./button.js";
 export default class Header {
 	/**
-	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {HTMLElement}  domTarget  
+	 * @param   {Array} [tags]				
+	 * @param   {Function} [callback]
 	 *
 	 */
 	constructor(domTarget, tags = null, callback = null) {
@@ -16,7 +17,7 @@ export default class Header {
 	}
 
 	render() {
-		this.DOM.innerHTML = `
+		this.DOM.innerHTML = /*HTML*/`
     <a href="index.html" aria-label="To Fisheye Home page"><img src="content/logo.svg" alt="Fisheye Home page"/></a>
     `;
 		if (this.tagList === null) return;
@@ -36,6 +37,12 @@ export default class Header {
 		window.addEventListener("scroll", this.scrollHandler.bind(this));
 	}
 
+	/**
+	 * Checks the scroll on page and reveals or hides button "passer au contenu"
+	 *
+	 * @param   {Event}  evt  
+	 *
+	 */
 	scrollHandler(evt) {
 		const shouldBeVisible = window.scrollY > 300 ? true : false;
 		if (shouldBeVisible === this.btnVisible) return;

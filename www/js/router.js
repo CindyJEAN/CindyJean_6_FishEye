@@ -44,7 +44,7 @@ const extract = function extractPageFromUrl() {
 };
 
 /**
- * [showPage description]
+ * Swicth page depending on arguments
  *
  * @param   {String}  page
  * @param   {String}  photographerId  l'id du photographe ou le tag sélectionné

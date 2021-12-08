@@ -2,11 +2,10 @@ import ListItem from "./listItem.js";
 
 export default class Dropdown {
 	/**
-	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
-	 * @param   {Function}  callback  [domTarget description]
-	 * @param   {Array}  filters  [domTarget description]
+	 * @param   {HTMLElement}  domTarget
+	 * @param   {Function}  callback  sortMedia function
+	 * @param   {Array}  filters  "Popularité", "Date", "Titre"
 	 *
 	 */
 	constructor(domTarget, filters, callback) {
@@ -20,7 +19,6 @@ export default class Dropdown {
 		this.folded = true;
 
 		this.render();
-		// this.testRender();
 	}
 
 	render() {
@@ -66,6 +64,11 @@ export default class Dropdown {
 		document.querySelectorAll("li").forEach((li) => (li.tabIndex = 0));
 	}
 
+	/**
+	 * expands or collapses the dropdown and activates the filter if specified
+	 *
+	 * @var {[type]} name name of filter to activate
+	 */
 	changeFilters(name = this.activeFilter) {
 		this.folded = !this.folded;
 		this.activeFilter = name;
@@ -106,7 +109,13 @@ export default class Dropdown {
 		}
 	}
 
-	//access by arrowDown or arrowUp
+	/**
+	 * access by arrowDown or arrowUp
+	 *
+	 * @param   {String}  name  name of focused filter
+	 * @param   {String}  move  up or down
+	 * 
+	 */
 	changeFocus(name, move) {
 		let index = this.filters.findIndex((filter) => filter === name);
 		this.dropdown.querySelectorAll("li").forEach((li) => {

@@ -31,23 +31,33 @@
  * @property {Array.<media>}   media
  */
 
+/**
+ * [data description]
+ *
+ * @type {allData}
+ */
 let data, src;
 
+/**
+ * initializes the data
+ *
+ * @param   {Object}  source  
+ *
+ */
 function init(source) {
-	/**
-	 * initializes the data
-	 *
-	 * @type {allData}
-	 */
 	data = null;
 	src = source;
 }
+
 
 async function getAllData() {
 	const response = await fetch(src);
 	data = await response.json();
 }
 
+/**
+ * @return {Promise.<Array>}   array of tags, without duplicates
+ */
 async function getPhotographersTags() {
 	if (data === null) await getAllData();
 	let tags = [];
@@ -58,14 +68,11 @@ async function getPhotographersTags() {
 }
 
 /**
- * [getPhotographersList description]
+ * @param   {Array}  filters  tags for filters
  *
- * @param   {Array}  filters  [filters description]
- *
- * @return  {Array.<photographerProfile>}           [return description]
+ * @return  {Array.<photographerProfile>}    array of photographers' profile, filtered if there are filters given
  */
 function getPhotographersList(filters) {
-	// if (data === null) await getAllData();
 	if (filters.length === 0) return data.photographers;
 	let photographers = [];
 	data.photographers.forEach((photographer) => {
@@ -77,6 +84,11 @@ function getPhotographersList(filters) {
 	return [...new Set(photographers)];
 }
 
+/**
+ * @param   {String}  id 
+ *
+ * @return  {Promise.<photographerProfile>}    photographer profile data
+ */
 async function getPhotographerById(id) {
 	if (data === null) await getAllData();
 	for (const photographer of data.photographers) {
@@ -113,11 +125,6 @@ async function getMediaByPhotographerId(id, filter) {
 		default:
 			break;
 	}
-	//sortedMedia.map((medium) => console.log("mediumFilter", medium[filter]));
-
-	// console.log("media", media);
-	// console.log("sortedMedia", sortedMedia);
-	// console.log(window.console);
 	return media;
 }
 

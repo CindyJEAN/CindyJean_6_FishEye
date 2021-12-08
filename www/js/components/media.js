@@ -1,13 +1,12 @@
 export default class Media {
 	/**
-	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
-	 * @param   {Object}  media  [domTarget description]
-
+	 * @param   {HTMLElement}  domTarget  
+	 * @param   {Object}  media  media data
+	 * @param   {Function}  callback updateLike function
 	 *
 	 */
-	constructor(domTarget, media, callback = null) {
+	constructor(domTarget, media, callback) {
 		this.DOM = document.createElement("article");
 		this.DOM.className = "mediaArticle";
 		domTarget.appendChild(this.DOM);
@@ -23,12 +22,9 @@ export default class Media {
 		this.callback = callback;
 		this.medium = media;
 
-		//--- Type of media management
 		this.mediaType = media.hasOwnProperty("image") ? "image" : "video";
 
-		//--- Render
 		this.render();
-
 	}
 
 	render() {
@@ -49,6 +45,11 @@ export default class Media {
 		this.DOM.appendChild(likeButton);
 	};
 
+	/**
+	 * adds or removes like on click on button, 
+	 * then calls updateLike function
+	 *
+	 */
 	addLike() {
 		this.liked = !this.liked;
 		this.render();
@@ -56,13 +57,6 @@ export default class Media {
 	};
 
 	addVideo() {
-		// const video = document.createElement("video");
-		// video.setAttribute("preload", "auto");
-		// video.innerHTML =`
-		// <source src="./content/media/${this.video}" type="video/mp4">
-		// 	${this.description}
-		// 	</video>
-		// 	`;
 		return /*HTML*/`
 			<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')"
 			aria-label="${this.description}, vidéo agrandie">

@@ -1,9 +1,8 @@
 import { getMediaByPhotographerId } from "../dataManager.js";
 export default class Lightbox {
 	/**
-	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {HTMLElement}  domTarget 
 	 * @param  {Object}  props
 	 * @param   {String} props.photographerId
 	 * @param   {String} props.mediaId

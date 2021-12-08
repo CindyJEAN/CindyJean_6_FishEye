@@ -1,9 +1,8 @@
 import Tag from "../components/tag.js"
 export default class Nav{
   /**
-   * [constructor description]
    *
-   * @param   {HTMLElement}  domTarget  [domTarget description]
+   * @param   {HTMLElement}  domTarget  
    * @param   {Array}  tags       Array of tags
    * @param   {Function}  callback   Click on tag function
    *
@@ -11,7 +10,7 @@ export default class Nav{
   constructor(domTarget, tags, callback){
     this.DOM = document.createElement("nav");
     domTarget.appendChild(this.DOM);
-    this.DOM.ariaLabel = "photographer categories";
+    this.DOM.ariaLabel = "catégories de photographes";
     this.DOM.setAttribute("role", "navigation");
     tags.forEach(tag => {
       new Tag(this.DOM, tag, callback);

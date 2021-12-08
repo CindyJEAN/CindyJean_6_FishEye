@@ -1,10 +1,10 @@
 export default class ListItem {
 	/**
-	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {HTMLElement}  domTarget  
 	 * @param   {String}  name    name of filter
-	 * @param   {Function}  callback   sortMedia function
+	 * @param   {Function}  callback   changeFilters function
+	 * @param   {Function}  focusCallback   changeFocus function
 	 *
 	 */
 	constructor(
@@ -38,8 +38,16 @@ export default class ListItem {
 		} else this.DOM.setAttribute("role", "option");
 	}
 
+	/**
+	 * onkeydown on a listItem, calls a callback to perform an action based on the key :
+	 * enter : selects the filter to activate / 
+	 * arrowDown : moves focus down the list of filters / 
+	 * arrowUp : moves focus up the list of filters / 
+	 * escape : folds the dropdown
+	 *
+	 * @param   {String}  name  name of filter
+	 */
 	handleKeyEvents(name) {
-		this.keysPressed = {};
 		this.DOM.onkeydown = (e) => {
 			if (
 				e.key === "Enter" ||
@@ -62,9 +70,6 @@ export default class ListItem {
 			if (e.key === "Escape") {
 				this.callback();
 			}
-		};
-		this.DOM.onkeyup = (e) => {
-			delete this.keysPressed[e.key];
 		};
 	}
 }

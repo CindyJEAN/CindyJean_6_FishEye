@@ -1,8 +1,7 @@
 export default class PhotographerInfo{
 	/**
-	 * [constructor description]
 	 *
-	 * @param   {HTMLElement}  domTarget  [domTarget description]
+	 * @param   {HTMLElement}  domTarget 
 	 */
 	constructor(domTarget, profileData, totalLikes) {
 		this.DOM = document.createElement("div");

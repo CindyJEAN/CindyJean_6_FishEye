@@ -10,9 +10,7 @@ import {
 import Form from "../components/form.js";
 export default class PhotographerPage {
 	/**
-	 * [constructor description]
-	 *
-	 * @param   {HTMLElement}  domTarget    [domTarget description]
+	 * @param   {HTMLElement}  domTarget
 	 */
 	constructor(domTarget, id) {
 		this.DOM = domTarget;
@@ -29,7 +27,6 @@ export default class PhotographerPage {
 		const main = document.createElement("main");
 		this.DOM.appendChild(main);
 		main.id = "photographerMain";
-		// main.className = "photographerMain";
 		new Profile(main, profileData, "photographer", this.openForm.bind(this));
 		new Dropdown(main, this.filters, this.sortMedia.bind(this));
 
@@ -38,9 +35,11 @@ export default class PhotographerPage {
 		this.gallery.className = "gallery";
 		this.udpdateGallery();
 		this.information = new PhotographerInfo(main, profileData, this.totalLikes);
-
 	}
 
+	/**
+	 * To update gallery, not all page
+	 */
 	async udpdateGallery() {
 		this.gallery.innerText = "";
 		const media = await getMediaByPhotographerId(this.id, this.activeFilter);
@@ -52,19 +51,32 @@ export default class PhotographerPage {
 		this.information.update(this.totalLikes);
 	}
 
+	/**
+	 * opens form on click on button
+	 */
 	openForm() {
 		this.DOM.className = "noscroll";
-		// this.DOM.setAttribute("aria-hidden", "true");
 		document.querySelector("main").setAttribute("aria-hidden", "true");
 		document.querySelector("header").setAttribute("aria-hidden", "true");
 		new Form(this.DOM, this.id);
 	}
 
+	/**
+	 * updates the likes in the photographer info if clicked
+	 *
+	 * @param   {Boolean}  increment  true or false
+	 *
+	 */
 	updateLikes(increment) {
 		this.totalLikes += increment ? 1 : -1;
 		this.information.update(this.totalLikes);
 	}
 
+	/**
+	 * Sorts the media with the filter selected
+	 *
+	 * @param   {String}  filter  activated filter
+	 */
 	sortMedia(filter) {
 		this.activeFilter = filter;
 		this.udpdateGallery();
