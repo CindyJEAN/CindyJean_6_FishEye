@@ -66,7 +66,7 @@ export default class Dropdown {
 		document.querySelectorAll("li").forEach((li) => (li.tabIndex = 0));
 	}
 
-	changeFilters(name) {
+	changeFilters(name = this.activeFilter) {
 		this.folded = !this.folded;
 		this.activeFilter = name;
 		if (this.folded) {
@@ -99,6 +99,11 @@ export default class Dropdown {
 				li.setAttribute("aria-selected", "false");
 			}
 		});
+
+		if (this.folded) {
+			// @ts-ignore
+			this.DOM.querySelector(".dropdown-btn").focus();
+		}
 	}
 
 	//access by arrowDown or arrowUp
@@ -107,12 +112,16 @@ export default class Dropdown {
 		this.dropdown.querySelectorAll("li").forEach((li) => {
 			if (li.getAttribute("aria-selected") === "true") {
 				if (move === "down") {
-					let newFocus = this.filters.find((filter) => this.filters.indexOf(filter) === index+1);
+					let newFocus = this.filters.find(
+						(filter) => this.filters.indexOf(filter) === index + 1
+					);
 					// @ts-ignore
 					document.querySelector(`#${newFocus}`).focus();
 				}
 				if (move === "up") {
-					let newFocus = this.filters.find((filter) => this.filters.indexOf(filter) === index-1);
+					let newFocus = this.filters.find(
+						(filter) => this.filters.indexOf(filter) === index - 1
+					);
 					// @ts-ignore
 					document.querySelector(`#${newFocus}`).focus();
 				}

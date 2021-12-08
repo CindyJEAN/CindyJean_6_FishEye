@@ -8,7 +8,6 @@ export default class Tag {
 	 *
 	 */
 	constructor(domTarget, tagName, callback = null) {
-		// this.DOM = document.createElement("span");
 		this.DOM = document.createElement("span");
 		this.DOM.classList.add("tag");
 		domTarget.appendChild(this.DOM);
@@ -53,11 +52,9 @@ export default class Tag {
 		this.DOM.classList.toggle("active");
 		const current = this.DOM.hasAttribute("aria-current");
 		if (current) {
-			// this.DOM.removeAttribute("aria-current");
 			this.DOM.setAttribute("aria-current", "false");
 			return;
 		}
-		// this.DOM.setAttribute("aria-current", "");
 		this.DOM.setAttribute("aria-current", "true");
 	}
 }

@@ -2,7 +2,7 @@ import Form from "./form.js";
 
 export default class Button {
 	/**
-	 * [constructor description]
+	 * constructor
 	 *
 	 * @param   {HTMLElement}  domTarget
 	 * @param   {String}  text            text inside the button : Contactez-moi or Envoyer
@@ -24,6 +24,7 @@ export default class Button {
 			};
 			return;
 		}
+		
 		//Open form on click on "Contactez-moi" button
 		if (text === "Contactez-moi") {
 			this.DOM.ariaLabel = "contactez-moi";
@@ -34,9 +35,5 @@ export default class Button {
 				}
 			};
 		}
-		// if (text === "Passer au contenu") {
-		// 	this.DOM.className = "redirect";
-		// 	this.DOM.setAttribute("role", "link");
-		// }
 	}
 }
