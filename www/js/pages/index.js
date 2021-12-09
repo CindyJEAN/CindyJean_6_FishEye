@@ -26,7 +26,10 @@ export default class Index {
 		this.showPhotographers();
 	}
 
-	//To update gallary of photographers without updating all page
+/**
+ * To update gallery of photographers without updating all page
+ *
+ */
 	showPhotographers() {
 		this.main.innerHTML = `<h1>Nos photographes</h1>`;
 		const mainContent = document.createElement("div");

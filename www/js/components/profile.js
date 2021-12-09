@@ -49,7 +49,6 @@ export default class Profile {
 				window.changePage("photographer", this.id);
 			}
 		};
-		//
 
 		const address = document.createElement("address");
 		(address.innerHTML = this.city), this.country;

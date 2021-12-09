@@ -1,7 +1,7 @@
 export default class Media {
 	/**
 	 *
-	 * @param   {HTMLElement}  domTarget  
+	 * @param   {HTMLElement}  domTarget
 	 * @param   {Object}  media  media data
 	 * @param   {Function}  callback updateLike function
 	 *
@@ -33,20 +33,20 @@ export default class Media {
 		<a href="index.html#lightbox/${this.photographerId}/${this.id}">
 		${this.video ? this.addVideo() : this.addImage()}
 		</a>`;
-		
-		const likeButton = document.createElement("button");
+
+		this.likeButton = document.createElement("button");
 		const likes = parseInt(this.likes) + (this.liked ? 1 : 0);
-		likeButton.innerHTML = `${likes}<i class="fa${
+		this.likeButton.innerHTML = `${likes}<i class="fa${
 			this.liked ? "s" : "r"
 		} fa-heart"></i>`;
-		likeButton.className = "like";
-		likeButton.ariaLabel = "likes";
-		likeButton.onclick = () => this.addLike();
-		this.DOM.appendChild(likeButton);
-	};
+		this.likeButton.className = "like";
+		this.likeButton.ariaLabel = `${likes} likes`;
+		this.DOM.appendChild(this.likeButton);
+		this.likeButton.onclick = () => this.addLike();
+	}
 
 	/**
-	 * adds or removes like on click on button, 
+	 * adds or removes like on click on button,
 	 * then calls updateLike function
 	 *
 	 */
@@ -54,22 +54,26 @@ export default class Media {
 		this.liked = !this.liked;
 		this.render();
 		this.callback(this.liked);
-	};
+		this.likeButton.focus();
+	}
 
 	addVideo() {
-		return /*HTML*/`
+		return /*HTML*/ `
 			<video preload="auto" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')"
-			aria-label="${this.description}, vidéo agrandie">
+			aria-label="${this.description}, vers vidéo agrandie">
 			<source src="./content/media/${this.video}" type="video/mp4">
-			${this.description}
 			</video>
 			`;
-	};
+	}
 
 	addImage() {
-		return /*HTML*/`
-			<img src="./content/media/${this.image.replace(".", "-small.")}" alt="${this.description}, image agrandie" 
-			title="${this.title}" onclick="window.changePage('lightbox','${this.photographerId}','${this.id}')">
+		return /*HTML*/ `
+			<img src="./content/media/${this.image.replace(".", "-small.")}" alt="${
+			this.description
+		}, vers image agrandie" 
+			title="${this.title}" onclick="window.changePage('lightbox','${
+			this.photographerId
+		}','${this.id}')">
 		`;
-	};
-};
+	}
+}
