@@ -12,7 +12,7 @@ export default class Tag {
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = "#" + tagName;
 		this.DOM.ariaLabel = "Tag " + tagName;
-		this.DOM.setAttribute("role", "Link");
+		this.DOM.setAttribute("role", "link");
 		this.DOM.tabIndex = 0;
 
 		this.DOM.onclick = () => {

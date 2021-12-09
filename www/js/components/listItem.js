@@ -1,7 +1,7 @@
 export default class ListItem {
 	/**
 	 *
-	 * @param   {HTMLElement}  domTarget  
+	 * @param   {HTMLElement}  domTarget
 	 * @param   {String}  name    name of filter
 	 * @param   {Function}  callback   changeFilters function
 	 * @param   {Function}  focusCallback   changeFocus function
@@ -14,7 +14,11 @@ export default class ListItem {
 		focusCallback = null,
 		button = false
 	) {
-		this.DOM = document.createElement("li");
+		if (button === true) {
+			this.DOM = document.createElement("button");
+		} else {
+			this.DOM = document.createElement("li");
+		}
 		domTarget.appendChild(this.DOM);
 		this.DOM.innerText = name;
 		this.DOM.id = name;
@@ -40,9 +44,9 @@ export default class ListItem {
 
 	/**
 	 * onkeydown on a listItem, calls a callback to perform an action based on the key :
-	 * enter : selects the filter to activate / 
-	 * arrowDown : moves focus down the list of filters / 
-	 * arrowUp : moves focus up the list of filters / 
+	 * enter : selects the filter to activate /
+	 * arrowDown : moves focus down the list of filters /
+	 * arrowUp : moves focus up the list of filters /
 	 * escape : folds the dropdown
 	 *
 	 * @param   {String}  name  name of filter
