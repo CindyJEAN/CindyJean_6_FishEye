@@ -26,7 +26,6 @@ function init(domTarget, dataSrc) {
 window.onpopstate = function (event) {
 	const { page, photographerId, mediaId } = extract();
 	showPage(page, photographerId, mediaId);
-	// console.log(page, photographerId, mediaId);
 };
 
 /**
@@ -56,7 +55,6 @@ const showPage = function (
 	photographerId = undefined,
 	mediaId = undefined
 ) {
-	console.log("showPage", page, photographerId, mediaId)
 	DOM.innerText = "";
 	switch (page) {
 		case "index":

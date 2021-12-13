@@ -1,5 +1,4 @@
 import Nav from "../components/nav.js";
-import Button from "./button.js";
 export default class Header {
 	/**
 	 *
