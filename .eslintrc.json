@@ -20,14 +20,14 @@
   "rules": {
     "eqeqeq": "warn",
     "indent": [
-      "warn",
+      "warn",//error
       2,
       {
         "SwitchCase": 1
       }
     ],
     "linebreak-style": [
-      "warn",
+      "warn",//error
       "windows"
     ],
     "quotes": [
@@ -45,7 +45,7 @@
     "default-case": [
       "warn",
       {
-        "commentPattern": null
+        "commentPattern": "^no\\sdefault"
       }
     ],
     "no-constructor-return": [
@@ -58,10 +58,7 @@
       }
     ],
     "no-empty-function": [
-      "warn",
-      {
-        "allow": null
-      }
+      "warn"
     ],
     "no-extra-bind": [
       "warn"
@@ -71,8 +68,7 @@
       {
         "boolean": true,
         "number": true,
-        "string": true,
-        "allow": null
+        "string": true
       }
     ],
     "generator-star-spacing": [
@@ -82,8 +78,7 @@
       "warn"
     ],
     "no-useless-rename": [
-      "warn",
-      null
+      "warn"
     ],
     "prefer-const": [
       "warn",
@@ -93,8 +88,7 @@
       }
     ],
     "strict": [
-      "warn",
-      null
+      "warn"
     ],
     "no-delete-var": [
       "off"
